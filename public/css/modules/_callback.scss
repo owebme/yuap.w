@@ -1,0 +1,195 @@
+.WD__callback__message {
+    position:absolute;
+    top:40px;
+    right:40px;
+    font-size:21px;
+    line-height:29px;
+    font-weight:300;
+    width:300px;
+    will-change:opacity, transform;
+    opacity:0;
+    transform:translate3d(0, 10px, 0);
+    transition:opacity 0.55s $cubic34 0.8s, transform 0.55s $cubic34 0.8s;
+}
+.WD__callback__message__header,
+.WD__callback__message__footer {
+    font-family:$roboto;
+    font-weight:300;
+    padding-left:10px;
+}
+.WD__callback__message__footer {
+    will-change:opacity, transform;
+    opacity:0;
+    transform:translate3d(0, 10px, 0);
+    transition:opacity 0.3s $cubic34, transform 0.3s $cubic34;
+}
+.WD__callback__message__footer--active {
+    opacity:1;
+    transform:translate3d(0, 0, 0);
+}
+.WD__callback__message__linear {
+    position:relative;
+    width:100%;
+    height:1px;
+    background:rgba(#fff,.2);
+    margin:22px 0;
+}
+.WD__callback__message__line {
+    position:absolute;
+    top:0;
+    left:0;
+    width:0;
+    height:1px;
+    background:#A7F212;
+    will-change:width;
+    transition:width 0.2s cubic-bezier(0.42, 0, 0.05, 2);
+}
+.WD__callback__form {
+    @include abs_50(320, 420);
+    text-align:center;
+    will-change:opacity, transform;
+    opacity:0;
+
+    .WD__callback__close {
+        position:absolute;
+        top:-80px;
+        left:50%;
+    }
+}
+.WD__callback__form__input {
+    position:absolute;
+    top:0;
+    left:-999em;
+    width:1px;
+    height:1px;
+    opacity:0;
+}
+.WD__callback__title {
+    color:rgba(#fff,.7);
+    font-family:$roboto;
+    font-size:25px;
+    line-height:72px;
+    font-weight:300;
+    height:50px;
+    margin-top:-22px;
+}
+.WD__callback__title--number {
+    color:#fff;
+    font-family:$default;
+    font-size:32px;
+    line-height:46px;
+    letter-spacing:0.02em;
+}
+.WD__callback__subtitle {
+    color:rgba(#fff,.7);
+    font-family:$roboto;
+    font-size:17px;
+    line-height:20px;
+    font-weight:300;
+    margin-top:4px;
+
+    span {
+        color:#fff;
+        font-weight:400;
+    }
+}
+.WD__callback__keyboard {
+    display:inline-block;
+    vertical-align:top;
+    width:330px;
+    line-height:1;
+    margin-top:35px;
+}
+.WD__callback__keyboard__item {
+    display:inline-block;
+    vertical-align:top;
+    width: 72px;
+    height: 72px;
+    border: 1px solid rgba(#B7D517,1);
+    margin: 0 17.5px 17px;
+    cursor: pointer;
+    position: relative;
+    border-radius: 50%;
+    background:rgba(#fff,.02);
+    background-clip: padding-box;
+    box-shadow:0 0 1px rgba(#fff,.15) inset;
+    will-change:background, border-color, transform;
+    transition:background 0.2s $cubic215, border-color 0.2s $cubic215, transform 0.2s cubic-bezier(0.42, 0, 0.05, 2);
+}
+.WD__callback__keyboard__item--active {
+    transition:background 0.15s $cubic215, border-color 0.15s $cubic215, transform 0.15s cubic-bezier(0.42, 0, 0.05, 2);
+}
+.WD__callback__keyboard__number {
+    color:#fff;
+    font-style: normal;
+    font-size: 38px;
+    // line-height:44px;
+    font-weight: 200;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-shadow:0 1px 1px -1px rgba(#000,1);
+    will-change:color;
+    transition:color 0.2s $cubic215;
+}
+.WD__callback__keyboard__char {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    left: 0;
+    bottom: 10px;
+    color:rgba(#fff,.8);
+    font-size: 9px;
+    // line-height:5px;
+    letter-spacing: 1px;
+    font-weight:200;
+    will-change:color;
+    transition:color 0.2s $cubic215;
+}
+.WD__callback__keyboard__item:hover,
+.WD__callback__keyboard__item:active,
+.WD__callback__keyboard__item--active {
+    background: #fff;
+    border-color: #fff;
+
+    .WD__callback__keyboard__number {
+        color:rgba(#000,.8);
+    }
+    .WD__callback__keyboard__char {
+        color:#000;
+    }
+}
+.WD__callback__keyboard__item:active {
+    transform:scale(0.8);
+}
+.WD__callback__keyboard__item--active {
+    transform:scale(0.9);
+}
+
+.WD__callback--start {
+    .WD__callback__form {
+        animation:WD__callback__formOpen .55s forwards $cubic645;
+    }
+    .WD__section__close {
+        animation:WD__callback__close 1.1s cubic-bezier(0.42, 0, 0.05, 2);
+    }
+    .WD__callback__message {
+        opacity:1;
+        transform:translate3d(0, 0, 0);
+    }
+}
+@keyframes WD__callback__formOpen {
+    0% {
+        opacity: 0;
+        transform: translate3d(0,400px,0) scale3d(0,1.4,1);
+    }
+    100% {
+        opacity: 1;
+        transform: translate3d(0,0,0) scale3d(1,1,1);
+    }
+}
+@keyframes WD__callback__close {
+    0%, 50% {transform:scale(0);}
+    100% {transform:scale(1);}
+}

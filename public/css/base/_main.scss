@@ -1,0 +1,16 @@
+[class^="WD__"],
+[class^="WD__"] *,
+[class^="WD__"] *:after,
+[class^="WD__"] *:before {
+	box-sizing:border-box;
+}
+[class^="WD__"] {
+	font-family:$default;
+    font-weight:400;
+	user-select:none;
+	text-size-adjust:100%;
+	text-rendering:optimizeLegibility;
+	-webkit-font-smoothing:antialiased;
+	-moz-osx-font-smoothing: grayscale;
+    -moz-font-feature-settings:'liga', 'kern';
+}

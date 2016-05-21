@@ -1,0 +1,59 @@
+.cd-transition-layer {
+    position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	opacity: 0;
+	visibility: hidden;
+	overflow: hidden;
+    z-index: 200010;
+
+	.bg-layer {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translateY(-50%) translateX(-2%);
+		/* its dimentions will be overwritten using jQuery to proportionally fit the viewport */
+		height: 100%;
+		background-size: 100% 100%;
+		background-repeat: no-repeat;
+		background-position: 0 0;
+	}
+	&.visible {
+		opacity: 1;
+		visibility: visible;
+
+		.bg-layer {
+			transform: translateY(-50%) translateX(-98%);
+		}
+	}
+	&.opening .bg-layer,
+	&.closing .bg-layer {
+		animation-duration: 1.1s;
+		animation-fill-mode: forwards;
+	}
+	.no-cssanimations & {
+		display: none;
+	}
+    .bg-layer {
+        width: 2500%;
+        will-change:transform;
+        background-image: url(/public/images/gooey_black.png);
+    }
+    &.opening .bg-layer {
+        animation: cd-sequence .8s steps(24) forwards;
+    }
+
+    &.closing .bg-layer {
+        animation: cd-sequence .8s steps(24) forwards reverse;
+    }
+}
+@keyframes cd-sequence {
+	0% {
+		transform: perspective(500px) translateY(-50%) translateX(-2%);
+	}
+	100% {
+   		transform: perspective(500px) translateY(-50%) translateX(-98%);
+	}
+}

@@ -1,0 +1,141 @@
+.WD__callbutton {
+    position:fixed;
+    bottom:40px;
+    right:40px;
+    user-select:none;
+    z-index:200001;
+}
+$WD__callbutton: #222;
+$WD__callbutton__color1: #2CD892;
+$WD__callbutton__color2: #c8affa;
+$WD__callbutton__color3: #ff5a69;
+$WD__callbutton__color4: #FF6000;
+$WD__callbutton__color5: #7781ff;
+$WD__callbutton__green: #2CD892;
+$WD__callbutton__green2: #00975E;
+$WD__callbutton__blue: #00A8FF;
+$WD__callbutton__orange: #FF6000;
+
+.WD__callbutton__svg__filters {
+    position: absolute;
+    visibility: hidden;
+    width: 1px;
+    height: 1px;
+}
+.WD__callbutton__circle {
+    position: relative;
+    width: 88px;
+    height: 88px;
+    cursor:pointer;
+    z-index: 1;
+
+    &:after {
+      content:"";
+      @include abs_50(56, 56);
+      background: url(/public/images/callbutton.svg) no-repeat 0 0 / cover;
+      transition:transform 0.5s $cubic34;
+      transform:translate3d(0px, -3px, 0) rotate(0deg);
+    }
+    &:hover:after {
+        transform:translate3d(0px, -3px, 0) rotate(360deg);
+    }
+    &:active .WD__callbutton__circle__bg {
+        transform: scale(0.8);
+    }
+}
+.WD__callbutton__circle__bg {
+    @include abs();
+    outline: 90px solid transparent !important; // this makes the area of effect of the filter bigger. This doesn't change anything on Firefox.
+    -webkit-filter: url("#WD__callbutton__filter");
+    filter: url("#WD__callbutton__filter");
+    border-radius: 100px;
+    transform:translateZ(0);
+    z-index: -2;
+    will-change:transform;
+    transition:transform 0.15s $cubic215;
+}
+.WD__callbutton__circle__blob {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    border-radius: 70px;
+    opacity: 0.3;
+    background: $WD__callbutton;
+    transition:background 0.1s ease-out;
+    z-index: -1;
+    pointer-events: none;
+
+    &:first-child {
+      opacity: 1;
+    }
+    &:nth-child(n+2) {
+      width: 100%;
+      height: 100%;
+    }
+}
+.WD__callbutton__circle:hover .WD__callbutton__circle__blob {
+    animation:hue-rotate 7.5s linear infinite alternate;
+}
+@keyframes hue-rotate {
+  2%, 100% {
+    background: $WD__callbutton__blue;
+  }
+  16.67% {
+    background: $WD__callbutton__color1;
+  }
+  33.33% {
+    background: $WD__callbutton__color2;
+  }
+  50% {
+    background: $WD__callbutton__color3;
+  }
+  66.7% {
+    background: $WD__callbutton__color4;
+  }
+  80% {
+    background: $WD__callbutton__color5;
+  }
+}
+.WD__callbutton__tooltip {
+	position: absolute;
+	background: url(/public/images/callbutton_tooltip.svg) no-repeat center bottom;
+	background-size: 100% 100%;
+	z-index: 2;
+	width: 200px;
+	bottom: calc(100% + 12px);
+	left: 50%;
+	margin-left: -130px;
+	padding: 40px 20px;
+	text-align: center;
+	color: #fff;
+    font-size:17px;
+    line-height:21px;
+	opacity: 0;
+	cursor: default;
+	transform: scale3d(0.1,0.2,1);
+	transform-origin: 50% 120%;
+	transition: opacity 0.3s, transform 0.4s;
+	transition-timing-function: ease, $cubic57;
+
+    &:after {
+    	content: '';
+    	position: absolute;
+    	width: 32px;
+    	height: 32px;
+    	left: 50%;
+    	margin-left: -16px;
+    	top: 100%;
+    	background: #262626;
+    	transform: translate3d(0,-80%,0) rotate3d(0,0,1,36deg);
+    }
+}
+.WD__callbutton:hover .WD__callbutton__tooltip {
+	opacity: 1;
+	pointer-events: auto;
+	transform: scale3d(1,1,1);
+}
