@@ -7,8 +7,10 @@
     font-size:16px;
     line-height:24px;
     font-weight:300;
-    opacity:0;
+    opacity:1;
     will-change:transform;
+    transform:perspective(1000px) rotate3d(1,0,0,-90deg) !important;
+    transition:transform 0.4s cubic-bezier(0.42, 0, 0.05, 1.5), opacity 0s 0.4s;
 }
 .WD__notify__icon {
     position:absolute;
@@ -19,6 +21,7 @@
     border-radius:50%;
     will-change:transform;
     transform:scale(0);
+    transition:transform 0.2s cubic-bezier(0.42, 0, 0.05, 1.35);
 
     &:after {
         content:"";
@@ -65,17 +68,12 @@
     }
 }
 .WD__notify--active {
-    animation:WD__notify 0.55s cubic-bezier(0.42, 0, 0.05, 1.5) forwards;
+    opacity:1;
+    transform:perspective(1000px) !important;
+    transition:transform 0.55s cubic-bezier(0.42, 0, 0.05, 1.5), opacity 0s;
 
     .WD__notify__icon {
-        animation:WD__notify__icon 0.4s cubic-bezier(0.42, 0, 0.05, 1.35) 0.3s forwards;
+        transform:scale(1);
+        transition:transform 0.4s cubic-bezier(0.42, 0, 0.05, 1.35) 0.3s;
     }
-}
-@keyframes WD__notify {
-    0% {transform: perspective(1000px) rotate3d(1,0,0,-90deg); opacity:1;}
-    100% {transform: perspective(1000px); opacity:1;}
-}
-@keyframes WD__notify__icon {
-    0% {transform:scale(0);}
-    100% {transform:scale(1);}
 }

@@ -6,12 +6,16 @@
 @import 'base/main';
 
 // modules
-@import 'modules/panel';
-@import 'modules/popup';
 @import 'modules/callbutton';
 @import 'modules/modal';
 @import 'modules/section';
 @import 'modules/callback';
+@import 'modules/alert';
+
+// modules
+@import 'modules/panel/panel';
+@import 'modules/panel/panelPopup';
+@import 'modules/panel/panelSocial';
 
 // elements
 @import 'elements/colors';

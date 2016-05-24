@@ -4,6 +4,7 @@ var csso = require('gulp-csso');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 var base64 = require('gulp-base64');
+var template = require('gulp-template-compile');
 var concat = require('gulp-concat');
 var autoprefixer = require('gulp-autoprefixer');
 var browserSync = require('browser-sync').create();
@@ -25,11 +26,11 @@ gulp.task('css', function() {
 		.pipe(autoprefixer({
 			browsers: ['last 2 versions'],
 			cascade: false
-		}))	
+		}))
         .pipe(base64({
             baseDir: './public/images',
             extensions: ['svg', 'png', 'jpg'],
-            maxImageSize: 16*1024, // bytes 
+            maxImageSize: 16*1024, // bytes
             debug: false
         }))
 		.pipe(rename("style.min.css"))
@@ -37,13 +38,31 @@ gulp.task('css', function() {
 		.pipe(browserSync.stream());
 });
 
-gulp.task('watch', function() {	
-	gulp.watch(['public/css/style.scss',
-				'public/css/**/*.scss'], ['css']);		
-				
-    gulp.watch([
-	"index.html",
-	"public/**/*.js"]).on("change", reload);				
+gulp.task('templates', function() {
+	gulp.src('public/templates/*.html')
+		.pipe(template({
+			namespace: "yuapApp.templates",
+			name: function (file) {
+				return file.relative.replace(/\.html/, "");
+			}
+		}))
+		.pipe(concat('templates.js'))
+		.pipe(gulp.dest('./public/js'))
+		.pipe(browserSync.stream());
 });
 
-gulp.task('default', ['css', 'watch']);
+gulp.task('watch', function() {
+	gulp.watch([
+		'public/css/style.scss',
+		'public/css/**/*.scss'
+	], ['css']);
+
+	gulp.watch('public/templates/*.html', ['templates']);
+
+    gulp.watch([
+		'index.html',
+		'public/**/*.js'
+	]).on('change', reload);
+});
+
+gulp.task('default', ['css', 'templates', 'watch']);

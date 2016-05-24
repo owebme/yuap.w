@@ -16,7 +16,7 @@ $WD__callbutton__green2: #00975E;
 $WD__callbutton__blue: #00A8FF;
 $WD__callbutton__orange: #FF6000;
 
-.WD__callbutton__svg__filters {
+.WD__svg__filters {
     position: absolute;
     visibility: hidden;
     width: 1px;
@@ -40,19 +40,23 @@ $WD__callbutton__orange: #FF6000;
         transform:translate3d(0px, -3px, 0) rotate(360deg);
     }
     &:active .WD__callbutton__circle__bg {
-        transform: scale(0.8);
+        transform: scale(0.9);
     }
 }
 .WD__callbutton__circle__bg {
     @include abs();
-    outline: 90px solid transparent !important; // this makes the area of effect of the filter bigger. This doesn't change anything on Firefox.
-    -webkit-filter: url("#WD__callbutton__filter");
-    filter: url("#WD__callbutton__filter");
     border-radius: 100px;
     transform:translateZ(0);
     z-index: -2;
     will-change:transform;
     transition:transform 0.15s $cubic215;
+}
+.d-no-safari {
+    .WD__callbutton__circle__bg {
+        outline: 90px solid transparent !important; // this makes the area of effect of the filter bigger. This doesn't change anything on Firefox.
+        -webkit-filter: url("#WD__callbutton__filter");
+        filter: url("#WD__callbutton__filter");
+    }
 }
 .WD__callbutton__circle__blob {
     position: absolute;

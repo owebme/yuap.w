@@ -1,3 +1,5 @@
+$WD__callback: #B7D517;
+
 .WD__callback__message {
     position:absolute;
     top:40px;
@@ -8,8 +10,7 @@
     width:300px;
     will-change:opacity, transform;
     opacity:0;
-    transform:translate3d(0, 10px, 0);
-    transition:opacity 0.55s $cubic34 0.8s, transform 0.55s $cubic34 0.8s;
+    transform:translate3d(0, 12px, 0);
 }
 .WD__callback__message__header,
 .WD__callback__message__footer {
@@ -30,8 +31,8 @@
 .WD__callback__message__linear {
     position:relative;
     width:100%;
-    height:1px;
-    background:rgba(#fff,.2);
+    height:2px;
+    background:rgba(#fff,.25);
     margin:22px 0;
 }
 .WD__callback__message__line {
@@ -39,10 +40,16 @@
     top:0;
     left:0;
     width:0;
-    height:1px;
+    height:2px;
     background:#A7F212;
     will-change:width;
     transition:width 0.2s cubic-bezier(0.42, 0, 0.05, 2);
+}
+.d-retina {
+    .WD__callback__message__linear,
+    .WD__callback__message__line {
+        height:1px;
+    }
 }
 .WD__callback__form {
     @include abs_50(320, 420);
@@ -78,7 +85,7 @@
     font-family:$default;
     font-size:32px;
     line-height:46px;
-    letter-spacing:0.02em;
+    letter-spacing:3px;
 }
 .WD__callback__subtitle {
     color:rgba(#fff,.7);
@@ -100,12 +107,13 @@
     line-height:1;
     margin-top:35px;
 }
-.WD__callback__keyboard__item {
+.WD__callback__keyboard__item,
+.WD__callback__keyboard__button {
     display:inline-block;
     vertical-align:top;
     width: 72px;
     height: 72px;
-    border: 1px solid rgba(#B7D517,1);
+    border: 2px solid $WD__callback;
     margin: 0 17.5px 17px;
     cursor: pointer;
     position: relative;
@@ -115,6 +123,12 @@
     box-shadow:0 0 1px rgba(#fff,.15) inset;
     will-change:background, border-color, transform;
     transition:background 0.2s $cubic215, border-color 0.2s $cubic215, transform 0.2s cubic-bezier(0.42, 0, 0.05, 2);
+}
+.d-retina {
+    .WD__callback__keyboard__item,
+    .WD__callback__keyboard__button {
+        border-width:1px;
+    }
 }
 .WD__callback__keyboard__item--active {
     transition:background 0.15s $cubic215, border-color 0.15s $cubic215, transform 0.15s cubic-bezier(0.42, 0, 0.05, 2);
@@ -149,6 +163,8 @@
 }
 .WD__callback__keyboard__item:hover,
 .WD__callback__keyboard__item:active,
+.WD__callback__keyboard__button:hover,
+.WD__callback__keyboard__button:active,
 .WD__callback__keyboard__item--active {
     background: #fff;
     border-color: #fff;
@@ -160,24 +176,221 @@
         color:#000;
     }
 }
-.WD__callback__keyboard__item:active {
+.WD__callback__keyboard__item:active,
+.WD__callback__keyboard__button:active {
     transform:scale(0.8);
 }
 .WD__callback__keyboard__item--active {
     transform:scale(0.9);
 }
+.WD__callback__keyboard__button__icon {
+    display:block;
+    @include abs_50(32, 32);
+}
+.WD__callback__keyboard__button__path {
+    fill:#fff;
+    transition:fill 0.2s $cubic215;
+}
+.WD__callback__keyboard__button:hover {
+    .WD__callback__keyboard__button__path {
+        fill:rgba(#000,.8);
+    }
+}
+.WD__callback__keyboard__button__call {
+    background:$WD__callback;
+    border-color:$WD__callback;
 
+    .WD__callback__keyboard__button__path {
+        fill:rgba(#000,.7);
+    }
+}
+.WD__callback__phone {
+    @include abs_50(384, 220);
+    text-align:center;
+    transition:transform 0s 0.5s;
+    transform:translate3d(-999em, 0, 0);
+    white-space:nowrap;
+}
+.WD__callback__phone__title {
+    font-family:$roboto;
+    color:rgba(#fff,.7);
+    font-size:20px;
+    font-weight:300;
+}
+.WD__callback__phone__number {
+    position:relative;
+    margin:38px auto 35px;
+    text-align:center;
+}
+.WD__callback__phone__number__text {
+    font-size:44px;
+    font-weight:300;
+    letter-spacing:7px;
+}
+.WD__callback__phone__number__group {
+    position:absolute;
+    top:-13px;
+    left:0;
+    height:1px;
+    background:rgba(#fff,.2);
+    border-radius:6px;
+
+    &:before {
+        content:"";
+        position:absolute;
+        top:1px;
+        left:0;
+        width:1px;
+        height:9px;
+        background:rgba(#fff,.2);
+    }
+}
+.WD__callback__phone__number__group1 {
+    left:1px;
+    width:96px;
+}
+.WD__callback__phone__number__group2 {
+    left:115px;
+    width:96px;
+}
+.WD__callback__phone__number__group3 {
+    left:231px;
+    width:62px;
+}
+.WD__callback__phone__number__group4 {
+    left:313px;
+    width:62px;
+}
+.WD__callback__button {
+    will-change:transform;
+    transition:transform .2s $cubic215;
+}
+.WD__callback__button:active {
+    transform:scale(0.8);
+}
+.WD__callback__button__container {
+    position:relative;
+    display:inline-block;
+    width:227px;
+    height:64px;
+    color:#fff;
+    font-family:$roboto;
+    font-weight:500;
+    font-size:18px;
+    line-height:60px;
+    border:2px solid rgba($WD__callback,.8);
+    border-radius:50px;
+    cursor:pointer;
+    text-transform:uppercase;
+    outline: 90px solid transparent !important;
+    -webkit-filter: url("/#WD__button__filter-goo-3");
+    filter: url("/#WD__button__filter-goo-3");
+    z-index:0;
+
+    &:before {
+        background:#353536;
+    }
+    &:hover {
+        color:rgba(#000,.7);
+        border-color:$WD__callback;
+        animation:WD__callback__buttonHover .2s forwards cubic-bezier(0.42, 0, 0.05, 1.35);
+
+        &:before,
+        .WD__callback__button__bg {
+            background:$WD__callback;
+        }
+    }
+    &:active {
+        animation:WD__callback__buttonActive .3s forwards cubic-bezier(0.42, 0, 0.05, 1.35);
+    }
+}
+.WD__callback__button__container:before,
+.WD__callback__button__bg {
+    content:"";
+    @include abs();
+    border-radius:50px;
+    will-change:background, transform;
+    transition:background 0.15s $cubic215;
+    z-index:-1;
+}
+.WD__callback__button__blob--left,
+.WD__callback__button__blob--right {
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background:$WD__callback;
+    transition:background 0.1s ease-out;
+    top: 50%;
+    margin-top: -18px;
+    z-index: -2;
+}
+.WD__callback__button__blob--left {
+    left: 0;
+}
+.WD__callback__button__blob--right {
+    right: 0;
+}
+@keyframes WD__callback__buttonHover {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.98);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.WD__callback__phone__title,
+.WD__callback__phone__number,
+.WD__callback__button__container {
+    opacity:0;
+    will-change:transform, opacity;
+    transform:rotate(30deg) translate3d(-75px, -150px, 0);
+    transition:transform 0.4s cubic-bezier(0.42, 0, 0.05, 1.35), opacity 0.2s $cubic215;
+}
+.WD__callback__button__container {
+    will-change:border-color, transform, opacity, color;
+    transition:border-color 0.2s $cubic215, color 0.2s $cubic215, transform 0.4s cubic-bezier(0.42, 0, 0.05, 1.35), opacity 0.2s $cubic215;
+}
+.WD__callback--confirmPhone {
+    .WD__callback__phone {
+        transition:transform 0s;
+        transform:translate3d(0, 0, 0);
+    }
+    .WD__callback__phone__title,
+    .WD__callback__phone__number,
+    .WD__callback__button__container {
+        opacity:1;
+        transform:rotate(0deg) translate3d(0, 0, 0);
+    }
+    .WD__callback__phone__title {
+        transition:transform 0.4s cubic-bezier(0.42, 0, 0.05, 1.25) 0.2s, opacity 0.4s $cubic215 0.2s;
+    }
+    .WD__callback__phone__number {
+        transition:transform 0.4s cubic-bezier(0.42, 0, 0.05, 1.25) 0.25s, opacity 0.4s $cubic215 0.25s;
+    }
+    .WD__callback__button__container {
+        transition:border-color 0.2s $cubic215, transform 0.4s cubic-bezier(0.42, 0, 0.05, 1.25) 0.3s, opacity 0.4s $cubic215 0.3s;
+    }
+}
 .WD__callback--start {
     .WD__callback__form {
-        animation:WD__callback__formOpen .55s forwards $cubic645;
+        animation:WD__callback__formOpen .55s $cubic645 forwards;
     }
     .WD__section__close {
-        animation:WD__callback__close 1.1s cubic-bezier(0.42, 0, 0.05, 2);
+        animation:WD__callback__closeOpen 1.1s cubic-bezier(0.42, 0, 0.05, 2);
     }
     .WD__callback__message {
         opacity:1;
         transform:translate3d(0, 0, 0);
+        transition:opacity 0.55s $cubic34 0.8s, transform 0.55s $cubic34 0.8s;
     }
+}
+.WD__callback__title--anim {
+    animation:WD__callback__titleAnim 1.7s 0.5s $cubic34;
 }
 @keyframes WD__callback__formOpen {
     0% {
@@ -189,7 +402,38 @@
         transform: translate3d(0,0,0) scale3d(1,1,1);
     }
 }
-@keyframes WD__callback__close {
+@keyframes WD__callback__closeOpen {
     0%, 50% {transform:scale(0);}
     100% {transform:scale(1);}
+}
+@keyframes WD__callback__titleAnim {
+    0%, 100% {color:rgba(#fff,.7);}
+    50% {color:rgba(#fff,1);}
+}
+.WD__callback--end {
+    .WD__callback__form {
+        animation:WD__callback__formHide .4s $cubic57 forwards;
+    }
+    .WD__section__close {
+        animation:WD__callback__closeHide .2s $cubic57 forwards;
+    }
+    .WD__callback__message {
+        opacity:0;
+        transform:translate3d(0, -30px, 0);
+        transition:opacity 0.2s $cubic57, transform 0.2s $cubic57;
+    }
+}
+@keyframes WD__callback__formHide {
+    0% {
+        opacity: 1;
+        transform: translate3d(0,0,0) scale3d(1,1,1);
+    }
+    100% {
+        opacity: 0;
+        transform: translate3d(0,-400px,0) scale3d(0,1.4,1);
+    }
+}
+@keyframes WD__callback__closeHide {
+    0% {transform:scale(1);}
+    100% {transform:scale(0);}
 }
