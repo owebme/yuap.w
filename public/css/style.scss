@@ -7,21 +7,29 @@
 
 // modules
 @import 'modules/callbutton';
-@import 'modules/modal';
 @import 'modules/section';
 @import 'modules/callback';
 @import 'modules/alert';
 
-// modules
+// panel
 @import 'modules/panel/panel';
 @import 'modules/panel/panelPopup';
 @import 'modules/panel/panelSocial';
+
+// reviews
+@import 'modules/reviews/reviews';
+@import 'modules/reviews/sidebar';
+@import 'modules/reviews/list';
+@import 'modules/reviews/modal';
+@import 'modules/reviews/modalContent';
+@import 'modules/reviews/sendReview';
 
 // elements
 @import 'elements/colors';
 @import 'elements/select';
 @import 'elements/loading';
 @import 'elements/notify';
+@import 'elements/scrollbar';
 
 // states
 @import 'states/color';

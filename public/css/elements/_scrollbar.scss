@@ -1,0 +1,57 @@
+.WD__scroll__viewport {
+    @include abs();
+    overflow:hidden;
+}
+.WD__scroll__overview {
+    position:absolute;
+    top:0;
+    left:0;
+    // -webkit-overflow-scrolling:touch;
+}
+.WD__scroll__scrollbar {
+    position:absolute;
+    top:10%;
+    right:-49px;
+    width:11px;
+    height:80%;
+}
+.WD__scroll__track {
+    position:absolute;
+    top:0;
+    right:0;
+    background-color:rgba(200, 200, 200, 0);
+    width:8px;
+    height:100%;
+    cursor:pointer;
+    transition:all 0.15s linear;
+}
+.WD__scroll__thumb {
+    position:absolute;
+    top:0;
+    right:2px;
+    width:2px;
+    max-height:67%;
+    background-color:#E1E8ED;
+    border-radius:3px;
+    cursor:pointer;
+}
+.WD__scroll__track:hover {
+    background-color:rgba(235, 235, 245, .4);
+    width:11px;
+
+    .WD__scroll__thumb {
+        width:8px;
+        border-radius:4px;
+        transition:width 0.15s linear, background-color 0.2s linear;
+    }
+}
+.WD__scroll__thumb:hover {
+    // background-color:#BEC8D3;
+    background-color:#DAE1E8;
+}
+.WD__scroll__disable {
+    display:none;
+}
+.WD__scroll__noSelect {
+    user-select:none;
+}

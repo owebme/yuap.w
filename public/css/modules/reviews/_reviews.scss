@@ -1,0 +1,45 @@
+.WD__section__reviews {
+    top:9%;
+    left:50%;
+    width:980px;
+    margin-left:-490px;
+    color:#292f33;
+}
+.WD__reviews__button {
+    display:inline-block;
+    height:48px;
+    border-radius:25px;
+    border:1px solid rgba($azure,.8);
+    color:$azure;
+    font-size:15.5px;
+    line-height:44px;
+    padding:0 45px;
+    font-weight:bold;
+    margin-top:20px;
+    cursor:pointer;
+    white-space:nowrap;
+    transition:color 0.2s $cubic215, background 0.2s $cubic215, border-color 0.2s $cubic215, transform 0.12s $cubic215;
+
+    &:hover {
+        color:#fff;
+        border-color:$azure;
+        background:$azure;
+
+        .WD__reviews__button__path {
+            fill:#fff;
+        }
+    }
+    &:active {
+        transform:translate3d(0, 2px, 0) scale(0.9);
+    }
+}
+.WD__reviews__button__icon {
+    display:inline-block;
+    width:22px;
+    vertical-align:middle;
+    margin:0 2px 0 -5px;
+}
+.WD__reviews__button__path {
+    fill:$azure;
+    transition:fill 0.2s $cubic215;
+}

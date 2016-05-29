@@ -1,0 +1,194 @@
+.WD__modal__review__avatar {
+    display:inline-block;
+    vertical-align:top;
+    width:48px;
+    height:48px;
+    border-radius:5px;
+    background-repeat:no-repeat;
+    background-size:cover;
+    margin-right:11px;
+}
+.WD__modal__review__header__text {
+    position:relative;
+    display:inline-block;
+    vertical-align:top;
+    line-height:20px;
+    padding-top:2px;
+    white-space:nowrap;
+}
+.WD__modal {
+    .WD__reviews__item__dots__item,
+    .WD__reviews__item__dots:before,
+    .WD__reviews__item__dots:after {
+        width:10px;
+        height:10px;
+    }
+}
+.WD__modal__review__header__title {
+    color:#8899a6;
+}
+.WD__modal__review__header__name {
+    color:#292f33;
+    font-weight:bold;
+    font-size:16px;
+}
+.WD__modal__review__header__score {
+    position:absolute;
+    top:0;
+    left:100%;
+    font-size:24px;
+    line-height:22px;
+    font-weight:bold;
+    color:$black_light;
+    padding-left:24px;
+    margin-left:25px;
+    border-left:1px solid #e1e8ed;
+}
+.WD__modal__review__header__score__end {
+    color:#8899a6;
+    font-weight:300;
+    font-size:20px;
+    line-height:15px;
+}
+.WD__modal__review__header__score__text {
+    display:block;
+    color:#8899a6;
+    font-size:14px;
+    line-height:22px;
+}
+.WD__modal__review__content {
+    font-size:18px;
+    line-height:27px;
+    font-weight:300;
+    letter-spacing:.01em;
+    word-wrap:break-word;
+    padding:17px 0;
+    min-height:121px;
+}
+.WD__modal__review__content--sizeMD {
+    font-size:19px;
+    line-height:28px;
+}
+.WD__modal__review__content--sizeXD {
+    font-size:21px;
+    line-height:29px;
+}
+.WD__modal__review__thumbs {
+    text-align:center;
+    margin:30px auto 20px;
+    transform:translate3d(-15px, 0, 0);
+
+    .WD__reviews__item__thumb {
+        font-size:18px;
+        line-height:20px;
+        margin-left:15px;
+        padding:4px 0;
+
+        &:first-child {
+            padding-right:17px;
+            border-right:1px solid #e1e8ed;
+        }
+    }
+    .WD__reviews__item__thumb__item {
+        width:28px;
+        height:28px;
+        margin-right:7px;
+    }
+}
+.WD__modal__review__answer {
+    position:relative;
+    padding:50px 0 35px;
+}
+.WD__modal__review__answer__company {
+    position:absolute;
+    top:-80px;
+    left:78px;
+    text-align:center;
+}
+.WD__modal__review__answer__dots {
+    width:8px;
+    margin:0 auto;
+}
+.WD__modal__review__answer__dots__item,
+.WD__modal__review__answer__dots:before,
+.WD__modal__review__answer__dots:after {
+    content:"";
+    display:block;
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    margin-bottom:6px;
+    line-height:0;
+    font-size:0;
+    background:darken(#ccd6dd, 4%);
+}
+.WD__modal__review__answer__logo {
+    margin-top:8px;
+    height:48px;
+    border-radius:5px;
+}
+.WD__modal__review__answer__signtext {
+    position:absolute;
+    bottom:118%;
+    right:15px;
+    font-size:14px;
+    line-height:14px;
+    color:#8899a6;
+    padding-left:11px;
+    white-space:nowrap;
+}
+.WD__modal__review__answer__content {
+    position:relative;
+    padding:21px 10px 0 30px;
+    line-height:22px;
+    border-top:1px solid #ccd6dd;
+
+    &:after,
+    &:before {
+        content:"";
+        position:absolute;
+        left:97px;
+        top:-11px;
+    }
+    &:after {
+        border-bottom: 10px solid #fff;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        margin-left: -5px;
+        margin-top:1px;
+    }
+    &:before {
+        border-bottom: 11px solid darken(#ccd6dd, 2%);
+        border-left: 12px solid transparent;
+        border-right: 12px solid transparent;
+        margin-left: -7px;
+    }
+}
+.WD__modal__form {
+    padding:0;
+    background-color:#EBF5FA;
+}
+.WD__modal__form__content {
+    padding:0 50px 20px;
+    text-align:center;
+
+    .WD__reviews__button {
+        font-size:17.5px;
+        height:50px;
+        line-height:46px;
+        letter-spacing:-0.2px;
+    }
+}
+.WD__modal__footer {
+    text-align:center;
+    background-color:#fff;
+    border-top:1px solid #E1E8ED;
+    padding:15px 50px;
+    border-radius:0 0 4px 4px;
+    color:#CCD6DD;
+    font-size:22px;
+}
+.WD__modal__footer__icon {
+    width:36px;
+    opacity:0.7;
+}

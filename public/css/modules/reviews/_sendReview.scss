@@ -1,0 +1,391 @@
+.WD__modal__sendReview {
+    @include abs_50(642, 460);
+    margin-top:-260px;
+    border-radius:13px;
+    color:#fff;
+    border:none;
+    transform:translate3d(999em, 0, 0);
+    box-shadow:0 2px 54px -10px rgba($bg_color,.25);
+    z-index:1;
+}
+.WD__modal__sendReview--open {
+    transform:translate3d(0, 0, 0);
+}
+.WD__modal__sendReview--green {
+    background-color:#4DC95B;
+}
+.WD__modal__sendReview--orange {
+    background-color:darken(#F7CB74,29%);
+}
+.WD__modal__sendReview--red {
+    background-color:#B44843;
+}
+.WD__modal__title {
+    font-size:30px;
+    line-height:30px;
+    font-weight:300;
+}
+.WD__modal__sendReview__score {
+    position:absolute;
+    top:25px;
+    left:430px;
+    width:70px;
+    height:70px;
+    line-height:72px;
+    border-radius:50%;
+    background:rgba($bg_color,.28);
+    text-align:center;
+}
+.WD__modal__sendReview__score__text {
+    font-weight:bold;
+    font-size:30px;
+}
+.WD__modal__sendReview__score__title {
+    position:absolute;
+    bottom:4px;
+    left:100%;
+    margin:0 0 0 10px;
+    font-size:16px;
+    line-height:16px;
+}
+.WD__modal__sendReview__smile__container,
+.WD__modal__sendReview__avatar {
+    position:absolute;
+    top:-6%;
+    right:5%;
+}
+.WD__modal__sendReview__smile__container:before {
+    content:"";
+    @include abs_50(82, 82);
+    border-bottom:4px solid #fff;
+    border-radius:50%;
+    margin-top:-37px;
+    opacity:0.25;
+    transform:rotate(-15deg);
+}
+.WD__modal__sendReview__smile {
+    width:72px;
+    height:72px;
+    border-radius:50%;
+}
+.WD__modal__sendReview__avatar {
+    width:78px;
+    height:78px;
+    background-repeat:no-repeat;
+    background-size:cover;
+    border:4px solid #fff;
+    box-shadow:0 2px 5px -3px rgba($bg_color,.5);
+    background-color:#B8BAC0;
+    border-radius:10px;
+    transform:scale(0);
+}
+.WD__modal__slider__range {
+    width:440px;
+    margin:65px auto 0;
+}
+.WD__modal__slider__title {
+    position:absolute;
+    top:-30px;
+    left:-25px;
+    opacity:0.7;
+    font-size:13px;
+    line-height:15px;
+    text-transform:uppercase;
+}
+.WD__modal__slider__range__container {
+    position:relative;
+    height:32px;
+}
+.WD__modal__slider__range__container:before,
+.WD__modal__slider__range__line {
+    content:"";
+    position:absolute;
+    top:50%;
+    left:0;
+    width:100%;
+    height:5px;
+    background:rgba(#fff,.3);
+    margin-top:-2.5px;
+    border-radius:10px;
+}
+.WD__modal__slider__range__line {
+    background-image:linear-gradient(to right, #fff 50%, rgba(#fff,.5));
+    box-shadow:0 0 5px -2px rgba(#fff,.3);
+}
+.WD__modal__slider__handle {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 50%;
+    margin-top: -16px;
+    margin-left: -16px;
+    background-color: #fff;
+    box-shadow: inset 0 2px 1px rgba(255,255,255,.25), 0 3px 8px -3px rgba(#000,.4);
+    border: 1px solid #D0D4DA;
+    border-radius: 50%;
+    cursor: pointer;
+    outline: 0;
+    transition:transform 0.3s $cubic215;
+
+    // &:after {
+    //     content:"";
+    //     @include abs_50(12, 12);
+    //     border-radius:50%;
+    //     background:rgba($bg_color,.7);
+    // }
+    &:hover {
+        transform:scale(1.18);
+    }
+}
+.WD__modal__slider__range__titles {
+    margin-top:15px;
+    text-align:justify;
+    text-justify:newspaper;
+
+    &:after {
+        content:"";
+        display:inline-block;
+        position:relative;
+        width:100%;
+        height:0;
+        visibility:hidden;
+        overflow:hidden;
+    }
+}
+.WD__modal__slider__range__title {
+    display:inline-block;
+    vertical-align:top;
+    text-align:left;
+    text-justify:auto;
+    font-family:$roboto;
+    font-size:15px;
+    font-weight:400;
+    text-shadow:0 2px 1px rgba($bg_color, .15);
+}
+.WD__modal__slider__range__title--active {
+    font-size:22px;
+    font-weight:bold;
+}
+.WD__modal__textarea__container {
+    position:absolute;
+    top:220px;
+    left:5%;
+    width:90%;
+    height:55%;
+}
+.WD__modal__textarea {
+    @include abs();
+    background:#fff;
+    border:0;
+    outline:none;
+    border-radius:13px;
+    padding:15px 22px;
+    color:#101010;
+    font-size:17px;
+    line-height:25px;
+    font-weight:300;
+    letter-spacing:.01em;
+    word-wrap:break-word;
+}
+.WD__modal__textarea__placeholder {
+    display:none;
+    position:absolute;
+    top:19px;
+    left:22px;
+    color:#8899a6;
+    font-size:17px;
+}
+.WD__modal__textarea:empty ~ .WD__modal__textarea__placeholder {
+    display:block;
+}
+.WD__modal__textarea:focus ~ .WD__modal__textarea__placeholder {
+    display:none;
+}
+.WD__modal__sendReview__button {
+    position:absolute;
+    bottom:-31px;
+    right:-24px;
+    border-radius:50%;
+    width:67px;
+    height:67px;
+    line-height:64px;
+    background:#EE5B5A;
+    cursor:pointer;
+    box-shadow:0 5px 24px -6px #E74B59;
+    white-space:nowrap;
+    will-change:width, border-radius, transform;
+    padding:0 15px;
+    transition:width 0.3s $cubic57, border-radius 0.3s $cubic57, transform 0.15s $cubic215;
+}
+.WD__modal__sendReview__button__icon {
+    display:inline-block;
+    vertical-align:middle;
+    width:35px;
+    height:35px;
+}
+.WD__modal__sendReview__button__text {
+    position:absolute;
+    top:1px;
+    right:25px;
+    font-size:17.5px;
+    opacity:0;
+    will-change:opacity, transform;
+    transform:translate3d(10px, 0, 0);
+    transition:opacity 0.2s $cubic57, transform 0.2s $cubic57;
+}
+.WD__modal__sendReview__button:hover {
+    border-radius:22px;
+    width:178px;
+
+    .WD__modal__sendReview__button__text {
+        opacity:1;
+        transform:translate3d(0, 0, 0);
+        transition:opacity 0.2s $cubic215 0.1s, transform 0.2s $cubic215 0.1s;
+    }
+}
+.WD__modal__sendReview__button:active {
+    transform:translate3d(0, -1px, 0) scale(0.85);
+}
+.WD__modal__share {
+    position:relative;
+    max-width:600px;
+    height:80px;
+    margin:0 auto;
+    transform:scale(0);
+    transition:0.4s transform cubic-bezier(0.42, 0, 0.05, 2);
+}
+.WD__modal__share__container {
+    filter:url("#WD__share__buttons-goo-3");
+}
+.WD__modal__share__title {
+    position:absolute;
+    bottom:-30px;
+    width:100%;
+    opacity:0;
+    will-change:opacity, transform;
+    transform:translate3d(0, 15px, 0);
+    transition:all 0.3s $cubic215 0.2s;
+    text-align:center;
+    font-size:17px;
+    line-height:17px;
+}
+.WD__modal__share__button,
+.WD__modal__share__toggle__button {
+    display:inline-block;
+    @include abs_50(80, 80);
+    border-radius:50%;
+    background:#fff;
+    cursor:pointer;
+    will-change:transform;
+    overflow:hidden;
+    transition:background 0.2s $cubic34;
+}
+.WD__modal__share__button {
+    transform:scale(0.95, 0.95);
+
+    path {
+        fill:#fff;
+        transition:fill 0.2s $cubic34;
+    }
+}
+.WD__modal__share__toggle__button {
+    z-index:5;
+
+    svg {
+        @include abs_50(45, 45);
+        margin:-22px 0 0 -26px;
+    }
+    path {
+        fill:$black_light;
+    }
+}
+.WD__modal__share__icon {
+    @include abs_50(60, 60);
+}
+.WD__modal__share__fb {
+    .WD__modal__share__icon {
+        margin:-20px 0 0 -28px;
+    }
+    path {
+        fill:#3A559F;
+    }
+    &:hover {
+        background:#3A559F;
+
+        path {
+            fill:#fff;
+        }
+    }
+}
+.WD__modal__share__tw {
+    .WD__modal__share__icon {
+        @include abs_50(54, 54);
+        margin:-24px 0 0 -25px;
+    }
+    path {
+        fill:#50ABF1;
+    }
+    &:hover {
+        background:#50ABF1;
+
+        path {
+            fill:#fff;
+        }
+    }
+}
+.WD__modal__share__vk {
+    .WD__modal__share__icon {
+        @include abs_50(62, 62);
+        margin:-30px 0 0 -34px;
+    }
+    path {
+        fill:#4D76A1;
+    }
+    &:hover {
+        background:#4D76A1;
+
+        path {
+            fill:#fff;
+        }
+    }
+}
+.WD__modal__share__dk {
+    .WD__modal__share__icon {
+        @include abs_50(48, 48);
+    }
+    path {
+        fill:#EE7808;
+    }
+    &:hover {
+        background:#EE7808;
+
+        path {
+            fill:#fff;
+        }
+    }
+}
+
+.WD__modal__sendReview--showAuth {
+    .WD__modal__textarea__container {
+        transform:translate3d(0, 120px, 0);
+
+        &:after {
+            content:"";
+            @include abs();
+        }
+    }
+    .WD__modal__sendReview__smile__container,
+    .WD__modal__sendReview__button {
+        transform:scale(0);
+    }
+    .WD__modal__sendReview__avatar,
+    .WD__modal__share {
+        transform:scale(1);
+    }
+}
+.WD__modal__share--active {
+    .WD__modal__share__title {
+        opacity:1;
+        transform:translate3d(0, 0, 0);
+    }
+}
