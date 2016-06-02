@@ -134,8 +134,10 @@
     line-height:27px;
 }
 .WD__reviews__yamarket__link {
+    position:relative;
     display:block;
     text-decoration:none;
+    padding-top:7px;
 
     &:before {
         content:"";
@@ -151,7 +153,21 @@
 .WD__reviews__yamarket__stars {
     display:inline-block;
     vertical-align:middle;
-    margin-left:8px;
-    color:red;
-    font-size:18px;
+    margin-left:10px;
+    color:$blue;
+    font-size:20px;
+    line-height:20px;
+    font-weight:bold;
+}
+.WD__reviews__yamarket__text {
+    display:block;
+    color:#292f33;
+    font-size:17px;
+    line-height:17px;
+    font-family:$roboto;
+    font-weight:300;
+    padding-top:6px;
+}
+.WD__reviews__yamarket__strong {
+    font-weight:500;
 }
