@@ -6,6 +6,7 @@
     border:none;
     padding:0;
     transform:translate3d(999em, 0, 0);
+    // backface-visibility:hidden;
     // background-image:linear-gradient(225deg,lighten(#3e4757,6%),lighten(#1f242c,12%));
     background-image:linear-gradient(225deg,#4B4E67,lighten(#2e314f,5%));
     box-shadow:0 2px 54px -10px rgba($bg_color,.25);
@@ -189,6 +190,7 @@
     font-weight:300;
     letter-spacing:.01em;
     word-wrap:break-word;
+    user-select:text;
 }
 .WD__modal__textarea__placeholder {
     display:none;
@@ -261,10 +263,10 @@
     transform:translate3d(100px, 0, 0);
 }
 .WD__modal__sendReview--open {
-    animation:WD__modal__slipRight-open .55s $cubic645 0.01s forwards;
+    animation:WD__modal__slipRight-open .45s $cubic645 forwards;
 
     .WD__modal__sendReview__container {
-        animation:WD__modal__slipRight-elem-open .5s $cubic645 0.01s forwards;
+        animation:WD__modal__slipRight-elem-open .4s $cubic645 forwards;
     }
 }
 .WD__modal__sendReview--hide {

@@ -119,7 +119,7 @@
         border-right-color:rgba(#d8d8d8,.25);
     }
     .WD__alert__button:hover {
-        background:$black_dark;
+        background:lighten($black_light, 5%);
     }
     .WD__alert__button:active {
         color:#fff;

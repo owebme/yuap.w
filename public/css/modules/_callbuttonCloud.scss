@@ -1,0 +1,504 @@
+.WD__callbutton--open {
+    .WD__callbutton__tooltip,
+    .WD__callbutton__circle {
+        transition:transform 0.2s $cubic57;
+        transform:scale(0) !important;
+    }
+    .WD__callbutton__cloud,
+    .WD__callbutton__footer__svg {
+        opacity:1;
+        transform:translate3d(0, 0, 0) scale(1);
+    }
+}
+.WD__callbutton__tooltip,
+.WD__callbutton__circle,
+.WD__callbutton__footer__svg {
+    will-change:transform;
+}
+.WD__callbutton__footer__svg {
+    transition:transform 0.4s cubic-bezier(0.42, 0, 0.05, 1.2) 0.2s;
+    transform:translate3d(100px, 125px, 0) scale3d(0, 0.4, 1);
+}
+.WD__callbutton__cloud {
+    position:absolute;
+    bottom:15px;
+    right:-25px;
+    width:320px;
+    height:248px;
+    color:#fff;
+    opacity:0;
+    will-change:opacity, transform;
+    transition:transform 0.42s $cubic57, opacity 0.35s $cubic215;
+    transform:translate3d(100px, 100px, 0) scale(0);
+
+    &:before {
+        content:"";
+        @include abs();
+        background:url(/public/images/callbutton_cloud.svg) no-repeat center bottom;
+        background-size: 100% 100%;
+        opacity:0.95;
+    }
+    &:after {
+        content: '';
+        position: absolute;
+        width: 33px;
+        height: 33px;
+        right: 18%;
+        top: 100%;
+        background:lighten($black_light, 10%);
+        transform: translate3d(0,-110%,0) rotate3d(0,0,1,24deg);
+        border-radius:3px;
+    }
+}
+.WD__callbutton__header {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:41%;
+    text-align:center;
+    padding-top:22px;
+}
+.WD__callbutton__title {
+    font-family:$roboto;
+    font-size:15.5px;
+    font-weight:300;
+}
+.WD__callbutton__date {
+    position:relative;
+    width:70%;
+    margin:0 auto;
+    padding-top:7px;
+}
+.WD__callbutton__date__items {
+    position:relative;
+    margin:0 50px;
+    height:22px;
+    overflow:hidden;
+}
+.WD__callbutton__date__item {
+    position:absolute;
+    top:0;
+    left:0;
+    display:inline-block;
+    font-size:19px;
+    line-height:22px;
+    font-weight:bold;
+    width:100%;
+    height:100%;
+    max-width:100%;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    overflow:hidden;
+    text-align:center;
+    opacity:0;
+    transform:perspective(400px) rotateY(-180deg) scale(0.3);
+    transition:transform 0.3s $cubic57, opacity 0.3s $cubic57;
+}
+.WD__callbutton__date__item--active {
+    opacity:1;
+    transform:perspective(400px) rotateY(0) scale(1);
+}
+.WD__callbutton__date__item--big {
+    font-size:21px;
+}
+.WD__callbutton__date__arrow {
+    position:absolute;
+    top:50%;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    margin-top:-6px;
+    opacity:0.6;
+    cursor:pointer;
+    transition:opacity 0.2s $cubic215, transform 0.15s $cubic215;
+
+    &:after {
+        content:"";
+        @include abs_50(30, 30);
+    }
+    &:hover {
+        opacity:1;
+        transform:translate3d(0, 0, 0) scale(1.1);
+    }
+    &:active {
+        transform:translate3d(0, -1px, 0) scale(0.8);
+    }
+}
+.WD__callbutton__date__arrow__left {
+    left:20px;
+    border-left: 10px solid transparent;
+    border-right: 10px solid #fff;
+}
+.WD__callbutton__date__arrow__right {
+    right:20px;
+    border-right: 10px solid transparent;
+    border-left: 10px solid #fff;
+}
+.WD__callbutton__form {
+    @include abs();
+    text-align:center;
+    font-size:0;
+    padding-top:27px;
+}
+.WD__callbutton__form__citycode,
+.WD__callbutton__form__phone {
+    display:inline-block;
+    vertical-align:top;
+    height:40px;
+    font-family:$roboto;
+    font-size:22px;
+    line-height:40px;
+    border:none;
+    outline:none;
+    padding:0 2px;
+    color:#fff;
+    text-align:left;
+    background:none;
+    border-bottom:1px solid rgba(#fff,.3);
+}
+.WD__callbutton__form__citycode {
+    margin-right:15px;
+}
+.WD__callbutton__form__phone {
+    padding:0 5px;
+    width:180px;
+    user-select:text;
+    letter-spacing:0.011em;
+}
+.WD__callbutton__form__phone::-webkit-input-placeholder {
+    color:#fff;
+    opacity:0.6;
+    font-size:19px;
+    font-weight:300;
+}
+.WD__callbutton__form__phone::-moz-placeholder {
+    color:#fff;
+    opacity:0.6;
+    font-size:19px;
+    font-weight:300;
+}
+.WD__callbutton__form__subtitle {
+    padding:32px 55px 0;
+    font-family:$roboto;
+    font-size:16px;
+    line-height:18px;
+    opacity:0.95;
+}
+.WD__callbutton__footer {
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:320px;
+    height:67%;
+    border-radius:27% 17% 0 0;
+    overflow:hidden;
+    transform:translate3d(0, 0, 0);
+}
+.WD__callbutton__footer__svg {
+    position:absolute;
+    bottom:0;
+    width:320px;
+    height:248px;
+}
+.WD__callbutton__footer__bg {
+    fill:lighten($black_light, 10%);
+}
+.WD__callbutton__time__container {
+    position:absolute;
+    top:-25px;
+    right:98%;
+    width:148px;
+    height:128px;
+    color:$black_light;
+    font-family:$roboto;
+    background-image:linear-gradient(165deg, rgba(#fff,.97), rgba(#f5f5f5,.97));
+    border-radius:45%;
+    box-shadow:0 5px 35px -6px rgba($black_light,.2), 0 15px 20px -10px rgba(#000,.1);
+    transform:scale(0) translate3d(25px, 12px, 0);
+    will-change:transform;
+    transition:transform 0.35s $cubic57;
+}
+.WD__callbutton__time__container--active {
+    transform:scale(1) translate3d(0, 0, 0);
+}
+.WD__callbutton__time {
+    @include abs_50(148, 52);
+    text-align:center;
+    height:52px;
+    font-size:44px;
+    line-height:48px;
+    font-weight:400;
+    letter-spacing:-0.011em;
+}
+.WD__callbutton__time__title {
+    position:absolute;
+    top:18px;
+    left:0;
+    width:100%;
+    font-size:12px;
+    line-height:17px;
+    font-weight:400;
+    text-align:center;
+    text-transform:uppercase;
+}
+.WD__callbutton__time__subtitle {
+    position:absolute;
+    bottom:20px;
+    left:0;
+    width:100%;
+    font-size:14px;
+    line-height:17px;
+    font-weight:300;
+    text-align:center;
+}
+.WD__callbutton__time__current {
+    position:relative;
+    cursor:default;
+    z-index:2;
+}
+.WD__callbutton__time__current--hover {
+    color:#fff;
+}
+.WD__callbutton__time__items {
+    position:absolute;
+    bottom:-54px;
+    width:60px;
+    color:#fff;
+    padding:17px 0 20px;
+    border-radius:35px;
+    text-align:center;
+    transform:scale(0);
+    opacity:0;
+    background:lighten($black_light, 3%);
+    transition:opacity 0.12s $cubic215;
+    z-index:1;
+}
+.WD__callbutton__time__hours {
+    left:17px;
+
+    .WD__callbutton__time__devider:before {
+        left:0;
+        margin-left:-2px;
+    }
+}
+.WD__callbutton__time__minutes {
+    right:17px;
+
+    .WD__callbutton__time__devider:before {
+        right:0;
+        margin-right:-2px;
+    }
+}
+.WD__callbutton__time__items--active {
+    opacity:1;
+    transform:scale(1);
+}
+.WD__callbutton__time__item {
+    display:block;
+    font-size:22px;
+    font-weight:300;
+    line-height:36px;
+    height:38px;
+    margin-bottom:-5px;
+    cursor:pointer;
+    transition:background 0.12s $cubic215;
+
+    &:hover {
+        color:$black_light;
+        background:#fff;
+        font-weight:400;
+    }
+    &:first-child {
+        border-radius:8px 8px 0 0;
+    }
+    &:last-child {
+        border-radius:0 0 10px 10px;
+    }
+}
+.WD__callbutton__time__devider {
+    position:relative;
+    display:block;
+    height:65px;
+
+    &:before {
+        content:"";
+        position:absolute;
+        bottom:5px;
+        width:48px;
+        height:48px;
+        border-radius:50%;
+        background:lighten($black_light, 3%);
+        transform:scale(1.5);
+        z-index:-1;
+    }
+}
+.WD__callbutton__form__subtitle {
+    will-change:opacity, transform;
+    transition:opacity 0.3s $cubic215, transform 0.3s $cubic215;
+}
+.WD__callbutton__call {
+    position:absolute;
+    bottom:10%;
+    left:50%;
+    width:52px;
+    height:52px;
+    margin-left:-26px;
+    border-radius:50%;
+    background:#fff;
+    cursor:pointer;
+    opacity:0;
+    will-change:opacity, transform;
+    transform:translate3d(0, 12px, 0) scale(0);
+    transition:opacity 0.3s $cubic215, transform 0.3s $cubic215;
+
+    &:before {
+        content:"";
+        position:absolute;
+        top:50%;
+        left:-7px;
+        width:26px;
+        height:26px;
+        margin-top:-2px;
+        border-radius:50%;
+        background:#fff;
+    }
+    &:hover {
+        transform:scale(1.07) !important;
+    }
+    &:active {
+        transform:scale(0.85) !important;
+    }
+}
+.WD__callbutton__call__icon {
+    @include abs_50(30, 30);
+    z-index:1;
+}
+.WD__callbutton__call__icon__bg {
+    fill:$black_light;
+}
+.WD__callbutton__calling {
+    position:absolute;
+    bottom:17px;
+    right:25px;
+    width:200px;
+    height:200px;
+    border-radius:49%;
+    background:#EE5050;
+    opacity:0;
+    transition:transform 0.4s cubic-bezier(0.42, 0, 0.05, 1.35), opacity 0.25s $cubic57;
+    transform:translate3d(0, 0, 0) scale(0);
+}
+
+.WD__callbutton__cloud--showButtonCall {
+    .WD__callbutton__call {
+        opacity:1;
+        transform:translate3d(0, 0, 0) scale(1);
+    }
+    .WD__callbutton__form__subtitle {
+        opacity:0;
+        transform:translate3d(0, 12px, 0);
+    }
+}
+.WD__callbutton--calling {
+    .WD__callbutton__calling {
+        opacity:1;
+        transform:translate3d(0, 0, 0) scale(1);
+    }
+    .WD__callbutton__cloud {
+        opacity:0;
+        transform:translate3d(10px, 18px, 0) scale(0.63);
+        transition:transform 0.2s cubic-bezier(0.42, 0, 0.05, 1.2), opacity 0.3s $cubic57;
+    }
+}
+
+.WD__callbutton__cloud--red {
+    &:after,
+    .WD__callbutton__time__items,
+    .WD__callbutton__time__devider:before {
+        background:#EE5050;
+    }
+    .WD__callbutton__footer__bg {
+        fill:#EE5050;
+    }
+    .WD__callbutton__time__title {
+        color:#EE5050;
+    }
+}
+.WD__callbutton__cloud--blue {
+    &:after,
+    .WD__callbutton__time__items,
+    .WD__callbutton__time__devider:before {
+        background:#158ffe;
+    }
+    .WD__callbutton__footer__bg {
+        fill:#158ffe;
+    }
+    .WD__callbutton__time__title {
+        color:#158ffe;
+    }
+}
+.WD__callbutton__cloud--azure {
+    &:after,
+    .WD__callbutton__time__items,
+    .WD__callbutton__time__devider:before {
+        background:#00a8ff;
+    }
+    .WD__callbutton__footer__bg {
+        fill:#00a8ff;
+    }
+    .WD__callbutton__time__title {
+        color:#00a8ff;
+    }
+}
+.WD__callbutton__cloud--violet {
+    &:after,
+    .WD__callbutton__time__items,
+    .WD__callbutton__time__devider:before {
+        background:#6a76fc;
+    }
+    .WD__callbutton__footer__bg {
+        fill:#6a76fc;
+    }
+    .WD__callbutton__time__title {
+        color:#6a76fc;
+    }
+}
+.WD__callbutton__cloud--green {
+    &:after,
+    .WD__callbutton__time__items,
+    .WD__callbutton__time__devider:before {
+        background:#00ab6b;
+    }
+    .WD__callbutton__footer__bg {
+        fill:#00ab6b;
+    }
+    .WD__callbutton__time__title {
+        color:#00ab6b;
+    }
+}
+.WD__callbutton__cloud--emerald {
+    &:after,
+    .WD__callbutton__time__items,
+    .WD__callbutton__time__devider:before {
+        background:#1abc9c;
+    }
+    .WD__callbutton__footer__bg {
+        fill:#1abc9c;
+    }
+    .WD__callbutton__time__title {
+        color:#1abc9c;
+    }
+}
+.WD__callbutton__cloud--orange {
+    &:after,
+    .WD__callbutton__time__items,
+    .WD__callbutton__time__devider:before {
+        background:#ef6c00;
+    }
+    .WD__callbutton__footer__bg {
+        fill:#ef6c00;
+    }
+    .WD__callbutton__time__title {
+        color:#ef6c00;
+    }
+}
