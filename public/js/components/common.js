@@ -1,6 +1,7 @@
 (function($){
 
 	/* --- Widgets interface --- */
+	yuapApp.define("api");
 	yuapApp.define("sizes");
 	yuapApp.define("utils");
 	yuapApp.define("device");

@@ -9,7 +9,6 @@
     margin-right:11px;
 }
 .WD__modal__review__header__text {
-    position:relative;
     display:inline-block;
     vertical-align:top;
     line-height:20px;
@@ -33,9 +32,8 @@
     font-size:16px;
 }
 .WD__modal__review__header__score {
-    position:absolute;
-    top:0;
-    left:100%;
+    display:inline-block;
+    vertical-align:top;
     font-size:24px;
     line-height:22px;
     font-weight:bold;
@@ -96,13 +94,13 @@
     }
 }
 .WD__modal__review__answer {
-    position:relative;
-    padding:50px 0 35px;
+    margin-top:-50px;
+    padding:0 0 35px;
+    text-align:left;
 }
 .WD__modal__review__answer__company {
-    position:absolute;
-    top:-80px;
-    left:78px;
+    width:48px;
+    transform:translate3d(78px, -30px, 0);
     text-align:center;
 }
 .WD__modal__review__answer__dots {

@@ -1,9 +1,13 @@
-.WD__section__reviews {
+.WD__section__wrapper__reviews {
     top:9%;
     left:50%;
     width:980px;
     margin-left:-490px;
     color:#292f33;
+    will-change:opacity, transform;
+    opacity:0;
+    transform:perspective(1000px) scale3d(0.7, 0.7, 1) translate3d(-15%, -25%, -80px);
+    transition:opacity 0.25s $cubic57, transform 0.28s $cubic57;
 }
 .WD__reviews__button {
     display:inline-block;
@@ -42,4 +46,21 @@
 .WD__reviews__button__path {
     fill:$azure;
     transition:fill 0.2s $cubic215;
+}
+.WD__section__reviews {
+    .WD__section__close {
+        transform:scale(0);
+        transition:transform 0.2s $cubic57;
+    }
+}
+.WD__section--open {
+    .WD__section__wrapper__reviews {
+        opacity:1;
+        transform:perspective(1000px) scale3d(1, 1, 1) translate3d(0, 0, 0);
+        transition:opacity 0.3s $cubic215, transform 0.4s $cubic57;
+    }
+    .WD__section__close {
+        transform:scale(1);
+        transition:transform 0.4s $cubic57 0.4s;
+    }
 }

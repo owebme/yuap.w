@@ -1,0 +1,161 @@
+.WD__modal__share {
+    position:relative;
+    max-width:600px;
+    height:80px;
+    margin:0 auto;
+    will-change:transform;
+    transform:scale(0);
+    transition:transform 0.4s cubic-bezier(0.42, 0, 0.05, 1.35);
+}
+.WD__modal__share__container {
+    height:80px;
+    filter:url("#WD__share__buttons-goo-3");
+}
+.WD__modal__textarea__container {
+    will-change:transform;
+    transition:transform 0.3s $cubic57;
+}
+.WD__modal__sendReview--showAuth {
+    .WD__modal__textarea__container {
+        transform:translate3d(0, 120px, 0);
+
+        &:after {
+            content:"";
+            @include abs();
+        }
+    }
+    .WD__modal__sendReview__smile__container,
+    .WD__modal__sendReview__button {
+        transform:scale(0);
+    }
+    .WD__modal__sendReview__avatar,
+    .WD__modal__share {
+        transform:scale(1);
+    }
+}
+.WD__modal__share--active {
+    .WD__modal__share__title {
+        opacity:1;
+        transform:translate3d(0, 0, 0);
+    }
+}
+.WD__modal__share__title {
+    position:absolute;
+    bottom:-30px;
+    width:100%;
+    opacity:0;
+    will-change:opacity, transform;
+    transform:translate3d(0, 15px, 0);
+    transition:all 0.3s $cubic215 0.2s;
+    text-align:center;
+    font-size:17px;
+    line-height:17px;
+}
+.WD__modal__share__title__link {
+    display:inline-block;
+    vertical-align:top;
+    color:#fff;
+    text-decoration:none;
+    border-bottom:1px solid rgba(#fff,.6);
+    transition:all 0.2s $cubic215;
+
+    &:hover {
+        color:#FFED2D;
+        border-color:rgba(#FFED2D,.6);
+    }
+}
+.WD__modal__share__button,
+.WD__modal__share__toggle__button {
+    display:inline-block;
+    @include abs_50(80, 80);
+    border-radius:50%;
+    background:#fff;
+    cursor:pointer;
+    will-change:transform;
+    overflow:hidden;
+    transition:background 0.2s $cubic34;
+}
+.WD__modal__share__button {
+    transform:scale(0.95, 0.95);
+
+    path {
+        fill:#fff;
+        transition:fill 0.2s $cubic34;
+    }
+}
+.WD__modal__share__toggle__button {
+    z-index:5;
+
+    svg {
+        @include abs_50(45, 45);
+        margin:-22px 0 0 -26px;
+    }
+    path {
+        fill:$black_light;
+    }
+}
+.WD__modal__share__icon {
+    @include abs_50(60, 60);
+}
+.WD__modal__share__fb {
+    .WD__modal__share__icon {
+        margin:-20px 0 0 -28px;
+    }
+    path {
+        fill:#3A559F;
+    }
+    &:hover {
+        background:#3A559F;
+
+        path {
+            fill:#fff;
+        }
+    }
+}
+.WD__modal__share__tw {
+    .WD__modal__share__icon {
+        @include abs_50(54, 54);
+        margin:-24px 0 0 -25px;
+    }
+    path {
+        fill:#50ABF1;
+    }
+    &:hover {
+        background:#50ABF1;
+
+        path {
+            fill:#fff;
+        }
+    }
+}
+.WD__modal__share__vk {
+    .WD__modal__share__icon {
+        @include abs_50(62, 62);
+        margin:-30px 0 0 -34px;
+    }
+    path {
+        fill:#4D76A1;
+    }
+    &:hover {
+        background:#4D76A1;
+
+        path {
+            fill:#fff;
+        }
+    }
+}
+.WD__modal__share__dk {
+    .WD__modal__share__icon {
+        @include abs_50(48, 48);
+    }
+    path {
+        fill:#EE7808;
+    }
+    &:hover {
+        background:#EE7808;
+
+        path {
+            fill:#fff;
+        }
+    }
+}

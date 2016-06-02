@@ -1,7 +1,5 @@
 (function(app){
 
-    app.define("api");
-
     app.api = {
 
         callback: {
@@ -12,6 +10,17 @@
 
             close: function(){
                 app.callback.close();
+            }
+        },
+
+        reviews: {
+
+            open: function(){
+                app.reviews.open();
+            },
+
+            close: function(){
+                app.reviews.close();
             }
         }
 

@@ -2,6 +2,8 @@
 
     yuapApp.define("panel");
 
+    var API = yuapApp.api;
+
     yuapApp.panel = {
 
         hover: null,
@@ -20,6 +22,16 @@
 
             WD.popup();
             WD.social();
+
+            WD.wrapper.on("click", ".WD__panel__friendly, .WD__panel__messenger", function(e){
+                e.preventDefault();
+            });
+
+            // Open reviews
+            WD.wrapper.find(".WD__panel__friendly").on("click", function(e){
+                API.reviews.open();
+            });
+
         },
 
         popup: function(){
@@ -57,7 +69,7 @@
         },
 
         social: function(){
-            
+
             WD.socialPanel.find(".WD__panel__social__more").on("click", function(e){
                 $(this).removeClass("WD__panel__social__button--show");
                 WD.socialButtons.addClass("WD__panel__social__button--show");

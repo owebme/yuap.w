@@ -20,7 +20,7 @@
         render: function(){
 
             WD.elem.on('click', function(e) {
-                API.callback.open();
+                //API.callback.open();
             });
 
             if (device.isSafari || device.isFirefox) return;

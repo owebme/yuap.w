@@ -4,7 +4,10 @@
     border-radius:13px;
     color:#fff;
     border:none;
+    padding:0;
     transform:translate3d(999em, 0, 0);
+    // background-image:linear-gradient(225deg,lighten(#3e4757,6%),lighten(#1f242c,12%));
+    background-image:linear-gradient(225deg,#4B4E67,lighten(#2e314f,5%));
     box-shadow:0 2px 54px -10px rgba($bg_color,.25);
     z-index:1;
 }
@@ -24,6 +27,7 @@
     font-size:30px;
     line-height:30px;
     font-weight:300;
+    padding:30px 40px 0 40px;
 }
 .WD__modal__sendReview__score {
     position:absolute;
@@ -31,7 +35,7 @@
     left:430px;
     width:70px;
     height:70px;
-    line-height:72px;
+    line-height:70px;
     border-radius:50%;
     background:rgba($bg_color,.28);
     text-align:center;
@@ -51,7 +55,7 @@
 .WD__modal__sendReview__smile__container,
 .WD__modal__sendReview__avatar {
     position:absolute;
-    top:-6%;
+    top:-30px;
     right:5%;
 }
 .WD__modal__sendReview__smile__container:before {
@@ -97,7 +101,7 @@
     height:32px;
 }
 .WD__modal__slider__range__container:before,
-.WD__modal__slider__range__line {
+.WD__modal__slider__track {
     content:"";
     position:absolute;
     top:50%;
@@ -108,7 +112,7 @@
     margin-top:-2.5px;
     border-radius:10px;
 }
-.WD__modal__slider__range__line {
+.WD__modal__slider__track {
     background-image:linear-gradient(to right, #fff 50%, rgba(#fff,.5));
     box-shadow:0 0 5px -2px rgba(#fff,.3);
 }
@@ -118,7 +122,6 @@
     position: absolute;
     top: 50%;
     margin-top: -16px;
-    margin-left: -16px;
     background-color: #fff;
     box-shadow: inset 0 2px 1px rgba(255,255,255,.25), 0 3px 8px -3px rgba(#000,.4);
     border: 1px solid #D0D4DA;
@@ -168,14 +171,14 @@
 }
 .WD__modal__textarea__container {
     position:absolute;
-    top:220px;
+    top:217px;
     left:5%;
     width:90%;
-    height:55%;
+    height:256px;
 }
 .WD__modal__textarea {
     @include abs();
-    background:#fff;
+    background-color:#fff;
     border:0;
     outline:none;
     border-radius:13px;
@@ -220,8 +223,9 @@
 .WD__modal__sendReview__button__icon {
     display:inline-block;
     vertical-align:middle;
-    width:35px;
-    height:35px;
+    width:36px;
+    height:36px;
+    transform:translate3d(2px, 0, 0);
 }
 .WD__modal__sendReview__button__text {
     position:absolute;
@@ -246,146 +250,67 @@
 .WD__modal__sendReview__button:active {
     transform:translate3d(0, -1px, 0) scale(0.85);
 }
-.WD__modal__share {
-    position:relative;
-    max-width:600px;
-    height:80px;
-    margin:0 auto;
-    transform:scale(0);
-    transition:0.4s transform cubic-bezier(0.42, 0, 0.05, 2);
-}
-.WD__modal__share__container {
-    filter:url("#WD__share__buttons-goo-3");
-}
-.WD__modal__share__title {
-    position:absolute;
-    bottom:-30px;
-    width:100%;
-    opacity:0;
+.WD__modal__sendReview {
     will-change:opacity, transform;
-    transform:translate3d(0, 15px, 0);
-    transition:all 0.3s $cubic215 0.2s;
-    text-align:center;
-    font-size:17px;
-    line-height:17px;
+    opacity:0;
+    transform:translate3d(400px, 0, 0) scale3d(1.4, 0, 1);
 }
-.WD__modal__share__button,
-.WD__modal__share__toggle__button {
-    display:inline-block;
-    @include abs_50(80, 80);
-    border-radius:50%;
-    background:#fff;
-    cursor:pointer;
-    will-change:transform;
-    overflow:hidden;
-    transition:background 0.2s $cubic34;
+.WD__modal__sendReview__container {
+    will-change:opacity, transform;
+    opacity:0;
+    transform:translate3d(100px, 0, 0);
 }
-.WD__modal__share__button {
-    transform:scale(0.95, 0.95);
+.WD__modal__sendReview--open {
+    animation:WD__modal__slipRight-open .55s $cubic645 0.01s forwards;
 
-    path {
-        fill:#fff;
-        transition:fill 0.2s $cubic34;
+    .WD__modal__sendReview__container {
+        animation:WD__modal__slipRight-elem-open .5s $cubic645 0.01s forwards;
     }
 }
-.WD__modal__share__toggle__button {
-    z-index:5;
+.WD__modal__sendReview--hide {
+    animation:WD__modal__slipUp-hide .45s $cubic57 forwards;
 
-    svg {
-        @include abs_50(45, 45);
-        margin:-22px 0 0 -26px;
-    }
-    path {
-        fill:$black_light;
+    .WD__modal__sendReview__container {
+        animation:WD__modal__slipUp-elem-hide .4s $cubic57 forwards;
     }
 }
-.WD__modal__share__icon {
-    @include abs_50(60, 60);
-}
-.WD__modal__share__fb {
-    .WD__modal__share__icon {
-        margin:-20px 0 0 -28px;
+@keyframes WD__modal__slipRight-open {
+    0% {
+        opacity:0;
+        transform:translate3d(400px, 0, 0) scale3d(1.4, 0, 1);
     }
-    path {
-        fill:#3A559F;
-    }
-    &:hover {
-        background:#3A559F;
-
-        path {
-            fill:#fff;
-        }
+    100% {
+        opacity:1;
+        transform:translate3d(0, 0, 0) scale3d(1, 1, 1);
     }
 }
-.WD__modal__share__tw {
-    .WD__modal__share__icon {
-        @include abs_50(54, 54);
-        margin:-24px 0 0 -25px;
+@keyframes WD__modal__slipRight-elem-open {
+    0%, 20% {
+        opacity:0;
+        transform:translate3d(100px, 0, 0);
     }
-    path {
-        fill:#50ABF1;
-    }
-    &:hover {
-        background:#50ABF1;
-
-        path {
-            fill:#fff;
-        }
-    }
-}
-.WD__modal__share__vk {
-    .WD__modal__share__icon {
-        @include abs_50(62, 62);
-        margin:-30px 0 0 -34px;
-    }
-    path {
-        fill:#4D76A1;
-    }
-    &:hover {
-        background:#4D76A1;
-
-        path {
-            fill:#fff;
-        }
-    }
-}
-.WD__modal__share__dk {
-    .WD__modal__share__icon {
-        @include abs_50(48, 48);
-    }
-    path {
-        fill:#EE7808;
-    }
-    &:hover {
-        background:#EE7808;
-
-        path {
-            fill:#fff;
-        }
-    }
-}
-
-.WD__modal__sendReview--showAuth {
-    .WD__modal__textarea__container {
-        transform:translate3d(0, 120px, 0);
-
-        &:after {
-            content:"";
-            @include abs();
-        }
-    }
-    .WD__modal__sendReview__smile__container,
-    .WD__modal__sendReview__button {
-        transform:scale(0);
-    }
-    .WD__modal__sendReview__avatar,
-    .WD__modal__share {
-        transform:scale(1);
-    }
-}
-.WD__modal__share--active {
-    .WD__modal__share__title {
+    100% {
         opacity:1;
         transform:translate3d(0, 0, 0);
+    }
+}
+@keyframes WD__modal__slipUp-hide {
+    0% {
+        opacity:1;
+        transform:translate3d(0, 0, 0) scale3d(1, 1, 1);
+    }
+    100% {
+        opacity:0;
+        transform:translate3d(0, -400px, 0) scale3d(0, 1.4, 1);
+    }
+}
+@keyframes WD__modal__slipUp-elem-hide {
+    0%, 20% {
+        opacity:1;
+        transform:translate3d(0, 0, 0);
+    }
+    100% {
+        opacity:0;
+        transform:translate3d(0, -100px, 0);
     }
 }

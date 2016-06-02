@@ -27,7 +27,7 @@ $WD__panel: #00ab6b;
     display:inline-block;
     min-width:740px;
     height:57px;
-    padding:4px 15px 9px 20px;
+    padding:4px 15px 9px 25px;
     background:#fff;
     box-shadow:0 0 1px rgba(0,0,0,.44);
     border-radius:6px 6px 0 0;
@@ -114,22 +114,28 @@ $WD__panel: #00ab6b;
 }
 .WD__panel__friendly__badge {
     position:absolute;
-    top:-10px;
-    left:-29px;
-    width:24px;
-    height:24px;
-    background:#222;
+    top:-13px;
+    left:-37px;
+    width:34px;
+    height:34px;
+    background-image:linear-gradient(165deg, #fff, rgba(#f5f5f5,.97));
     border-radius:50%;
-    color:#fff;
-    font-size:12.5px;
-    line-height:24px;
+    color:#222;
+    font-size:13px;
+    line-height:29px;
     font-weight:bold;
     text-align:center;
     overflow:hidden;
+    border:3px solid rgba(#4DC95B,.7);
+    background-clip:padding-box;
+    box-shadow:1px 2px 5px -2px rgba(#000,.3);
     z-index:1;
 }
-.WD__panel__friendly__badge--sizeM {
-    font-size:13.5px;
+.WD__panel__friendly__badge__rest {
+    position:relative;
+    font-size:11px;
+    font-weight:400;
+    top:-1px;
 }
 .WD__panel__friendly__popup {
     display:block;
@@ -181,10 +187,10 @@ $WD__panel: #00ab6b;
     top:0;
     right:100%;
     border-radius:50%;
-    border:2px solid rgba($WD__panel,.9);
+    border:2px solid transparent;
     background-repeat:no-repeat;
     background-size:cover;
-    box-shadow:0 10px 6px -10px rgba(#070e19,.32);
+    box-shadow:-7px 10px 6px -10px rgba($bg_color,.3);
     will-change:transform;
     transform:translate3d(0, -10px, 0) scale(0);
     transition:transform 0.4s cubic-bezier(0.42, 0, 0.05, 1.5);
@@ -196,15 +202,17 @@ $WD__panel: #00ab6b;
     border-width:3px;
     background-image:url(/public/images/avatar/avatar2.png);
     transition-delay:0.1s;
+    border-color:rgba(#E45C5C,.95);
     z-index:1;
 }
 .WD__panel__friendly__popup__image2 {
     width:58px;
     height:58px;
-    margin:12px -3px 0 0;
+    margin:12px -1px 0 0;
     border-width:3px;
     background-image:url(/public/images/avatar/avatar5.png);
     transition-delay:0.2s;
+    border-color:rgba(#4DC95B,.95);
     z-index:3;
 }
 .WD__panel__friendly__popup__image3 {
@@ -214,6 +222,7 @@ $WD__panel: #00ab6b;
     border-width:2px;
     background-image:url(/public/images/avatar2.jpg);
     transition-delay:0.3s;
+    border-color:rgba(#FFCD33,.95);
     z-index:2;
 }
 .WD__panel__friendly:hover {
