@@ -127,7 +127,7 @@
                                 WD.timeContainer.$items = WD["time" + WD.timeContainer.$elem.data("items")];
                                 WD.time.showItems();
                             }
-                        }, 1);
+                        }, 5);
                     }
                     else if (e.type === "click"){
                         WD.time.hideItems();
@@ -139,7 +139,7 @@
                                   WD.timeContainer.$items = WD["time" + WD.timeContainer.$elem.data("items")];
                                   WD.time.hideItems();
                               }
-                          }, 1);
+                          }, 5);
                     }
                 });
 

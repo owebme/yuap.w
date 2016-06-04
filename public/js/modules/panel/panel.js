@@ -23,12 +23,12 @@
             WD.popup();
             WD.social();
 
-            WD.wrapper.on("click", ".WD__panel__friendly, .WD__panel__messenger", function(e){
+            WD.wrapper.on("click", ".WD__panel__reviews, .WD__panel__messenger", function(e){
                 e.preventDefault();
             });
 
             // Open reviews
-            WD.wrapper.find(".WD__panel__friendly").on("click", function(e){
+            WD.wrapper.find(".WD__panel__reviews").on("click", function(e){
                 API.reviews.open();
             });
 
