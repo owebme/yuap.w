@@ -39,8 +39,8 @@
     background-image:linear-gradient(to left, #fff 50%, rgba(#fff,0));
 }
 .WD__products__arrow__prev {
+    display:none;
     left:0;
-    opacity:0;
     background-image:linear-gradient(to right, #fff 50%, rgba(#fff,0));
     transition:opacity 0.3s $cubic215;
 }
@@ -59,17 +59,21 @@
     position:relative;
     white-space:nowrap;
     font-size:0;
+    // background:#fff;
+    // outline:20px solid #fff;
     overflow:hidden;
     // transform-style:preserve-3d;
     z-index:2;
 }
 .WD__products__title {
+    position:relative;
     color:$blue_bright;
     font-size:29px;
     line-height:38px;
     font-weight:400;
     letter-spacing:-0.02em;
     margin-left:-25px;
+    z-index:3;
 
     &:first-letter {
         font-size:32px;

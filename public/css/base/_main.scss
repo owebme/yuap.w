@@ -7,7 +7,7 @@
 [class^="WD__"] {
 	font-family:$default;
     font-weight:400;
-	// font-size:100%;
+	// font-size:inherit;
 	// line-height:1.42857143;
 	user-select:none;
 	text-size-adjust:100%;
@@ -30,7 +30,7 @@
     float: none;
     text-shadow: none;
     overflow: visible;
-    text-align: left;
+    text-align: inherit;
     width: auto;
     height: auto;
     min-width: 0;
