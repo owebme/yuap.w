@@ -22,30 +22,45 @@
         z-index:-1;
     }
 }
-.WD__products__arrow__next {
+.WD__products__arrow {
     position:absolute;
     top:0;
-    right:0;
     width:70px;
     height:100%;
-    background-image:linear-gradient(to left, #fff 50%, rgba(#fff,0));
     z-index:3;
 }
-.WD__products__arrow__next__icon {
+.WD__products__arrow__icon {
     position:absolute;
     top:50%;
-    right:20px;
     margin-top:-45px;
+}
+.WD__products__arrow__next {
+    right:0;
+    background-image:linear-gradient(to left, #fff 50%, rgba(#fff,0));
+}
+.WD__products__arrow__prev {
+    left:0;
+    opacity:0;
+    background-image:linear-gradient(to right, #fff 50%, rgba(#fff,0));
+    transition:opacity 0.3s $cubic215;
+}
+.WD__products__arrow__next__icon {
+    right:20px;
     opacity:0;
     will-change:opacity, transform;
     transition:opacity 0.3s $cubic215, transform 0.3s $cubic215;
     transform:translate3d(12px, 0, 0);
+}
+.WD__products__arrow__prev__icon {
+    left:20px;
+    opacity:0.4;
 }
 .WD__products__container {
     position:relative;
     white-space:nowrap;
     font-size:0;
     overflow:hidden;
+    // transform-style:preserve-3d;
     z-index:2;
 }
 .WD__products__title {
@@ -67,9 +82,9 @@
     position:relative;
     display:inline-block;
     vertical-align:top;
-    width:260px;
-    margin-right:36px;
-    padding:30px 10px 20px 10px;
+    width:296px;
+    padding:30px 46px 20px 10px;
+    list-style:none;
 }
 .WD__products__item__title {
     display:block;
@@ -78,7 +93,7 @@
     left:0;
     color:$gray_light;
     font-size:14px;
-    max-width:100%;
+    max-width:90%;
     white-space:nowrap;
     text-overflow:ellipsis;
     overflow:hidden;
@@ -119,6 +134,7 @@
     border-radius:5px;
     overflow:hidden;
     text-align:center;
+    z-index:0;
 
     &:before {
         content:"";
@@ -150,17 +166,39 @@
         background:url(/public/images/icon_plus.svg) no-repeat center center;
         transform:translate3d(0, 3px, 0);
         opacity:0.6;
-        will-change:opacity, transform;
     }
 }
-.WD__products__item__image:hover ~ .WD__products__item__plus {
+// .WD__products__item__phone {
+//     position:absolute;
+//     bottom:48px;
+//     right:50%;
+//     width:46px;
+//     height:46px;
+//     margin-right:-60px;
+//     background:$azure;
+//     border-radius:50%;
+//     box-shadow:0 6px 16px -6px rgba($black_light, .5);
+//     opacity:0;
+//     will-change:opacity, transform;
+//     transform:translate3d(0, 0, 0) scale(0);
+//     transition:opacity 0.2s $cubic57, transform 0.5s $cubic215;
+//
+//     &:before {
+//         content:"";
+//         @include abs_50(28, 28);
+//         background:url(/public/images/phone_white.svg) no-repeat center center;
+//     }
+// }
+.WD__products__item__image:hover ~ .WD__products__item__plus,
+.WD__products__item__plus:hover {
     opacity:1;
     transform:translate3d(0, 0, 0) scale(1);
+    transition:opacity 0.2s $cubic57 0.12s, transform 0.5s $cubic215 0.12s;
 }
 .WD__products__item__image {
     display:inline-block;
     max-width:240px;
-    max-height:235px;
+    max-height:230px;
     vertical-align:middle;
     border-radius:5px;
 }
