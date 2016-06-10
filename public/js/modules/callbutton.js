@@ -27,16 +27,16 @@
 
             if (device.isSafari || device.isFirefox) return;
 
-            $dom.frame.on('mousemove', function(e) {
+            $dom.document.on('mousemove', function(e) {
                 var deltaX = 88 / sizes.width,
                     deltaY = 88 / sizes.height,
                     pageX = WD.button.offsetLeft + e.pageX * deltaX,
                     pageY = WD.button.offsetTop + e.pageY * deltaY;
 
-                //if (e.pageX < winWidth / 2) return;
-
                 var x = (pageX - WD.button.offsetLeft - WD.button.offsetWidth / 2) * 0.5,
                     y = (pageY - WD.button.offsetTop - WD.button.offsetHeight / 2) * 0.6;
+
+                if (Math.abs(y) > 16) y = y < 0 ? -16 : 16;
 
                 TweenLite.to(WD.blob[1], 4.2, { x: x, y: y, ease: Elastic.easeOut.config(1, 0.1) });
                 TweenLite.to(WD.blob[2], 2.8, { x: x, y: -y, ease: Elastic.easeOut.config(1, 0.1) });

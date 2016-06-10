@@ -1,4 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,300,500,700,100&subset=cyrillic-ext,latin');
+@font-face {
+	font-family:'Myriad Set Pro';
+	font-style:normal;
+	font-weight:200;
+	src:url("/public/css/fonts/myriad-set-pro_thin.woff") format("woff");
+}
 // @font-face {
 //     font-family: 'Helvetica Neue';
 //     src: url('/public/css/fonts/HelveticaNeueCyrLight.eot');

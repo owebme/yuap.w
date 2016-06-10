@@ -8,6 +8,9 @@
     user-select:none;
     z-index:200002;
 }
+
+// $WD__panel: #B8A081;
+// $WD__panel: darken(#d0a8a0,7%);
 $WD__panel: #00ab6b;
 
 .WD__panel a {
@@ -122,6 +125,11 @@ $WD__panel: #00ab6b;
         animation:map 1.2s infinite linear;
         z-index:-1;
     }
+}
+.WD__panel__button__circle__badge__point {
+    @include abs_50(7, 7);
+    background:#fff;
+    border-radius:50%;
 }
 @keyframes map {
     0% {

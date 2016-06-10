@@ -22,6 +22,17 @@
             close: function(){
                 app.reviews.close();
             }
+        },
+
+        products: {
+
+            open: function(){
+                app.panel.products.open();
+            },
+
+            close: function(){
+                app.panel.products.close();
+            }
         }
 
     };

@@ -4,13 +4,12 @@
 This is the main code
 */
 
-var isExplorer = false || !!document.documentMode; // At least IE6
-
 $(function () { //document ready
     "use strict";
 
+    var isExplorer = false || !!document.documentMode; // At least IE6
 
-    $.fn.itemslide = function (options) {
+    $.fn.initSlider = function (options) {
 
 
             //Animation variables
@@ -37,8 +36,8 @@ $(function () { //document ready
                 duration: 350,
                 swipe_sensitivity: 100,
                 disable_slide: false,
-                disable_clicktoslide: false,
-                disable_scroll: false,
+                disable_clicktoslide: true,
+                disable_scroll: true,
                 start: 0,
                 one_item: false, //Set true for full screen navigation or navigation with one item every time
                 pan_threshold: 0.3, //Precentage of slide width
@@ -88,8 +87,7 @@ $(function () { //document ready
 
 
             if (!settings.disable_autowidth)
-                //slides.css("width", slides.children('li').length * slides.children().cwidth() + 10);
-                slides.css("width", slides.children('li').length * slides.children().cwidth());
+                slides.css("width", slides.children('li').length * slides.children().cwidth() + 10);
                  //SET WIDTH
             //To add vertical scrolling just set width to slides.children('li').width()
 
@@ -612,7 +610,7 @@ $(function () { //document ready
         });
     }
 
-    $.fn.next = function () { //Next slide
+    $.fn.nextSlide = function () { //Next slide
 
 
         this.gotoSlide(this.data("vars").currentIndex + 1);
@@ -620,17 +618,17 @@ $(function () { //document ready
 
     }
 
-    $.fn.previous = function () { //Next slide
+    $.fn.prevSlide = function () { //Next slide
 
         this.gotoSlide(this.data("vars").currentIndex - 1);
     }
 
 
-    $.fn.reload = function () { //Get index of active slide
+    $.fn.reloadSlider = function () { //Get index of active slide
 
         //Update some sizes
         if (this.data("vars").parent_width) {
-            this.children().width(this.parent().cwidth()); //resize the slides
+            //this.children().width(this.parent().cwidth()); //resize the slides
         }
 
         if (!this.data("vars").disable_autowidth) {
@@ -640,12 +638,12 @@ $(function () { //document ready
 
 
 
-        this.data("vars").slideHeight = this.children().height();
+        //this.data("vars").slideHeight = this.children().height();
 
 
 
         this.data("vars").velocity = 0; //Set panning veloicity to zero
-        this.gotoSlide(this.data("vars").currentIndex);
+        //this.gotoSlide(this.data("vars").currentIndex);
 
 
     }
@@ -653,7 +651,7 @@ $(function () { //document ready
 
     $.fn.addSlide = function (data) {
         this.append("<li>" + data + "</li>");
-        this.reload();
+        this.reloadSlider();
     }
 
     $.fn.removeSlide = function (index) {
@@ -711,21 +709,16 @@ $(function () { //document ready
     }
 
 
+    //General Functions
+    function matrixToArray(matrix) {
+        return matrix.substr(7, matrix.length - 8).split(', ');
+    }
 
 
+    function easeOutBack(t, b, c, d, s) {
+        //s - controls how forward will it go beyond goal
+        if (s == undefined) s = 1.70158;
 
+        return c * ((t = t / d - 1) * t * ((s + 1) * t + s) + 1) + b;
+    }
 });
-
-
-//General Functions
-function matrixToArray(matrix) {
-    return matrix.substr(7, matrix.length - 8).split(', ');
-}
-
-
-function easeOutBack(t, b, c, d, s) {
-    //s - controls how forward will it go beyond goal
-    if (s == undefined) s = 1.70158;
-
-    return c * ((t = t / d - 1) * t * ((s + 1) * t + s) + 1) + b;
-}
