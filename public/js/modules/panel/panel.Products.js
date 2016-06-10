@@ -222,7 +222,7 @@
                         WD.menuOverlay.removeClass("WD__panel__popup__overlay--active");
                         if (WD.popup.hoverSlider) return true;
                         WD.elem.removeClass("WD__products--active");
-                    }, WD.popup.hoverSlider ? 200 : 0);
+                    }, WD.popup.hoverSlider ? 100 : 0);
                 }, 0);
             }
         },
@@ -230,6 +230,7 @@
         hover: function(){
 
             WD.popupZone.on("mouseenter.popupProducts", function(){
+                WD.popupZone.off("mouseenter.popupProducts");
                 WD.popup.hoverSlider = true;
                 WD.popup.hide();
                 WD.elem.addClass("WD__products--show");
@@ -260,6 +261,7 @@
         open: function(){
 
             if (WD.slideIndex) WD.slider.gotoSlide(WD.slideIndex + 1);
+            WD.popupZone.off("mouseenter.popupProducts");
             WD.elem.addClass("WD__products--open");
             WD.slider.reloadSlider();
             WD.nav();
@@ -274,6 +276,7 @@
                 WD.slider.gotoSlide(1);
                 setTimeout(function(){
                     WD.slider.css(prefixed["transform"], "translate3d(0, 0, 0)");
+                    WD.hover();
                 }, 400);
             });
 
