@@ -1,0 +1,175 @@
+section,
+section *,
+section *:after,
+section *:before {
+	box-sizing:border-box;
+}
+section {
+    font-weight:400;
+    font-family:$default;
+    text-size-adjust:100%;
+	text-rendering:optimizeLegibility;
+	-webkit-font-smoothing:antialiased;
+	-moz-osx-font-smoothing: grayscale;
+    -moz-font-feature-settings:'liga', 'kern';
+}
+#home {
+    @include abs();
+    background:linear-gradient(rgba(#edf4f7,.8),rgba(#daf0f8,.9));
+    // background:linear-gradient(rgba(lighten(#B8A081, 32%),.6), rgba(lighten(#B8A081,25%),.7));
+    // background:linear-gradient(rgba(#f7ede9,.8),rgba(#faddd6,.8));
+    // background:linear-gradient(rgba(#f7f0f9,.85),rgba(#fff6fe,.95));
+	// background:linear-gradient(rgba(#f5f8f8,.85), rgba(#d5e7e9,.95));
+	// background:linear-gradient(rgba(#f9fafd,.7), rgba(#cbd3e4,.7));
+    // background:linear-gradient(rgba(#f5f5fb,.8), rgba(#d5d7ec,.8));
+	// background:linear-gradient(rgba(#f1f8ff,.85), rgba(#c6daf0,.95));
+	// background:linear-gradient(rgba(#fbf2ee,.85) 40%, rgba(#f9e1db,.95));
+}
+// #home {
+//     background:linear-gradient(to bottom, #FFFFFF 0%, #F4F4F4 25%);
+//     background:linear-gradient(to bottom, #d7dfe3 0%, #fafbfc 100%);
+//     background:rgb(235, 240, 240);
+//     background:#f8f8f8;
+//     background:linear-gradient(#fff, #f2f2f2);
+// }
+#logo {
+	position:absolute;
+	top:6%;
+	left:0;
+    width:100%;
+    height:90px;
+}
+.logo__icon {
+    @include abs_50(90, 90);
+    opacity:0.15;
+}
+.logo__icon__color {
+    fill:$black_gray;
+}
+.logo__icon__item1 {
+    transform:scale3d(1, 0.92, 1);
+}
+.home__menu {
+    position:absolute;
+    right:50px;
+    top:30px;
+    font-size:0;
+}
+.home__menu__item {
+    position:relative;
+    display:inline-block;
+    vertical-align:top;
+    margin-left:21px;
+    color:#333;
+    font-family:$pragmatica;
+    font-size:13px;
+    line-height:13px;
+    text-transform:uppercase;
+    text-decoration:none;
+    letter-spacing:0.9px;
+    transition:color .2s $cubic215, transform .2s $cubic215;
+
+    &:before {
+        content:"";
+        position:absolute;
+        bottom:-6px;
+        left:0;
+        width:100%;
+        height:2px;
+        background:rgba($azure,.3);
+        transform:scale(0);
+        transition:transform .25s $cubic215;
+    }
+    &:hover {
+        color:$azure;
+
+        &:before {
+            transform:scale(1);
+        }
+    }
+    &:active {
+        transform:translate3d(0, 2px, 0) scale(0.8);
+    }
+}
+.home__title {
+    position:absolute;
+    top:50%;
+    left:0;
+    width:100%;
+}
+.title {
+    color:$black_dark;
+    font-family:$pfhighway;
+    font-size:52px;
+    line-height:1.07724;
+    font-weight:200;
+    letter-spacing:-0.013em;
+    text-align:center;
+    margin-top:-94px;
+
+    &:before {
+        content:"";
+        position:absolute;
+        top:0;
+        left:50%;
+        width:64px;
+        height:1px;
+        margin:-49px 0 0 -32px;
+        background:#DEDEDE;
+    }
+}
+.subtitle {
+    display:block;
+    font-family:$myriad;
+    font-size:28px;
+    line-height:28px;
+    padding-top:8px;
+    letter-spacing:-0.016em;
+}
+.title__button {
+    position:relative;
+    display:inline-block;
+    vertical-align:top;
+    height:54px;
+    padding:0 40px;
+    border-radius:32px;
+    font-weight:400;
+    font-family:$default;
+    font-size:19px;
+    line-height:51px;
+    margin-top:30px;
+    color:#222;
+    background:#fff;
+    letter-spacing:0;
+    box-shadow:0 8px 16px -13px rgba(#000,.4);
+    cursor:pointer;
+    transition:color .25s $cubic215, background .3s $cubic215, box-shadow .4s $cubic34, transform .2s $cubic34;
+    overflow:hidden;
+
+    span {
+        position:relative;
+    }
+    svg {
+        display:inline-block;
+        stroke:#222;
+        width:24px;
+        height:24px;
+        margin-right:11px;
+        vertical-align:text-bottom;
+        transform:scale(1.2);
+        transition:stroke .25s $cubic215;
+    }
+    &:hover {
+        color:#fff;
+        background:$black_gray;
+        box-shadow:0 16px 36px -16px rgba(#000,.64);
+
+        svg {
+            stroke:#fff;
+            fill:#fff;
+        }
+    }
+    &:active {
+        transform:translate3d(0, 2px, 0) scale(0.8);
+    }
+}

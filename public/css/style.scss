@@ -5,6 +5,10 @@
 @import 'base/mixins';
 @import 'base/main';
 
+// promo
+@import 'promo/index';
+@import 'promo/clouds';
+
 // modules
 @import 'modules/callbutton';
 @import 'modules/callbuttonCloud';
@@ -18,10 +22,12 @@
 @import 'modules/panel/panelSocial';
 @import 'modules/panel/panelReviews';
 @import 'modules/panel/panelMenu';
+@import 'modules/panel/panelCurrency';
+
+// products
 @import 'modules/panel/panelProducts';
 @import 'modules/panel/panelProductsSlider';
 @import 'modules/panel/productsMinify';
-@import 'modules/panel/clouds';
 
 // reviews
 @import 'modules/reviews/reviews';

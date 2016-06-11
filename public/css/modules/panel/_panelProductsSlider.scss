@@ -157,15 +157,15 @@
 .WD__products__title__big {
     display:block;
     position:absolute;
-    top:-52px;
+    top:-50px;
     right:60px;
     width:100%;
-    color:rgba($black_light,.29);
-    font-weight:$roboto;
+    color:rgba($black_light,.3);
+    font-family:$roboto;
     font-size:58px;
     line-height:58px;
     font-weight:300;
-    letter-spacing:-2.2px;
+    letter-spacing:-3.5px;
     text-align:right;
     opacity:0;
     will-change:opacity, transform;

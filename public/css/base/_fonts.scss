@@ -5,6 +5,105 @@
 	font-weight:200;
 	src:url("/public/css/fonts/myriad-set-pro_thin.woff") format("woff");
 }
+@font-face {
+    font-family:pragmatica;
+	src: url('/public/css/fonts/pragmatica-extralight-v4.woff2') format('woff2'),
+		 url('/public/css/fonts/pragmatica-extralight-v4.eot') format('eot'),
+		 url('/public/css/fonts/pragmatica-extralight-v4.woff') format('woff'),
+         url('/public/css/fonts/pragmatica-extralight-v4.ttf') format('ttf');
+    font-weight:200;
+    font-style:normal;
+}
+@font-face {
+    font-family:pragmatica;
+	src: url('/public/css/fonts/pragmatica-light-v4.woff2') format('woff2'),
+	     url('/public/css/fonts/pragmatica-light-v4.eot') format('eot'),
+		 url('/public/css/fonts/pragmatica-light-v4.woff') format('woff'),
+         url('/public/css/fonts/pragmatica-light-v4.ttf') format('ttf');
+    font-weight:300;
+    font-style:normal;
+}
+@font-face {
+    font-family:pragmatica;
+	src: url('/public/css/fonts/pragmatica-regular-v4.woff2') format('woff2'),
+         url('/public/css/fonts/pragmatica-regular-v4.woff') format('woff'),
+		 url('/public/css/fonts/pragmatica-regular-v4.eot') format('eot'),
+         url('/public/css/fonts/pragmatica-regular-v4.ttf') format('ttf');
+    font-weight:400;
+    font-style:normal;
+}
+@font-face {
+    font-family:pragmatica;
+	src: url('/public/css/fonts/pragmatica-medium-v4.woff2') format('woff2'),
+		 url('/public/css/fonts/pragmatica-medium-v4.eot') format('eot'),
+		 url('/public/css/fonts/pragmatica-medium-v4.woff') format('woff'),
+		 url('/public/css/fonts/pragmatica-medium-v4.ttf') format('ttf');
+    font-weight:600;
+    font-style:normal;
+}
+@font-face {
+    font-family:pragmatica;
+	src: url('/public/css/fonts/pragmatica-bold-v4.woff2') format('woff2'),
+		 url('/public/css/fonts/pragmatica-bold-v4.eot') format('eot'),
+		 url('/public/css/fonts/pragmatica-bold-v4.woff') format('woff'),
+         url('/public/css/fonts/pragmatica-bold-v4.ttf') format('ttf');
+    font-weight:700;
+    font-style:normal;
+}
+// @font-face {
+// 	font-family: 'pfhighway';
+// 	src: url('/public/css/fonts/pfhighwaysanspro-extrathin.woff2') format('woff2'),
+// 		 url('/public/css/fonts/pfhighwaysanspro-extrathin.woff') format('woff'),
+// 		 url('/public/css/fonts/pfhighwaysanspro-extrathin.ttf')  format('ttf'),
+// 		 url('/public/css/fonts/pfhighwaysanspro-extrathin.eot') format('eot');
+// 	font-weight: 100;
+// 	font-style: normal;
+// }
+@font-face {
+	font-family: 'pfhighway';
+	src: url('/public/css/fonts/pfhighwaysanspro-thin.woff2') format('woff2'),
+		 url('/public/css/fonts/pfhighwaysanspro-thin.woff') format('woff'),
+		 url('/public/css/fonts/pfhighwaysanspro-thin.ttf')  format('ttf'),
+		 url('/public/css/fonts/pfhighwaysanspro-thin.eot') format('eot');
+	font-weight: 200;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'pfhighway';
+	src: url('/public/css/fonts/pfhighwaysanspro-light.woff2') format('woff2'),
+		 url('/public/css/fonts/pfhighwaysanspro-light.woff') format('woff'),
+		 url('/public/css/fonts/pfhighwaysanspro-light.ttf')  format('ttf'),
+		 url('/public/css/fonts/pfhighwaysanspro-light.eot') format('eot');
+	font-weight: 300;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'pfhighway';
+	src: url('/public/css/fonts/pfhighwaysanspro-regular.woff2') format('woff2'),
+		 url('/public/css/fonts/pfhighwaysanspro-regular.woff') format('woff'),
+		 url('/public/css/fonts/pfhighwaysanspro-regular.ttf')  format('ttf'),
+		 url('/public/css/fonts/pfhighwaysanspro-regular.eot') format('eot');
+	font-weight: 400;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'pfhighway';
+	src: url('/public/css/fonts/pfhighwaysanspro-medium.woff2') format('woff2'),
+		 url('/public/css/fonts/pfhighwaysanspro-medium.woff') format('woff'),
+		 url('/public/css/fonts/pfhighwaysanspro-medium.ttf')  format('ttf'),
+		 url('/public/css/fonts/pfhighwaysanspro-medium.eot') format('eot');
+	font-weight: 600;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'pfhighway';
+	src: url('/public/css/fonts/pfhighwaysanspro-bold.woff2') format('woff2'),
+		 url('/public/css/fonts/pfhighwaysanspro-bold.woff') format('woff'),
+		 url('/public/css/fonts/pfhighwaysanspro-bold.ttf')  format('ttf'),
+		 url('/public/css/fonts/pfhighwaysanspro-bold.eot') format('eot');
+	font-weight: 700;
+	font-style: normal;
+}
 // @font-face {
 //     font-family: 'Helvetica Neue';
 //     src: url('/public/css/fonts/HelveticaNeueCyrLight.eot');

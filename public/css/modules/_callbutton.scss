@@ -138,6 +138,18 @@ $WD__callbutton__orange: #FF6000;
     	background: #262626;
     	transform: translate3d(0,-80%,0) rotate3d(0,0,1,36deg);
     }
+    // &:after {
+    //     content:"";
+    //     position:absolute;
+    //     width: 52px;
+    // 	height: 32px;
+    // 	left: 50%;
+    // 	margin:-18px 0 0 -26px;
+    // 	top: 100%;
+    // 	background: url(/public/images/tooltip_blob.svg) no-repeat center center;
+    // 	background-size: 100%;
+    //     transform:scale3d(2.3, 1, 1) rotate(-8deg);
+    // }
 }
 .WD__callbutton:hover .WD__callbutton__tooltip {
 	opacity: 1;

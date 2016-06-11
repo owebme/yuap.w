@@ -8,11 +8,13 @@
     user-select:none;
     z-index:200002;
 }
-
 // $WD__panel: #B8A081;
 // $WD__panel: darken(#d0a8a0,7%);
 $WD__panel: #00ab6b;
 
+.WD__panel:after {
+    background-image:linear-gradient(to right, #ff6562 20%, #00dad8 40%, #9a64ff 60%, #ff4cab 80%, #FFCD33 100%) !important;
+}
 .WD__panel a {
     position:relative;
     display:inline-block;

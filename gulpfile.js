@@ -61,6 +61,7 @@ gulp.task('watch', function() {
 
     gulp.watch([
 		'index.html',
+		'promo.html',
 		'public/**/*.js'
 	]).on('change', reload);
 });
