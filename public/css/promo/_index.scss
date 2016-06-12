@@ -41,10 +41,10 @@ section {
 }
 .logo__icon {
     @include abs_50(90, 90);
-    opacity:0.15;
 }
 .logo__icon__color {
     fill:$black_gray;
+	opacity:0.15;
 }
 .logo__icon__item1 {
     transform:scale3d(1, 0.92, 1);
@@ -141,6 +141,7 @@ section {
     color:#222;
     background:#fff;
     letter-spacing:0;
+	user-select:none;
     box-shadow:0 8px 16px -13px rgba(#000,.4);
     cursor:pointer;
     transition:color .25s $cubic215, background .3s $cubic215, box-shadow .4s $cubic34, transform .2s $cubic34;

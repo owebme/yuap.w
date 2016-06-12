@@ -38,12 +38,17 @@
 @import 'modules/reviews/modalShare';
 @import 'modules/reviews/sendReview';
 
+// contacts
+@import 'modules/contacts/contacts';
+@import 'modules/contacts/feedback';
+
 // elements
 @import 'elements/colors';
 @import 'elements/select';
 @import 'elements/loading';
 @import 'elements/notify';
 @import 'elements/scrollbar';
+@import 'elements/balloon';
 
 // states
 @import 'states/color';

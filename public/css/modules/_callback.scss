@@ -1,5 +1,9 @@
 $WD__callback: #B7D517;
 
+.WD__callback {
+    font-weight:400;
+    font-family:$default;
+}
 .WD__callback__message {
     position:absolute;
     top:40px;

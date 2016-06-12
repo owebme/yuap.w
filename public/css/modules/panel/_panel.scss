@@ -4,12 +4,15 @@
     left:0;
     width:100%;
     color:rgba(#000,.8);
+    font-weight:400;
+    font-family:$default;    
     text-align:center;
     user-select:none;
     z-index:200002;
 }
 // $WD__panel: #B8A081;
 // $WD__panel: darken(#d0a8a0,7%);
+// $WD__panel: #0094DA; // blue
 $WD__panel: #00ab6b;
 
 .WD__panel:after {
@@ -25,7 +28,7 @@ $WD__panel: #00ab6b;
     transition:transform .12s $cubic215, color .12s $cubic215;
 
     &:hover {
-        color:#00ab6b;
+        color:$green;
     }
 }
 .WD__panel__wrapper {

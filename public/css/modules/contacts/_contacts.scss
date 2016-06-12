@@ -1,0 +1,277 @@
+.WD__contacts {
+    @include abs();
+    position:fixed;
+    background:#fafafa;
+    font-family:$roboto;
+    font-weight:300;
+    overflow:hidden;
+    z-index:200011;
+}
+.WD__contacts__close {
+    z-index:2;
+}
+.WD__contacts__wrapper {
+    @include abs();
+
+    &:after {
+        content:"";
+        @include abs();
+        opacity:0;
+        transform:translate3d(-101%, 0, 0);
+        background:rgba($bg_color,.8);
+        z-index:10;
+    }
+}
+.WD__contacts__map {
+    position:absolute;
+    top:0;
+    left:0;
+    width:70%;
+    height:100%;
+    background:url(/public/images/map.png) no-repeat 0 0 / cover;
+    // filter:blur(16px);
+}
+.WD__contacts__container {
+    position:absolute;
+    top:0;
+    right:0;
+    width:50%;
+    height:100%;
+    padding:65px 50px 0 80px;
+}
+.WD__contacts__bg {
+    @include abs();
+}
+.WD__contacts__svg {
+    fill:$black_dark;
+    fill:$blue_bright;
+}
+.WD__contacts__content {
+    position:absolute;
+    top:65px;
+    left:-45px;
+    backface-visibility:hidden;
+    transform-style:preserve-3d;
+    z-index:1;
+}
+.WD__contacts__content__box {
+    position:relative;
+    color:$black_dark;
+    padding: 96px 75px;
+    background:#fff;
+    min-width:454px;
+    max-width:520px;
+    box-shadow:0 -30px 60px -10px rgba(#000,.15);
+    will-change:height, transform;
+    transition:transform 0.4s cubic-bezier(0.42, 0, 0.05, 1.2), height 0.4s cubic-bezier(0.42, 0, 0.05, 1.2);
+    z-index:1;
+
+    &:before {
+        content:"";
+        @include abs();
+        background:url(/public/images/map.png) no-repeat top center / cover;
+        transform:scaleY(-1);
+        filter:blur(7px);
+        overflow:hidden;
+        opacity:0.4;
+        z-index:-2;
+    }
+    &:after {
+        content:"";
+        @include abs();
+        background:linear-gradient(to left, #fff 85%, rgba(#fff,0) 100%);
+        z-index:-1;
+    }
+}
+.WD__contacts__title {
+    color:$black_light;
+    font-size:32px;
+    line-height:34px;
+    margin-bottom:22px;
+    letter-spacing:-0.013em;
+    -webkit-font-smoothing:auto;
+}
+.WD__contacts__text {
+    display:block;
+    font-size:18px;
+    line-height:25px;
+    margin-bottom:15px;
+    user-select:text;
+}
+.WD__contacts__text__strong {
+    font-weight:500;
+}
+.WD__contacts__link {
+    color:$blue;
+    border-bottom:1px solid rgba($blue,.3);
+    transition:all 0.12s $cubic215;
+
+    &:hover {
+        color:$red;
+        border-color:$red;
+    }
+    &:active {
+        transform:translate3d(0, 2px, 0) scale(0.9);
+    }
+}
+.WD__contacts__openDetails {
+    position:relative;
+    border-bottom:1px dotted rgba($blue,.5);
+
+    &:before {
+        content:"\00AC";
+        position:absolute;
+        top:0;
+        right:-13px;
+        font-size:17px;
+        line-height:17px;
+        font-family:$roboto;
+        font-weight:300;
+        transition:opacity 0.3s $cubic57;
+    }
+    &:after {
+        content:"\2193";
+        position:absolute;
+        top:6px;
+        right:-15px;
+        font-size:15px;
+        line-height:15px;
+        font-family:$roboto;
+        font-weight:300;
+        transition:transform 0.3s $cubic57;
+    }
+}
+.WD__contacts__openDetails--active {
+    &:before {
+        opacity:0;
+    }
+    &:after {
+        transform:rotate(-180deg);
+    }
+}
+.WD__contacts__details {
+    position:relative;
+    margin-top:20px;
+}
+.WD__contacts__details__container {
+    position:absolute;
+    top:44px;
+    left:0;
+    opacity:0;
+    will-change:opacity, transform;
+    transform:translate3d(0, 20px, 0);
+    transition:transform 0.3s $cubic34, opacity 0.3s $cubic34;
+}
+.WD__contacts__details--open {
+    opacity:1;
+    transform:translate3d(0, 0, 0);
+}
+.WD__contacts__button__feedback {
+    position:absolute;
+    bottom:-22px;
+    right:29px;
+    width:68px;
+    height:68px;
+    border-radius:50%;
+    background:#fff;
+    cursor:pointer;
+    box-shadow:0 8px 16px -8px rgba($bg_color,.6), -1px 4px 10px -3px rgba($bg_color,.5);
+    transition:box-shadow 0.3s $cubic215, transform 0.2s $cubic215;
+    z-index:1;
+
+    &:hover {
+        box-shadow:0 16px 32px -8px rgba($bg_color,.5), -1px 9px 20px -3px rgba($bg_color,.4);
+    }
+    &:active {
+        transform:scale(0.85) translate3d(0, 2px, 0);
+    }
+}
+.WD__contacts__button__feedback__icon {
+    @include abs_50(64, 64);
+    transform:translate3d(2px, 6px, 0);
+}
+.WD__contacts__button__feedback__icon__color {
+    fill:$black_light;
+}
+.WD__contacts__button__print {
+    position:absolute;
+    top:20px;
+    right:18px;
+    width:35px;
+    height:35px;
+    cursor:pointer;
+    transition:transform 0.2s $cubic215;
+
+    &:hover {
+        transform:scale(1.15);
+    }
+    &:active {
+        transform:scale(0.85) translate3d(0, 1px, 0);
+    }
+}
+.WD__contacts__button__print__color {
+    fill:rgba($blue,.6);
+}
+.WD__contacts__button__fullscreen {
+    position:absolute;
+    top:80px;
+    left:-4px;
+    width:71px;
+    height:64px;
+    border-radius:0 27px 27px 0;
+    background:rgba($black_gray,.95);
+    box-shadow:0 4px 16px -8px rgba($bg_color,.6), -1px 2px 10px -3px rgba($bg_color,.5);
+    transition:transform 0.2s $cubic215, background 0.2s $cubic215;
+    cursor:pointer;
+    z-index:2;
+}
+.WD__contacts__button__fullscreen:hover {
+    background:#1c1c1c;
+}
+.WD__contacts__button__fullscreen:active {
+    transform:scale(0.9);
+}
+.WD__contacts__button__fullscreen__icon1,
+.WD__contacts__button__fullscreen__icon2 {
+    @include abs_50(48, 48);
+    opacity:0;
+    transform:translate3d(0, 4px, 0) scale(0);
+    transition:transform 0.3s cubic-bezier(0.42, 0, 0.05, 1.25), opacity 0.3s $cubic215;
+}
+.WD__contacts__button__fullscreen__icon1 {
+    opacity:1;
+    transform:translate3d(0, 4px, 0) scale(1);
+}
+.WD__contacts__button__fullscreen__color {
+    fill:#fff;
+}
+.WD__contacts__button__fullscreen--active,
+.WD__contacts__button__fullscreen--active:hover {
+    background:#fff;
+
+    .WD__contacts__button__fullscreen__color {
+        fill:$black_gray;
+    }
+    .WD__contacts__button__fullscreen__icon1 {
+        opacity:0;
+        transform:translate3d(0, 4px, 0) scale(0);
+    }
+    .WD__contacts__button__fullscreen__icon2 {
+        opacity:1;
+        transform:translate3d(0, 4px, 0) scale(1);
+    }
+}
+.WD__contacts__map {
+    transition:width 0.55s cubic-bezier(0.42, 0, 0.05, 1);
+}
+.WD__contacts__container {
+    transition:transform 0.55s cubic-bezier(0.42, 0, 0.05, 1.35);
+}
+.WD__contacts--fullscreen {
+    .WD__contacts__map {
+        width:100%;
+    }
+    .WD__contacts__container {
+        transform:translate3d(70%, 0, 0);
+    }
+}

@@ -1,0 +1,30 @@
+.WD__feedback {
+    position:absolute;
+    top:0;
+    left:100%;
+    width:560px;
+    height:100%;
+    background:linear-gradient(to bottom, #FFFFFF 0%, #F4F4F4 25%);
+    font-family:$roboto;
+    font-weight:300;
+}
+.WD__feedback,
+.WD__contacts__wrapper {
+    will-change:transform;
+    transition:transform 0.5s cubic-bezier(0.42, 0, 0.05, 1.1);
+}
+.WD__contacts__wrapper:after {
+    will-change:opacity;
+    transition:opacity 0.4s $cubic215, transform 0s 0.5s;
+}
+.WD__contacts--feedback {
+    .WD__contacts__wrapper,
+    .WD__feedback {
+        transform:translate3d(-560px, 0, 0);
+    }
+    .WD__contacts__wrapper:after {
+        opacity:1;
+        transform:translate3d(0, 0, 0);
+        transition:opacity 0.4s $cubic215, transform 0s;
+    }
+}
