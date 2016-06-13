@@ -5,6 +5,16 @@
 @import 'base/mixins';
 @import 'base/main';
 
+// elements
+@import 'elements/colors';
+@import 'elements/select';
+@import 'elements/loading';
+@import 'elements/notify';
+@import 'elements/scrollbar';
+@import 'elements/buttons';
+@import 'elements/balloon';
+@import 'elements/balloonError';
+
 // promo
 @import 'promo/index';
 @import 'promo/clouds';
@@ -41,14 +51,7 @@
 // contacts
 @import 'modules/contacts/contacts';
 @import 'modules/contacts/feedback';
-
-// elements
-@import 'elements/colors';
-@import 'elements/select';
-@import 'elements/loading';
-@import 'elements/notify';
-@import 'elements/scrollbar';
-@import 'elements/balloon';
+@import 'modules/contacts/businessCard';
 
 // states
 @import 'states/color';

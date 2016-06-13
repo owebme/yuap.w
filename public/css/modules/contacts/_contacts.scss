@@ -1,14 +1,16 @@
 .WD__contacts {
     @include abs();
     position:fixed;
-    background:#fafafa;
     font-family:$roboto;
     font-weight:300;
     overflow:hidden;
+    margin-left:-999em;
+    perspective:1500px;
+    will-change:filter, opacity, transform;
+    opacity:0;
+    transform:perspective(1000px) scale3d(0.7, 0.7, 1) translate3d(-15%, -25%, -80px);
+    transition:opacity 0.25s $cubic57, transform 0.28s $cubic57, margin-left 0s 0.3s;
     z-index:200011;
-}
-.WD__contacts__close {
-    z-index:2;
 }
 .WD__contacts__wrapper {
     @include abs();
@@ -38,6 +40,22 @@
     width:50%;
     height:100%;
     padding:65px 50px 0 80px;
+}
+.WD__contacts__close {
+    transform:scale(0);
+    transition:transform 0.2s $cubic57;
+    z-index:2;
+}
+.WD__contacts--open {
+    opacity:1;
+    margin-left:0px;
+    transform:scale3d(1, 1, 1) translate3d(0, 0, 0);
+    transition:opacity 0.3s $cubic215, transform 0.4s $cubic57, margin-left 0s;
+
+    .WD__contacts__close {
+        transform:scale(1);
+        transition:transform 0.4s $cubic57 0.4s;
+    }
 }
 .WD__contacts__bg {
     @include abs();
@@ -70,8 +88,7 @@
         content:"";
         @include abs();
         background:url(/public/images/map.png) no-repeat top center / cover;
-        transform:scaleY(-1);
-        filter:blur(7px);
+        // filter:blur(7px);
         overflow:hidden;
         opacity:0.4;
         z-index:-2;
@@ -180,7 +197,7 @@
     z-index:1;
 
     &:hover {
-        box-shadow:0 16px 32px -8px rgba($bg_color,.5), -1px 9px 20px -3px rgba($bg_color,.4);
+        box-shadow:0 12px 32px -8px rgba($bg_color,.4), -1px 9px 20px -3px rgba($bg_color,.4);
     }
     &:active {
         transform:scale(0.85) translate3d(0, 2px, 0);
@@ -212,6 +229,48 @@
 .WD__contacts__button__print__color {
     fill:rgba($blue,.6);
 }
+.WD__contacts__button__businessCard {
+    position:absolute;
+    bottom:0;
+    right:15px;
+    color:#fff;
+    white-space:nowrap;
+    transform:translate3d(0, 10px, 0);
+    cursor:pointer;
+}
+.WD__contacts__button__businessCard__text {
+    display:inline-block;
+    vertical-align:middle;
+    font-weight:300;
+    font-size:20px;
+    color:rgba(#fff,.8);
+    padding-top:10px;
+}
+.WD__contacts__button__businessCard__icon {
+    display:inline-block;
+    vertical-align:middle;
+    width:100px;
+    height:100px;
+    margin-left:10px;
+    transform:translate3d(-5px, -15px, 0) rotate(-22deg);
+    transition:transform 0.4s cubic-bezier(0.42, 0, 0.05, 1.2);
+}
+.WD__contacts__button__businessCard__icon__color {
+    fill:#fff;
+}
+.WD__contacts__button__businessCard:hover {
+    .WD__contacts__button__businessCard__icon {
+        transform:translate3d(-15px, -25px, 0) rotate(-36deg) scale(1.05);
+    }
+}
+.WD__contacts__button__businessCard--active,
+.WD__contacts__button__businessCard--active:hover {
+    .WD__contacts__button__businessCard__icon {
+        transition:transform 0.2s $cubic645;
+        transform:translate3d(25px, 100px, 0) rotate(-6deg) scale(1.1);
+    }
+}
+
 .WD__contacts__button__fullscreen {
     position:absolute;
     top:80px;

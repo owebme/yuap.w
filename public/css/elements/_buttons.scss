@@ -1,0 +1,64 @@
+.WD__buttonCircle {
+    position:relative;
+    border-radius:50%;
+    width:67px;
+    height:67px;
+    line-height:64px;
+    background:#EE5B5A;
+    cursor:pointer;
+    font-family:$default;
+    font-weight:400;
+    box-shadow:0 5px 24px -6px #E74B59;
+    white-space:nowrap;
+    will-change:width, border-radius, transform;
+    padding:0 15px;
+    transition:width 0.3s $cubic57, border-radius 0.3s $cubic57, transform 0.15s $cubic215;
+}
+.WD__buttonCircle__icon {
+    display:inline-block;
+    vertical-align:middle;
+    width:36px;
+    height:36px;
+}
+.WD__buttonCircle__icon__pen {
+    transform:translate3d(2px, 0, 0);
+}
+.WD__buttonCircle__icon__color {
+    fill:#fff;
+}
+.WD__buttonCircle__text {
+    position:absolute;
+    top:1px;
+    right:25px;
+    font-size:17.5px;
+    opacity:0;
+    color:#fff;
+    will-change:opacity, transform;
+    transform:translate3d(10px, 0, 0);
+    transition:opacity 0.2s $cubic57, transform 0.2s $cubic57;
+}
+.WD__buttonCircle:hover {
+    border-radius:22px;
+    width:178px;
+
+    .WD__buttonCircle__text {
+        opacity:1;
+        transform:translate3d(0, 0, 0);
+        transition:opacity 0.2s $cubic215 0.1s, transform 0.2s $cubic215 0.1s;
+    }
+}
+.WD__buttonCircle:active {
+    transform:translate3d(0, -1px, 0) scale(0.85);
+}
+
+.WD__buttonCircle--white {
+    background:#fff;
+    box-shadow:0 8px 24px -10px rgba($black_light,.25);
+
+    .WD__buttonCircle__icon__color {
+        fill:$black_light;
+    }
+    .WD__buttonCircle__text {
+        color:$black_light;
+    }
+}

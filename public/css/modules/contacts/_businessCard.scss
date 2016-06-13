@@ -1,0 +1,142 @@
+.WD__businessCard {
+    @include abs();
+    position:fixed;
+    color:#fff;
+    font-family:$roboto;
+    font-weight:300;
+    overflow:hidden;
+    opacity:0;
+    will-change:opacity;
+    transform:translate3d(-101%, 0, 0);
+    z-index:200012;
+
+    &:before {
+        content:"";
+        @include abs();
+        background:rgba($bg_color,.88);
+    }
+}
+.WD__businessCard__form {
+    @include abs_50(620, 360);
+    border:3px solid $azure_light2;
+    border-bottom:none;
+    border-radius:27px;
+    padding:45px;
+    text-align:center;
+    background:linear-gradient(to bottom, rgba($black_dark,.31) 70%, rgba($black_dark,0));
+    opacity:0;
+    transform:translate3d(0, -30px, 0) scale(1.4);
+    will-change:opacity, transform;
+}
+.WD__businessCard__form__icon {
+    position:absolute;
+    bottom:-82px;
+    left:26px;
+    width:173px;
+    height:173px;
+    opacity:0;
+    transform:translate3d(0, 50px, 0);
+    will-change:opacity, transform;
+}
+.WD__businessCard__form__icon__color {
+    fill:$yellow;
+}
+.WD__businessCard__title {
+    font-size:32px;
+    line-height:32px;
+    font-weight:100;
+    text-shadow:-1px -1px 1px rgba(255,255,255,.2),1px 1px 1px rgba(255,255,255,.2),1px 1px 1px rgba(51,51,51,.7);
+    -webkit-font-smoothing:auto;
+}
+.WD__businessCard__title__letter {
+    display:inline-block;
+    vertical-align:top;
+    color:$yellow;
+    font-weight:500;
+    text-shadow:none;
+    font-family:$arial;
+    line-height:30px;
+}
+.WD__businessCard__input {
+    display:block;
+    width:85%;
+    margin:50px auto 40px;
+    height:52px;
+    color:$yellow;
+    font-size:21px;
+    line-height:50px;
+    border-bottom:2px solid rgba(#fff,.15);
+    transition:border-color 0.15s ease-in-out;
+}
+.WD__businessCard__input:focus {
+    border-color:rgba(#fff,.3);
+}
+.WD__businessCard__button {
+    display:inline-block;
+    font-size:19px;
+    cursor:pointer;
+    text-transform:uppercase;
+    will-change:color, letter-spacing, transform;
+    transition:color 0.12s $cubic215, letter-spacing 0.3s cubic-bezier(0.42, 0, 0.05, 1.5), transform 0.2s $cubic215;
+    letter-spacing:0.35em;
+    padding:18px 30px;
+
+    &:before {
+        content:"";
+        @include abs();
+        border:1px dashed rgba($yellow,.6);
+        border-radius:27px;
+        opacity:0;
+        transform-origin:-2em 50%;
+    	transform:translate3d(0,20px,0) rotate3d(1,1,1,30deg);
+        transition:opacity 0.3s $cubic215 0.1s, transform 0.3s $cubic215 0.1s;
+    }
+    &:hover {
+        color:$yellow;
+        letter-spacing:0.35em;
+
+        &:before {
+            opacity:1;
+            transform:translate3d(0,0,0) rotate3d(0,0,0,0);
+            transition:opacity 0.3s $cubic215, transform 0.3s $cubic215;
+        }
+    }
+    &:active {
+        transform:translate3d(0, 1px, 0) scale(0.85);
+    }
+}
+
+.WD__businessCard--open {
+    opacity:1;
+    transform:translate3d(0, 0, 0);
+    transition:opacity 0.25s $cubic645, transform 0s;
+
+    .WD__businessCard__form {
+        opacity:1;
+        transform:translate3d(0, 0, 0) scale(1);
+        transition:opacity 0.5s $cubic645 0.1s, transform 0.4s $cubic645 0.1s;
+    }
+    .WD__businessCard__form__icon {
+        opacity:1;
+        transform:translate3d(0, 0, 0) scale(1);
+        transition:opacity 0.3s $cubic645 0.5s, transform 0.3s $cubic645 0.5s;
+    }
+    ~ .WD__contacts--open {
+        filter:blur(10px);
+        transition:filter 0.3s $cubic645 0.5s;
+    }
+}
+.WD__businessCard--close {
+    transition:opacity 0.25s $cubic57 0.45s, transform 0s 0.7s;
+
+    .WD__businessCard__form {
+        transform:translate3d(0, -20px, 0) scale(1.25);
+        transition:opacity 0.25s $cubic34 0.2s, transform 0.25s $cubic34 0.2s;
+    }
+    .WD__businessCard__form__icon {
+        transition:opacity 0.2s $cubic57, transform 0.2s $cubic57;
+    }
+    ~ .WD__contacts--open {
+        transition:filter 0.2s $cubic57 0.45s;
+    }
+}

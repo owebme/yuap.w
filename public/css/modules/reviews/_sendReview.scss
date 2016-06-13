@@ -210,47 +210,6 @@
     position:absolute;
     bottom:-31px;
     right:-24px;
-    border-radius:50%;
-    width:67px;
-    height:67px;
-    line-height:64px;
-    background:#EE5B5A;
-    cursor:pointer;
-    box-shadow:0 5px 24px -6px #E74B59;
-    white-space:nowrap;
-    will-change:width, border-radius, transform;
-    padding:0 15px;
-    transition:width 0.3s $cubic57, border-radius 0.3s $cubic57, transform 0.15s $cubic215;
-}
-.WD__modal__sendReview__button__icon {
-    display:inline-block;
-    vertical-align:middle;
-    width:36px;
-    height:36px;
-    transform:translate3d(2px, 0, 0);
-}
-.WD__modal__sendReview__button__text {
-    position:absolute;
-    top:1px;
-    right:25px;
-    font-size:17.5px;
-    opacity:0;
-    will-change:opacity, transform;
-    transform:translate3d(10px, 0, 0);
-    transition:opacity 0.2s $cubic57, transform 0.2s $cubic57;
-}
-.WD__modal__sendReview__button:hover {
-    border-radius:22px;
-    width:178px;
-
-    .WD__modal__sendReview__button__text {
-        opacity:1;
-        transform:translate3d(0, 0, 0);
-        transition:opacity 0.2s $cubic215 0.1s, transform 0.2s $cubic215 0.1s;
-    }
-}
-.WD__modal__sendReview__button:active {
-    transform:translate3d(0, -1px, 0) scale(0.85);
 }
 .WD__modal__sendReview {
     will-change:opacity, transform;
@@ -314,5 +273,15 @@
     100% {
         opacity:0;
         transform:translate3d(0, -100px, 0);
+    }
+}
+@keyframes WD__modal__slipDown-open {
+    0% {
+        opacity:0;
+        transform:translate3d(0, 400px, 0) scale3d(0, 1.4, 1);
+    }
+    100% {
+        opacity:1;
+        transform:translate3d(0, 0, 0) scale3d(1, 1, 1);
     }
 }

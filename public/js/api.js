@@ -13,6 +13,28 @@
             }
         },
 
+        contacts: {
+
+            open: function(){
+                app.contacts.open();
+            },
+
+            close: function(){
+                app.contacts.close();
+            }
+        },
+
+        eCard: {
+
+            open: function(){
+                app.eCard.open();
+            },
+
+            close: function(){
+                app.eCard.close();
+            }
+        },
+
         reviews: {
 
             open: function(){

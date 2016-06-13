@@ -3,6 +3,7 @@ yuapApp.panel.init();
 yuapApp.callbutton.init();
 yuapApp.callback.init();
 yuapApp.reviews.init();
+yuapApp.contacts.init();
 
 window.onload = function(){
 
@@ -62,7 +63,36 @@ window.onload = function(){
     $(".WD__feedback__close").on("click", function(e){
         $elem.removeClass("WD__contacts--feedback");
         feedback = false;
-    }); 
+    });
+
+    feedback = true;
+
+    var $businessCard = $(".WD__businessCard"),
+        $businessCardClose = $businessCard.find(".WD__businessCard__close"),
+        $businessCardButton = $(".WD__contacts__button__businessCard");
+
+    $businessCardButton.on("click", function(e){
+        $businessCardButton.addClass("WD__contacts__button__businessCard--active");
+        $businessCard.addClass("WD__businessCard--open");
+    });
+
+    $(".WD__feedback").on("click", ".WD__feedback__field", function(e){
+        var $elem = $(e.currentTarget);
+            $input = $elem.find("input");
+
+        $elem.addClass("WD__feedback__field--focused");
+        $input.focus();
+    });
+
+    $businessCardClose.on("click", function(e){
+        $businessCard
+        .addClass("WD__businessCard--close")
+        .removeClass("WD__businessCard--open");
+        yuapApp.utils.onEndTransition($businessCard[0], function(){
+            $businessCardButton.removeClass("WD__contacts__button__businessCard--active");
+            $businessCard.removeClass("WD__businessCard--close");
+        });
+    });
 
     $(document).on("mousemove", function(e){
 

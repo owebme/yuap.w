@@ -30,6 +30,11 @@
             WD.wrapper.find(".WD__panel__reviews").on("click", function(e){
                 API.reviews.open();
             });
+
+            // Open contacts
+            WD.wrapper.find(".WD__panel__button__map").on("click", function(e){
+                API.contacts.open();
+            });
         },
 
         popup: {
