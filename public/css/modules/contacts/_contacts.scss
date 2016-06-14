@@ -1,19 +1,25 @@
 .WD__contacts {
-    @include abs();
     position:fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:100%;
     font-family:$roboto;
     font-weight:300;
     overflow:hidden;
-    margin-left:-999em;
+    transform:translate3d(-101%, 0, 0);
+    transition:transform 0s 0.3s;
     perspective:1500px;
-    will-change:filter, opacity, transform;
-    opacity:0;
-    transform:perspective(1000px) scale3d(0.7, 0.7, 1) translate3d(-15%, -25%, -80px);
-    transition:opacity 0.25s $cubic57, transform 0.28s $cubic57, margin-left 0s 0.3s;
     z-index:200011;
 }
 .WD__contacts__wrapper {
     @include abs();
+    opacity:0;
+    @include accelerate();
+    will-change:opacity, transform;
+    transform-origin:50% 150%;
+    transform:perspective(1000px) scale3d(0.4, 0.5, 1) translate3d(-15%, -25%, -80px);
+    transition:opacity 0.25s $cubic57, transform 0.28s $cubic57;
 
     &:after {
         content:"";
@@ -47,14 +53,17 @@
     z-index:2;
 }
 .WD__contacts--open {
-    opacity:1;
-    margin-left:0px;
-    transform:scale3d(1, 1, 1) translate3d(0, 0, 0);
-    transition:opacity 0.3s $cubic215, transform 0.4s $cubic57, margin-left 0s;
+    transform:translate3d(0, 0, 0);
+    transition:transform 0s;
 
+    .WD__contacts__wrapper {
+        opacity:1;
+        transform:scale3d(1, 1, 1) translate3d(0, 0, 0);
+        transition:opacity 0.32s $cubic215, transform 0.42s $cubic57;
+    }
     .WD__contacts__close {
         transform:scale(1);
-        transition:transform 0.4s $cubic57 0.4s;
+        transition:transform 0.4s $cubic57 0.32s, opacity 0.2s $cubic215;
     }
 }
 .WD__contacts__bg {

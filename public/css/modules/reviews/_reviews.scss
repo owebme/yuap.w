@@ -10,6 +10,7 @@
     color:#292f33;
     will-change:opacity, transform;
     opacity:0;
+    @include accelerate();
     transform:perspective(1000px) scale3d(0.7, 0.7, 1) translate3d(-15%, -25%, -80px);
     transition:opacity 0.25s $cubic57, transform 0.28s $cubic57;
 }

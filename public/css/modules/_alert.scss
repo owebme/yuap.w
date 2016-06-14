@@ -20,6 +20,7 @@
     position:relative;
     min-width:480px;
     max-width:600px;
+    @include accelerate();
     will-change:opacity, transform;
     transform:perspective(500px) scale(0.83);
     transition:opacity 0.2s $cubic57 0.12s, transform 0.2s $cubic57 0.12s;

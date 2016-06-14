@@ -27,11 +27,11 @@
         eCard: {
 
             open: function(){
-                app.eCard.open();
+                app.contacts.eCard.open();
             },
 
             close: function(){
-                app.eCard.close();
+                app.contacts.eCard.close();
             }
         },
 

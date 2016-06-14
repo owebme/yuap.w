@@ -4,6 +4,7 @@
     height:80px;
     margin:0 auto;
     will-change:transform;
+    @include accelerate();
     transform:scale(0);
     transition:transform 0.4s cubic-bezier(0.42, 0, 0.05, 1.35);
 }

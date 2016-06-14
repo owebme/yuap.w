@@ -19,3 +19,10 @@
     justify-content:#{$justify};
     align-items:#{$align};
 }
+@mixin accelerate($transition: false) {
+    transform-style:preserve-3d;
+    backface-visibility:hidden;
+    @if $transition {
+        transform:translate3d(0, 0, 0);
+    }
+}

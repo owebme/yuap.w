@@ -215,7 +215,7 @@
   Parallax.prototype.initialise = function() {
 
     // Configure Context Styles
-    if (this.transform3DSupport) this.accelerate(this.element);
+    //if (this.transform3DSupport) this.accelerate(this.element);
     var style = window.getComputedStyle(this.element);
     if (style.getPropertyValue('position') === 'static') {
       this.element.style.position = 'relative';

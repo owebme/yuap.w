@@ -5,14 +5,13 @@
     width:560px;
     height:100%;
     padding:55px 75px 0 60px;
-    background:linear-gradient(to bottom, #FFFFFF 0%, #F4F4F4 25%);
+    background:linear-gradient(235deg, #fff 0%, #f2f2f2 25%);
     font-family:$roboto;
     font-weight:300;
-    color:rgba($black_light,.6);
+    color:rgba($black_light,.8);
 }
 .WD__feedback,
-.WD__contacts__wrapper {
-    will-change:transform;
+.WD__contacts__wrapper--slideLeft .WD__contacts__wrapper {
     transition:transform 0.5s cubic-bezier(0.42, 0, 0.05, 1.1);
 }
 .WD__contacts__wrapper:after {
@@ -50,9 +49,11 @@
     position: relative;
     width: 100%;
     min-height:66px;
-    background:darken(#eef2f7,1%);
+    background:darken(#eef2f7,1.75%);
     background-clip: padding-box;
-    border: 2px solid darken(#eef2f7,2%);
+    border: 1px solid darken(#eef2f7,6%);
+    border-bottom-width:2px;
+    border-bottom-color:darken(#eef2f7,6%);
     border-collapse:separate;
     border-radius: 6px;
     text-align: left;
@@ -96,10 +97,6 @@
     letter-spacing:-0.011em;
     transition:color 0.2s $cubic215, transform 0.2s $cubic215, font-size 0.2s $cubic215;
 }
-.WD__feedback__label--top {
-    display:block;
-    font-size:13px;
-}
 .WD__feedback__input,
 .WD__feedback__textarea {
     border:none;
@@ -108,7 +105,8 @@
     font-size:19px;
     line-height:20px;
     letter-spacing:-0.011em;
-    color:$black_light;
+    color:$black_dark;
+    user-select:text;
     transition:color 0.2s $cubic215;
     width:100%;
 }
@@ -116,27 +114,29 @@
     height:120px;
 }
 .WD__feedback__field:hover {
-    border-bottom-color:darken(#eef2f7,7%);
+    border-bottom-color:darken(#eef2f7,12%);
 
-    .WD__feedback__label {
-        color:$black_text;
-    }
+    .WD__feedback__label,
     .WD__feedback__input {
         color:$black_text;
     }
 }
-.WD__feedback__field--focused,
-.WD__feedback__field--focused:hover {
+.WD__feedback__field--focused {
     .WD__feedback__label {
         font-size:13px;
         color:rgba($black_light,.6);
         transform:translate3d(0, -2px, 0);
     }
+    &:hover {
+        .WD__feedback__label {
+            color:rgba($black_light,.6);
+        }
+    }
 }
 .WD__feedback__button {
     position:absolute;
     bottom:-31px;
-    right:-24px;        
+    right:-24px;
 }
 
 .WD__contacts--feedback {
@@ -156,5 +156,51 @@
         margin-right:22px;
         opacity:0.96;
         transition:opacity 0.4s cubic-bezier(0.42, 0, 0.05, 1.1) 0.1s, transform 0.4s cubic-bezier(0.42, 0, 0.05, 1.1) 0.1s, margin-right 0s 0.1s;
+    }
+}
+
+.WD__feedback--dark {
+    color:rgba(#fff,.5);
+    background:linear-gradient(235deg, $black_dark, lighten($black_gray, 1%));
+    // box-shadow:0 0 120px -16px rgba(#000,.15);
+
+    .WD__feedback__title {
+        color:rgba(#fff,.45);
+    }
+    .WD__feedback__field {
+        background:rgba(#fff,.05);
+        border-color:rgba(#fff,.05);
+        border-bottom-color:rgba(#fff,.07);
+        border-bottom-width:1px;
+    }
+    .WD__feedback__field--halfLast {
+        border-left-color:rgba(#fff,.15);
+    }
+    .WD__feedback__label__or {
+        color:#fff;
+        background:#666;
+    }
+    .WD__feedback__input,
+    .WD__feedback__textarea {
+        color:rgba(#fff,.7);
+    }
+    .WD__feedback__field:hover {
+        border-bottom-color:rgba(#fff,.2);
+
+        .WD__feedback__label {
+            color:rgba(#fff,.7);
+        }
+        .WD__feedback__input {
+            color:rgba(#fff,.9);
+        }
+    }
+    .WD__feedback__field--focused {
+        .WD__feedback__label {
+            color:rgba(#fff,.4);
+        }
+    }
+    .WD__feedback__field--focused,
+    .WD__feedback__field--focused:hover {
+        color:rgba(#fff,.4);
     }
 }

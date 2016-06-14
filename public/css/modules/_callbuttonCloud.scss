@@ -16,6 +16,7 @@
     will-change:transform;
 }
 .WD__callbutton__footer__svg {
+    @include accelerate();
     transition:transform 0.4s cubic-bezier(0.42, 0, 0.05, 1.2) 0.2s;
     transform:translate3d(100px, 125px, 0) scale3d(0, 0.4, 1);
 }
@@ -27,6 +28,7 @@
     height:248px;
     color:#fff;
     opacity:0;
+    @include accelerate();
     will-change:opacity, transform;
     transition:transform 0.42s $cubic57, opacity 0.35s $cubic215;
     transform:translate3d(100px, 100px, 0) scale(0);
@@ -385,6 +387,7 @@
     border-radius:49%;
     background:#EE5050;
     opacity:0;
+    @include accelerate();
     transition:transform 0.4s cubic-bezier(0.42, 0, 0.05, 1.35), opacity 0.25s $cubic57;
     transform:translate3d(0, 0, 0) scale(0);
 }

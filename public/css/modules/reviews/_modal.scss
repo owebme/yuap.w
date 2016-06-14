@@ -5,10 +5,11 @@
     transform:translate3d(-101%, 0, 0);
     color:#292f33;
     font-weight:400;
-    font-family:$default;    
+    font-family:$default;
     overflow:hidden;
     text-align:center;
     perspective:1500px;
+    @include accelerate();
     will-change:opacity, transform;
     transition:opacity 0.15s $cubic34, transform 0s 0.2s;
     z-index:200015;
