@@ -19,9 +19,9 @@ window.onload = function(){
         originY: 0.5
     });
 
-    setTimeout(function(){
-        $(".WD__offer").addClass("WD__offer--show");
-    }, 500);
+    // setTimeout(function(){
+    //     $(".WD__offer").addClass("WD__offer--show");
+    // }, 500);
 
     var body = document.body,
         timer;

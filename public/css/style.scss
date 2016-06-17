@@ -17,6 +17,7 @@
 
 // promo
 @import 'promo/index';
+@import 'promo/home';
 @import 'promo/clouds';
 
 // modules
@@ -25,10 +26,14 @@
 @import 'modules/section';
 @import 'modules/callback';
 @import 'modules/alert';
-@import 'modules/offer';
 
 // control
 @import 'modules/control/control';
+
+// offer
+@import 'modules/offer/offer';
+@import 'modules/offer/offerBye';
+@import 'modules/offer/offerOut';
 
 // panel
 @import 'modules/panel/panel';

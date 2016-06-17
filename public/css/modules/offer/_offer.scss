@@ -477,10 +477,24 @@
     .WD__offer__bulb3__item {
         width:20.64vh;
         height:20.64vh;
+
+        &:before {
+            top:28%;
+            left:20%;
+            width:60%;
+            height:60%;
+        }
     }
     .WD__offer__bulb4__item {
         width:14.8vh;
         height:14.8vh;
+
+        &:before {
+            top:21%;
+            left:18%;
+            width:64%;
+            height:64%;
+        }
     }
     .WD__offer__bulb__text--yes {
         font-size:4vh;
@@ -491,10 +505,10 @@
         line-height:15.7vh;
     }
     .WD__offer__cloud1 {
-        left:-11.39vh;
+        left:-12.96vh;
     }
     .WD__offer__cloud2 {
-        right:-4.27vh;
+        right:-7.77vh;
     }
 }
 

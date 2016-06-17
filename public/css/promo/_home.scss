@@ -1,0 +1,39 @@
+.home__wave {
+    position:absolute;
+    top:-255px;
+    left:7%;
+    width:920px;
+    height:920px;
+    transform:scaleY(-1) scaleX(2);
+    overflow:hidden;
+
+    &:before,
+    &:after {
+        content:"";
+        position:absolute;
+        display:block;
+        border-radius:40%;
+        animation:home__wave 24s linear infinite;
+    }
+    &:before {
+        width:180%;
+        height:180%;
+        top:70%;
+        left:-40%;
+        background:linear-gradient(235deg, rgba(#fff,.3), rgba(#fff,.7));
+    }
+    &:after {
+        width:200%;
+        height:200%;
+        top:75%;
+        left:-50%;
+        background:linear-gradient(135deg, rgba(#fff,.6), rgba(#fff,1));
+        animation-delay:.8s;
+    }
+}
+
+@keyframes home__wave {
+    to {
+        transform:rotate(1turn);
+    }
+}
