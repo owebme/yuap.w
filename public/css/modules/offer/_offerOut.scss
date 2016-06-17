@@ -90,14 +90,24 @@
 .WD__offerOut__photo__container {
     position:absolute;
     top:15px;
-    right:40px;
-    width:90px;
-    height:90px;
+    right:105px;
+    width:88px;
+    height:88px;
     border-radius:50% 46% 62% 46%;
-    background-clip:border-box;
-    background-color:#fff;
     box-shadow:6px 16px 24px -8px rgba($black_light,.34);
     overflow:hidden;
+
+    &:after {
+        content:"";
+        @include abs();
+        width:50%;
+        height:88%;
+        left:auto;
+        right:0;
+        border-radius:50% 46% 62% 46%;
+        opacity:0.1;
+        background:linear-gradient(165deg, rgba(#fff,0), #fff);
+    }
 }
 .WD__offerOut__photo {
     @include abs();
@@ -106,8 +116,8 @@
     background-repeat:no-repeat;
     background-position:top center;
     background-size:cover;
-    background-image:url(/public/images/avatar/avatar7.png);
-    opacity:0.95;
+    background-image:url(http://45.media.tumblr.com/036603d7c4146cb69c09bdaf1a3c4c73/tumblr_nutv3qpJfM1us10ipo2_r1_540.gif);
+    opacity:0.87;
 }
 
 @keyframes WD__offerOut__wave {
