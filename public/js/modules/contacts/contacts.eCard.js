@@ -57,9 +57,8 @@
                     .removeClass("WD__contacts__button__businessCard--active");
                 }
                 WD.elem.removeClass("WD__businessCard--close");
+                WD.parallaxIcon.disable();
             });
-
-            WD.parallaxIcon.disable();
 
             $dom.html.off("keyup.eCard");
 

@@ -207,7 +207,7 @@
                             if (!WD.popup.hover) {
                                 WD.popup.hide();
                             }
-                        }, 100);
+                        }, 5);
                     }
                 });
             },

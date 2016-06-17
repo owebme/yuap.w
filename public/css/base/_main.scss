@@ -46,6 +46,10 @@ html,
 body {
 	height:100%;
 }
+.WD__disable__hover,
+.WD__disable__hover * {
+	pointer-events:none !important;
+}
 #frame {
 	@include abs();
 	background:url(/public/images/bg_png24.png) no-repeat center center / cover;
@@ -57,6 +61,14 @@ body {
 		filter:blur(7px);
 		transition:filter 0.5s $cubic645;
 	}
+	&.noBg {
+		background:none;
+		z-index:1;
+	}
+}
+[class$="--ACTIVE"],
+[class$="--ACTIVE"] * {
+	animation-duration:0s !important;
 }
 // body:after {
 // 	content:"";

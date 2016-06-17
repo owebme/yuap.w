@@ -8,7 +8,7 @@
     font-family:$default;
     font-weight:400;
     @include accelerate();
-    z-index:200003;
+    z-index:200000;
 
     &:before {
         content:"";

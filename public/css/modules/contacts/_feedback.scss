@@ -5,7 +5,7 @@
     width:560px;
     height:100%;
     padding:55px 75px 0 60px;
-    background:linear-gradient(235deg, #fff 0%, #f2f2f2 25%);
+    background:#fff;
     font-family:$roboto;
     font-weight:300;
     color:rgba($black_light,.8);
@@ -49,10 +49,10 @@
     position: relative;
     width: 100%;
     min-height:66px;
-    background:darken(#eef2f7,1.75%);
+    background:#eef2f7;
     background-clip: padding-box;
-    border: 1px solid darken(#eef2f7,6%);
-    border-bottom-width:2px;
+    border: 1px solid darken(#eef2f7,3%);
+    border-bottom-width:1px;
     border-bottom-color:darken(#eef2f7,6%);
     border-collapse:separate;
     border-radius: 6px;
@@ -161,16 +161,15 @@
 
 .WD__feedback--dark {
     color:rgba(#fff,.5);
-    background:linear-gradient(235deg, $black_dark, lighten($black_gray, 1%));
-    // box-shadow:0 0 120px -16px rgba(#000,.15);
+    background:linear-gradient(225deg,#3e4757,#1f242c);
 
     .WD__feedback__title {
         color:rgba(#fff,.45);
     }
     .WD__feedback__field {
-        background:rgba(#fff,.05);
-        border-color:rgba(#fff,.05);
-        border-bottom-color:rgba(#fff,.07);
+        background:rgba(#D0D0D2,.07);
+        border-color:rgba(#fff,.056);
+        border-bottom-color:rgba(#fff,.06);
         border-bottom-width:1px;
     }
     .WD__feedback__field--halfLast {
@@ -178,7 +177,7 @@
     }
     .WD__feedback__label__or {
         color:#fff;
-        background:#666;
+        background:darken($gray, 8%);
     }
     .WD__feedback__input,
     .WD__feedback__textarea {

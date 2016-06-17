@@ -36,12 +36,14 @@
     width:173px;
     height:173px;
     opacity:0;
-    transform:translate3d(0, 50px, 0);
+    transform:translate3d(60px, 150px, 0) rotate(-30deg);
+    @include accelerate();
     will-change:opacity, transform;
 }
 .WD__businessCard__form__icon {
     width:173px;
     height:173px;
+    @include accelerate();
 }
 .WD__businessCard__form__icon__color {
     fill:$yellow;
@@ -49,9 +51,7 @@
 .WD__businessCard__title {
     font-size:32px;
     line-height:32px;
-    font-weight:100;
-    text-shadow:-1px -1px 1px rgba(255,255,255,.2),1px 1px 1px rgba(255,255,255,.2),1px 1px 1px rgba(51,51,51,.7);
-    -webkit-font-smoothing:auto;
+    font-weight:300;
 }
 .WD__businessCard__title__letter {
     display:inline-block;
@@ -92,6 +92,8 @@
         content:"";
         @include abs();
         border:2px solid rgba($yellow,.7);
+        border-top-width:1px;
+        border-bottom-width:1px;
         border-radius:27px;
         opacity:0;
         transform-origin:-2em 50%;
@@ -121,12 +123,12 @@
     .WD__businessCard__form {
         opacity:1;
         transform:translate3d(0, 0, 0) scale(1);
-        transition:opacity 0.5s $cubic645 0.1s, transform 0.4s $cubic645 0.1s;
+        transition:opacity 0.5s $cubic645 0.1s, transform 0.5s $cubic645 0.1s;
     }
     .WD__businessCard__form__icon__container {
         opacity:1;
-        transform:translate3d(0, 0, 0) scale(1);
-        transition:opacity 0.3s $cubic645 0.5s, transform 0.3s $cubic645 0.5s;
+        transform:translate3d(0, 0, 0) rotate(0deg);
+        transition:opacity 0.3s $cubic34 0.6s, transform 0.3s $cubic34 0.6s;
     }
     // ~ .WD__contacts--open {
     //     filter:blur(10px);
@@ -143,7 +145,7 @@
     .WD__businessCard__form__icon__container {
         transition:opacity 0.2s $cubic57, transform 0.2s $cubic57;
     }
-    ~ .WD__contacts--open {
-        transition:filter 0.2s $cubic57 0.45s;
-    }
+    // ~ .WD__contacts--open {
+    //     transition:filter 0.2s $cubic57 0.45s;
+    // }
 }

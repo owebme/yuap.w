@@ -231,15 +231,16 @@
   Parallax.prototype.updateLayers = function() {
 
     // Cache Layer Elements
-    this.layers = this.element.getElementsByClassName('WD__parallax__layer');
+    this.layers = document.documentElement.getElementsByClassName('WD__parallax__layer');
+    //this.layers = this.getElementsByClassName('WD__parallax__layer');
     this.depths = [];
 
     // Configure Layer Styles
     for (var i = 0, l = this.layers.length; i < l; i++) {
       var layer = this.layers[i];
-      if (this.transform3DSupport) this.accelerate(layer);
+      //if (this.transform3DSupport) this.accelerate(layer);
       //layer.style.position = i ? 'absolute' : 'relative';
-      layer.style.display = 'block';
+      //layer.style.display = 'block';
       //layer.style.left = 0;
       //layer.style.top = 0;
 

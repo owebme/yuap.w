@@ -4,6 +4,7 @@ var csso = require('gulp-csso');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 var base64 = require('gulp-base64');
+var px2rem = require('gulp-px2rem');
 var template = require('gulp-template-compile');
 var concat = require('gulp-concat');
 var autoprefixer = require('gulp-autoprefixer');
@@ -33,6 +34,7 @@ gulp.task('css', function() {
             maxImageSize: 16*1024, // bytes
             debug: false
         }))
+		//.pipe(px2rem())
 		.pipe(rename("style.min.css"))
 		.pipe(gulp.dest('./public/css'))
 		.pipe(browserSync.stream());
