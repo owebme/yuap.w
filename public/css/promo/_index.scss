@@ -16,6 +16,7 @@ section {
 #home {
     @include abs();
     background:linear-gradient(rgba(#edf4f7,.8),rgba(#daf0f8,.9));
+	// background:radial-gradient(ellipse at center,#fff 0,#d3eff8 100%);
     // background:linear-gradient(rgba(lighten(#B8A081, 32%),.6), rgba(lighten(#B8A081,25%),.7));
     // background:linear-gradient(rgba(#f7ede9,.8),rgba(#faddd6,.8));
     // background:linear-gradient(rgba(#f7f0f9,.85),rgba(#fff6fe,.95));

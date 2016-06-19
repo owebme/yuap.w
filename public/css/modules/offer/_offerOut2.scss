@@ -1,0 +1,69 @@
+.WD__offerOut {
+    position:fixed;
+    top:0;
+    left:-10%;
+    width:120%;
+    height:200px;
+    background:linear-gradient(135deg, rgba(#fff,.97), rgba(#f2f2f2,.92));
+    box-shadow:0 37.125px 70px -12.125px rgba($black_gray,.12);
+    // box-shadow:0 39.275px 70px -14.275px rgba(#000,.3);
+    border-radius:0 0 75% 60%;
+    z-index:200001;
+}
+.WD__offerOut__wrapper {
+    position:absolute;
+    top:0;
+    left:50%;
+    width:1000px;
+    height:100%;
+    margin-left:-500px;
+    text-align:center;
+}
+.WD__offerOut__title {
+    position:relative;
+    left:-45px;
+    display:inline-block;
+    vertical-align:top;
+    margin-top:46px;
+    font-family:$roboto;
+    font-weight:300;
+    font-size:33px;
+    line-height:34px;
+    padding:0 150px 0 90px;
+    background:-moz-linear-gradient(left, #999, 0.4, #999, 0.5, white, 0.6, #999, #999);
+    background:-webkit-gradient(linear,left top,right top,color-stop(0, #999),color-stop(0.4, #999),color-stop(0.5, white),color-stop(0.6, #999),color-stop(1, #999));
+    color:rgba(darken(#E8C4BF,12.5%),.7);
+    -moz-background-clip:text;
+    -webkit-background-clip:text;
+    -webkit-font-smoothing:auto;
+    @include accelerate(true);
+    animation:slidetounlock 5s infinite;
+}
+@keyframes slidetounlock {
+	0% {
+		background-position: -400px 0;
+	}
+	100%{
+		background-position: 400px 0;
+	}
+}
+.WD__offerOut__photo__container {
+    position:absolute;
+    bottom:5%;
+    right:-145px;
+    width:202px;
+    height:202px;
+    border-radius:60% 46% 62% 46%;
+}
+.WD__offerOut__photo {
+    @include abs();
+    border-radius:60% 46% 62% 46%;
+    background-repeat:no-repeat;
+    background-position:top center;
+    background-size:cover;
+    background-image:url(/public/images/avatar/lpg_im01.png);
+    opacity:0.95;
+}
+.WD__offerOut__connector {
+
+}
