@@ -19,6 +19,8 @@
             WD.hoverZone = 200;
         	WD.expandAmount = 20;
             WD.interval = null;
+
+            WD.svgCurve();
         },
 
         hover: {

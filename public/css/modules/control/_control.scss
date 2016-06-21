@@ -1,3 +1,116 @@
+.WD__control {
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:80px;
+    @include accelerate();
+    transform:translate3d(0, -80px, 0);
+    will-change:transform;
+    transition:transform 0.4s $cubic42 0.1s;
+    text-align:center;
+    font-family:$default;
+    font-weight:400;
+    color:$black_text;
+    z-index:2000050;
+
+    &:before {
+        content:"";
+        @include abs_50(120, 80);
+        border-radius:36% 36% 50% 50%;
+        transform:translate3d(0, 80px, 0);
+        z-index:-1;
+    }
+}
+.WD__control__menu {
+    position:absolute;
+    top:0;
+    left:50%;
+    width:600px;
+    height:100%;
+    margin-left:-300px;
+    border-radius:22px 22px 45px 45px;
+    padding:0 60px;
+    background:rgba(#fff,.97);
+    @include accelerate(true);
+    will-change:box-shadow;
+    transition:box-shadow 0.4s $cubic42 0.1s;
+    font-size:0;
+    text-align:left;
+}
+.WD__control__menu__item {
+    position:relative;
+    display:inline-block;
+    vertical-align:middle;
+    width:80px;
+    height:80px;
+    cursor:pointer;
+    transition:opacity 0.2s $cubic215;
+    opacity:0.6;
+
+    &:before {
+        content:"";
+        display:inline-block;
+        vertical-align:middle;
+        width:0;
+        height:100%;
+    }
+    &:hover {
+        opacity:1;
+    }
+}
+.WD__control__menu__icon {
+    display:inline-block;
+    vertical-align:middle;
+    width:44px;
+    height:44px;
+    margin-bottom:12px;
+}
+.WD__control__menu__title {
+    position:absolute;
+    bottom:16px;
+    left:0;
+    width:100%;
+    font-size:10px;
+    text-transform:uppercase;
+}
+.WD__control__opener {
+    display:inline-block;
+    vertical-align:top;
+    position:relative;
+    top:60px;
+    width:80px;
+    height:80px;
+    background:linear-gradient(to bottom, #ffffff 0%, #f7f7f7 100%);
+    box-shadow:0 8px 16px -6px rgba(#000, 0.27);
+    border-radius:36% 36% 50% 50%;
+    @include accelerate();
+    will-change:transform, opacity;
+    transform:translate3d(0, 0, 0) scale3d(1, 1, 1);
+    transition:transform 0.4s $cubic57 0.1s, opacity 0.25s $cubic57 0.1s;
+
+    &:before {
+        content:"";
+        @include abs_50(38, 38);
+        background:url(/public/images/icon_plus.svg) no-repeat center center;
+        margin-top:-10px;
+        opacity:0.6;
+    }
+}
+.WD__control:hover {
+    transform:translate3d(0, 0, 0);
+    transition:transform 0.4s $cubic42;
+
+    .WD__control__menu {
+        box-shadow:0 8px 24px -13px rgba($black_gray, 0.4);
+        transition:box-shadow 0.4s $cubic42;
+    }
+    .WD__control__opener {
+        opacity:0.4;
+        transform:translate3d(0, -80px, 0) scale3d(0, 0.2, 1);
+        transition:transform 0.4s $cubic57, opacity 0.25s $cubic57;
+    }
+}
 // .WD__control {
 //     position:fixed;
 //     top:0;

@@ -23,7 +23,7 @@
 			WD.buttonFixed = WD.header.find(".WD__messenger__header__button__fixed");
 
 			WD.move.init();
-			WD.move.hover.init();
+			//WD.move.hover.init();
 			WD.viewer.init();
 			WD.render();
 		},
