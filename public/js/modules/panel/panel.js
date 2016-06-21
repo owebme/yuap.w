@@ -14,7 +14,7 @@
             WD.socialButtons = WD.socialPanel.find(".WD__panel__social__button:not(.WD__panel__social__button--show)");
 
             WD.render();
-            WD.products.init();
+            if (WD.products) WD.products.init();
         },
 
         render: function(){

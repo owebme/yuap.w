@@ -1,0 +1,51 @@
+.WD__messenger {
+    position:fixed;
+    width:369px;
+    height:100%;
+    transition:transform 0.4s $cubic34, right 0.4s $cubic34;
+    transform:translate3d(100%, 0, 0);
+    will-change:transform, right;
+    background:#fafafb;
+    background:rgba(250,250,251,.98);
+    border-left:1px solid lighten(#dadee2,4%);
+    box-shadow:0 0 4px 1px rgba(#000,.08);
+    @include accelerate();
+    right:60px;
+    color:#000C2F;
+    font-family:$default;
+    font-weight:400;
+    z-index:200003;
+}
+.WD__messenger--expanded {
+    transform:translate3d(0, 0, 0);
+    transition:transform 0.47s $cubic645, right 0.47s $cubic645;
+    right:0px;
+}
+.WD__messenger__wrapper {
+    @include abs();
+    @include accelerate(true);
+}
+.WD__messenger__blob {
+    top: 0;
+    z-index: -1;
+    left: 60px;
+    transform:translate3d(-100%, 0, 0) scaleX(-1);
+    height: 100%;
+    position: absolute;
+}
+.WD__messenger__blob__path {
+    height: 100%;
+    fill:#fafafb;
+    fill:rgba(250,250,251,.98);
+}
+.WD__messenger--hoverZone {
+    border:none;
+    box-shadow:none;
+
+    .WD__messenger__blob {
+        filter:drop-shadow(0 0 4px rgba(#000,.08));
+    }
+    .WD__messenger__blob__path {
+        stroke:lighten(#dadee2,4%);
+    }
+}

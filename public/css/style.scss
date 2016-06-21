@@ -33,7 +33,6 @@
 // offer
 @import 'modules/offer/offer';
 @import 'modules/offer/offerBye';
-@import 'modules/offer/offerOut1';
 
 // panel
 @import 'modules/panel/panel';
@@ -42,6 +41,13 @@
 @import 'modules/panel/panelReviews';
 @import 'modules/panel/panelMenu';
 @import 'modules/panel/panelCurrency';
+
+// messenger
+@import 'modules/messenger/messenger';
+@import 'modules/messenger/header';
+@import 'modules/messenger/content';
+@import 'modules/messenger/footer';
+@import 'modules/messenger/viewer';
 
 // products
 @import 'modules/panel/panelProducts';

@@ -74,4 +74,17 @@
 		}
 	};
 
+	utils.onLoadImage = function(image, callback) {
+	    var loaded = false;
+	    function loadHandler() {
+	        if (loaded) return;
+	        loaded = true;
+			callback();
+	    }
+	    var img = new Image();
+		img.src = image;
+		img.onload = loadHandler;
+	    if (img.complete) loadHandler();
+	};
+
 })(yuapApp.utils, yuapApp.$dom);
