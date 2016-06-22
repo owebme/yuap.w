@@ -13,7 +13,9 @@
 	    body: $('body'),
 	    document: $(document),
 	    window: $(window),
-		frame: $("#frame")
+		frame: $("#frame"),
+		wrapper: $("#WD__wrapper"),
+		sidebar: $("#WD__sidebar")
 	};
 
 	/* --- Prefixed styles --- */

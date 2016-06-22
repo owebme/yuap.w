@@ -1,4 +1,5 @@
-.WD__callbutton--open {
+.WD__callbutton--open,
+.WD__callbutton__cloud--ACTIVE {
     .WD__callbutton__tooltip,
     .WD__callbutton__circle {
         transition:transform 0.2s $cubic57;
@@ -222,6 +223,11 @@
 }
 .WD__callbutton__time__container--active {
     transform:scale(1) translate3d(0, 0, 0);
+}
+.WD__callbutton__cloud--ACTIVE {
+    .WD__callbutton__time__container {
+        transform:scale(1) translate3d(0, 0, 0);
+    }
 }
 .WD__callbutton__time {
     @include abs_50(148, 52);

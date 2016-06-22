@@ -231,3 +231,11 @@ $WD__callbutton__orange: #FF6000;
         transform:translate3d(1px, 3px, 0) scale(1.2);
     }
 }
+
+.WD__callbutton--ACTIVE {
+    .WD__callbutton__tooltip {
+        opacity: 1;
+    	pointer-events: auto;
+    	transform: scale3d(1,1,1);
+    }
+}

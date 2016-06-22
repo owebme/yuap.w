@@ -7,7 +7,7 @@
   opacity: 0;
   pointer-events: none;
   will-change:opacity, transform;
-  transition:transform 0.3s $cubic34 0.15s, opacity 0.35s $cubic34 0.15s;
+  transition:transform 0.25s $cubic57, opacity 0.25s $cubic57;
   bottom: 100%;
   left: 50%;
   position: absolute;
@@ -51,6 +51,7 @@
   -webkit-transform: translate(-50%, 0);
   -ms-transform: translate(-50%, 0);
   transform: translate(-50%, 0);
+  transition:transform 0.28s $cubic34 0.18s, opacity 0.28s $cubic34 0.18s;
 }
 [data-wballoon][data-wballoon-break]:after {
   white-space: normal;

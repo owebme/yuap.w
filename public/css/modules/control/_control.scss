@@ -12,7 +12,7 @@
     font-family:$default;
     font-weight:400;
     color:$black_text;
-    z-index:2000050;
+    z-index:2000052;
 
     &:before {
         content:"";
@@ -26,27 +26,30 @@
     position:absolute;
     top:0;
     left:50%;
-    width:600px;
+    width:634px;
     height:100%;
-    margin-left:-300px;
+    margin-left:-317px;
     border-radius:22px 22px 45px 45px;
-    padding:0 60px;
-    background:rgba(#fff,.97);
+    padding:0 30px;
+    background:linear-gradient(to bottom, rgba(#fafafb,1) 0%, rgba(#fff,.97) 30%);
     @include accelerate(true);
     will-change:box-shadow;
     transition:box-shadow 0.4s $cubic42 0.1s;
     font-size:0;
-    text-align:left;
+    white-space:nowrap;
+    text-align:center;
+    z-index:1;
 }
 .WD__control__menu__item {
     position:relative;
     display:inline-block;
     vertical-align:middle;
-    width:80px;
+    width:85px;
     height:80px;
+    text-align:center;
     cursor:pointer;
-    transition:opacity 0.2s $cubic215;
-    opacity:0.6;
+    padding-top:2px;
+    margin:0 -5px;
 
     &:before {
         content:"";
@@ -55,24 +58,97 @@
         width:0;
         height:100%;
     }
-    &:hover {
-        opacity:1;
+    &:after {
+        content:"";
+        position:absolute;
+        top:39%;
+        left:5px;
+        height:22%;
+        width:0;
+        border-left:1px solid #b0bec5;
+        opacity:0.7;
     }
+    &:hover {
+        .WD__control__menu__icon {
+            opacity:0.9;
+            transform:translate3d(0, -1px, 0) scale(1.1);
+        }
+        .WD__control__menu__icon__color {
+            fill:$green_bright;
+        }
+    }
+    &:active {
+        .WD__control__menu__icon {
+            transform:translate3d(0, 1px, 0) scale(0.9);
+        }
+    }
+    &--active,
+    &--active:hover {
+        .WD__control__menu__icon {
+            opacity:0.95;
+            transform:translate3d(0, 5px, 0) scale(1.1);
+        }
+        .WD__control__menu__icon__color {
+            fill:$green_bright;
+        }
+    }
+}
+.WD__control__menu__item:first-child:after {
+    display:none;
+}
+.WD__control__menu__item__tooltip {
+    @include abs();
+    height:81%;
 }
 .WD__control__menu__icon {
     display:inline-block;
     vertical-align:middle;
-    width:44px;
-    height:44px;
-    margin-bottom:12px;
+    width:48px;
+    height:48px;
+    margin-top:6px;
+    transform:translate3d(0, 0, 0);
+    transition:opacity 0.2s $cubic215, transform 0.15s $cubic215;
+    opacity:0.6;
 }
-.WD__control__menu__title {
-    position:absolute;
-    bottom:16px;
-    left:0;
-    width:100%;
-    font-size:10px;
-    text-transform:uppercase;
+.WD__control__menu__icon__callback {
+    width:53px;
+    height:53px;
+    margin-top:1px;
+}
+.WD__control__menu__icon__reviews {
+    width:42px;
+    height:42px;
+    margin-top:-8px;
+}
+.WD__control__menu__icon__contacts {
+    width:60px;
+    height:60px;
+    margin-top:7px;
+    margin-left:4px;
+}
+.WD__control__menu__icon__menu {
+    width:49px;
+    height:49px;
+    margin-top:3px;
+}
+.WD__control__menu__icon__currency {
+    width:36px;
+    height:36px;
+    margin-top:-6px;
+}
+.WD__control__menu__icon__social {
+    width:84px;
+    height:84px;
+    margin-top:3px;
+}
+.WD__control__menu__icon__messenger {
+    width:42px;
+    height:42px;
+    margin-top:-4px;
+}
+.WD__control__menu__icon__color {
+    fill:#465c66;
+    transition:fill 0.2s $cubic215;
 }
 .WD__control__opener {
     display:inline-block;
@@ -99,16 +175,16 @@
 }
 .WD__control:hover {
     transform:translate3d(0, 0, 0);
-    transition:transform 0.4s $cubic42;
+    transition:transform 0.45s $cubic42;
 
     .WD__control__menu {
         box-shadow:0 8px 24px -13px rgba($black_gray, 0.4);
-        transition:box-shadow 0.4s $cubic42;
+        transition:box-shadow 0.45s $cubic42;
     }
     .WD__control__opener {
-        opacity:0.4;
+        opacity:0.2;
         transform:translate3d(0, -80px, 0) scale3d(0, 0.2, 1);
-        transition:transform 0.4s $cubic57, opacity 0.25s $cubic57;
+        transition:transform 0.4s $cubic57, opacity 0.3s $cubic57;
     }
 }
 // .WD__control {
