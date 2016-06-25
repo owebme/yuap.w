@@ -1,0 +1,56 @@
+<ui-textEdit>
+
+    <span class="UI__controlPanel__title">{ opts.title }</span>
+    <span class="UI__controlPanel__value">
+        <span class="UI__textEdit { 'UI__textEdit--active' : active }">
+            <span name="UI__textEdit__container" class="UI__textEdit__container">
+                <input name="UI__textEdit__input" class="UI__textEdit__input" type="text" value="{ value }" placeholder="{ opts.title }" autocomplete="off">
+                <span onClick={ onSave } class="UI__textEdit__save"></span>
+                <span onClick={ onCancel } class="UI__textEdit__close"></span>
+            </span>
+            <span onClick={ onShow } class="UI__textEdit__current">{ value }</span>
+        </span>
+    </span>
+
+<script>
+
+    var $ = this;
+
+    $.active = false;
+
+    $.value = $.parent.data.get($.opts.value);
+
+    this.on("mount", function(){
+        $.box = $$($.root).parent();
+        $.container = $$($["UI__textEdit__container"]);
+        $.input = $$($["UI__textEdit__input"]);
+    });
+
+    $.onShow = function(){
+        $.active = true;
+        $.container.css("width", (parseInt($.box.width()) - 30) + "px");
+        $.input.focus();
+    };
+
+    $.onSave = function(){
+        var text = $.input.val();
+        if ($.value != text){
+            $.value = text;
+            $.parent.data.set($.opts.value, $.value);
+        }
+        $.close();
+    };
+
+    $.onCancel = function(){
+        $.input.val($.value);
+        $.close();
+    };
+
+    $.close = function(){
+        $.active = false;
+        $.container.css("width", "100%");
+    };
+
+</script>
+
+</ui-textEdit>

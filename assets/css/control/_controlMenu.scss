@@ -1,4 +1,4 @@
-.WD__control {
+.UI__controlMenu {
     position:fixed;
     top:0;
     left:0;
@@ -22,13 +22,13 @@
         z-index:-1;
     }
 }
-.WD__control__menu {
+.UI__controlMenu__wrapper {
     position:absolute;
     top:0;
     left:50%;
-    width:634px;
+    width:668px;
     height:100%;
-    margin-left:-317px;
+    margin-left:-334px;
     border-radius:22px 22px 45px 45px;
     padding:0 30px;
     background:linear-gradient(to bottom, rgba(#fafafb,1) 0%, rgba(#fff,.97) 30%);
@@ -40,7 +40,7 @@
     text-align:center;
     z-index:1;
 }
-.WD__control__menu__item {
+.UI__controlMenu__item {
     position:relative;
     display:inline-block;
     vertical-align:middle;
@@ -69,38 +69,38 @@
         opacity:0.7;
     }
     &:hover {
-        .WD__control__menu__icon {
-            opacity:0.9;
+        .UI__controlMenu__icon {
+            opacity:0.95;
             transform:translate3d(0, -1px, 0) scale(1.1);
         }
-        .WD__control__menu__icon__color {
+        .UI__controlMenu__icon__color {
             fill:$green_bright;
         }
     }
     &:active {
-        .WD__control__menu__icon {
+        .UI__controlMenu__icon {
             transform:translate3d(0, 1px, 0) scale(0.9);
         }
     }
     &--active,
     &--active:hover {
-        .WD__control__menu__icon {
+        .UI__controlMenu__icon {
             opacity:0.95;
             transform:translate3d(0, 5px, 0) scale(1.1);
         }
-        .WD__control__menu__icon__color {
+        .UI__controlMenu__icon__color {
             fill:$green_bright;
         }
     }
 }
-.WD__control__menu__item:first-child:after {
+.UI__controlMenu__item:first-child:after {
     display:none;
 }
-.WD__control__menu__item__tooltip {
+.UI__controlMenu__item__tooltip {
     @include abs();
     height:81%;
 }
-.WD__control__menu__icon {
+.UI__controlMenu__icon {
     display:inline-block;
     vertical-align:middle;
     width:48px;
@@ -110,47 +110,52 @@
     transition:opacity 0.2s $cubic215, transform 0.15s $cubic215;
     opacity:0.6;
 }
-.WD__control__menu__icon__callback {
+.UI__controlMenu__icon__callback {
     width:53px;
     height:53px;
     margin-top:1px;
 }
-.WD__control__menu__icon__reviews {
+.UI__controlMenu__icon__offer {
+    width:53px;
+    height:53px;
+    margin-top:5px;
+}
+.UI__controlMenu__icon__reviews {
     width:42px;
     height:42px;
     margin-top:-8px;
 }
-.WD__control__menu__icon__contacts {
+.UI__controlMenu__icon__contacts {
     width:60px;
     height:60px;
     margin-top:7px;
     margin-left:4px;
 }
-.WD__control__menu__icon__menu {
+.UI__controlMenu__icon__menu {
     width:49px;
     height:49px;
     margin-top:3px;
 }
-.WD__control__menu__icon__currency {
+.UI__controlMenu__icon__currency {
     width:36px;
     height:36px;
     margin-top:-6px;
 }
-.WD__control__menu__icon__social {
+.UI__controlMenu__icon__social {
     width:84px;
     height:84px;
     margin-top:3px;
 }
-.WD__control__menu__icon__messenger {
+.UI__controlMenu__icon__messenger {
     width:42px;
     height:42px;
     margin-top:-4px;
 }
-.WD__control__menu__icon__color {
+.UI__controlMenu__icon__color {
     fill:#465c66;
     transition:fill 0.2s $cubic215;
 }
-.WD__control__opener {
+.UI__controlMenu__opener {
     display:inline-block;
     vertical-align:top;
     position:relative;
@@ -173,41 +178,17 @@
         opacity:0.6;
     }
 }
-.WD__control:hover {
+.UI__controlMenu:hover {
     transform:translate3d(0, 0, 0);
     transition:transform 0.45s $cubic42;
 
-    .WD__control__menu {
+    .UI__controlMenu__wrapper {
         box-shadow:0 8px 24px -13px rgba($black_gray, 0.4);
         transition:box-shadow 0.45s $cubic42;
     }
-    .WD__control__opener {
+    .UI__controlMenu__opener {
         opacity:0.2;
         transform:translate3d(0, -80px, 0) scale3d(0, 0.2, 1);
         transition:transform 0.4s $cubic57, opacity 0.3s $cubic57;
     }
 }
-// .WD__control {
-//     position:fixed;
-//     top:0;
-//     left:0;
-//     width:100%;
-//     height:64px;
-//     z-index:10;
-//
-//     &:before {
-//         content:"";
-//         position:absolute;
-//         bottom:100%;
-//         left:0;
-//         width:100%;
-//         height:100px;
-//         box-shadow:0 0 100px -10px rgba(#000,.7);
-//     }
-//     &:after {
-//         content:"";
-//         @include abs();
-//         background:linear-gradient(to bottom, rgba($black_gray,.6), rgba($black_gray,0));
-//         filter:blur(25px);
-//     }
-// }

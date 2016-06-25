@@ -160,16 +160,16 @@
 }
 
 .WD__feedback--dark {
-    color:rgba(#fff,.5);
-    background:linear-gradient(225deg,#3e4757,#1f242c);
+    color:rgba(#fff,.6);
+    background:linear-gradient(225deg,#3B3F53,#35394B);
 
     .WD__feedback__title {
         color:rgba(#fff,.45);
     }
     .WD__feedback__field {
-        background:rgba(#D0D0D2,.07);
-        border-color:rgba(#fff,.056);
-        border-bottom-color:rgba(#fff,.06);
+        background:#2E3243;
+        border-color:#272938;
+        border-bottom-color:rgba(#fff,.08);
         border-bottom-width:1px;
     }
     .WD__feedback__field--halfLast {
@@ -177,11 +177,11 @@
     }
     .WD__feedback__label__or {
         color:#fff;
-        background:darken($gray, 8%);
+        background:#4A4F65;
     }
     .WD__feedback__input,
     .WD__feedback__textarea {
-        color:rgba(#fff,.7);
+        color:rgba(#fff,.78);
     }
     .WD__feedback__field:hover {
         border-bottom-color:rgba(#fff,.2);
@@ -189,17 +189,18 @@
         .WD__feedback__label {
             color:rgba(#fff,.7);
         }
-        .WD__feedback__input {
+        .WD__feedback__input,
+        .WD__feedback__textarea {
             color:rgba(#fff,.9);
         }
     }
     .WD__feedback__field--focused {
         .WD__feedback__label {
-            color:rgba(#fff,.4);
+            color:rgba(#fff,.5);
         }
     }
     .WD__feedback__field--focused,
     .WD__feedback__field--focused:hover {
-        color:rgba(#fff,.4);
+        color:rgba(#fff,.5);
     }
 }

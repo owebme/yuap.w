@@ -1,0 +1,53 @@
+.UI__unlock__wrapper {
+    display:block;
+    width:100%;
+    overflow:hidden;
+}
+.UI__unlock {
+    position:relative;
+    display:inline-block;
+    vertical-align:top;
+    cursor:pointer;
+    color:$black_gray;
+    will-change:transform;
+    transition:color 0.12s $cubic215, transform 0.37s cubic-bezier(0.42, 0, 0.05, 1.1);
+
+    &:after {
+        content:"";
+        position:absolute;
+        top:50%;
+        left:100%;
+        width:29px;
+        height:29px;
+        margin-top:-16px;
+        background: url(/public/images/ui-settings.svg) no-repeat 0 0 / cover;
+        margin-left:10px;
+        opacity:0.7;
+    }
+    &:hover {
+        color:$green;
+
+        &:after {
+            animation:UI__unlock__icon 1.5s linear infinite;
+        }
+    }
+}
+.UI__unlock--active {
+    &:after,
+    &:hover:after {
+        width:32px;
+        height:32px;
+        animation:none;
+        margin-left:5px;
+        background-image:url(/public/images/ui-close.svg);
+        opacity:1;
+    }
+}
+@keyframes UI__unlock__icon {
+    0% {
+        transform:rotate(0);
+    }
+    100% {
+        transform:rotate(360deg);
+    }
+}

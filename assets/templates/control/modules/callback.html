@@ -1,0 +1,99 @@
+<control-callback class="UI__controlPanel UI__controlPanel__callback">
+
+    <div class="UI__controlPanel__buttonSave">
+        <span class="UI__controlPanel__buttonSave__text">Сохранить</span>
+    </div>
+    <div class="UI__controlPanel__wrapper">
+        <div class="UI__controlPanel__item UI__controlPanel__item--top">
+            <ui-switcher title="Активный" value={'active'}></ui-switcher>
+        </div>
+        <div class="UI__controlPanel__options { 'UI__controlPanel__options--hide' : !data.get('active') }">
+
+            <!-- // Main settings -->
+            <div class="UI__controlPanel__options__wrapper">
+                <div class="UI__controlPanel__item">
+                    <ui-palette title="Цветовая палитра" items={ data.get('color', 'items') } value={['color', 'value']}></ui-palette>
+                </div>
+                <div class="UI__controlPanel__item">
+                    <ui-select title="Стиль виджета" items={ data.get('theme', 'items') } value={['theme', 'value']}></ui-select>
+                </div>
+                <div class="UI__controlPanel__item">
+                    <ui-textEdit title="Текст приветствия" value={'tooltip'}></ui-textEdit>
+                </div>
+                <div class="UI__controlPanel__item">
+                    <ui-unlock title="Настройки формы" sidebar="form"></ui-unlock>
+                </div>
+                <div class="UI__controlPanel__item">
+                    <ui-unlock title="Тюнинг работы" sidebar="tuning"></ui-unlock>
+                </div>
+                <div class="UI__controlPanel__item UI__controlPanel__item--footer"></div>
+            </div>
+
+            <!-- // Sidebar form -->
+            <div class="UI__controlPanel UI__controlPanel__sidebar UI__controlPanel__sidebar__form">
+                <div class="UI__controlPanel__item">
+                    <ui-palette title="Цветовая палитра" items={ data.get('form', 'color', 'items') } value={['form', 'color', 'value']}></ui-palette>
+                </div>
+                <div class="UI__controlPanel__item UI__controlPanel__item--footer"></div>
+                <div class="UI__controlPanel__sidebar__title">Настройки формы</div>
+            </div>
+
+            <!-- // Sidebar tuning -->
+            <div class="UI__controlPanel UI__controlPanel__sidebar UI__controlPanel__sidebar__tuning">
+                <div class="UI__controlPanel__item UI__controlPanel__item--top">
+                    <ui-switcher title="Ручная настройка" value={['tuning', 'active']}></ui-switcher>
+                </div>
+                <div class="UI__controlPanel__item">
+                    <ui-switcher title="Пульсация кнопки звонка" help="Периодически привлекать внимание пользователей анимацией кнопки звонка" value={['tuning', 'buttonAnim']}></ui-switcher>
+                </div>
+                <div class="UI__controlPanel__item">
+                    <ui-switcher title="Предлагать связаться" help="Периодически показывать текст приветствия для пользователей" value={['tuning', 'tooltipShow']}></ui-switcher>
+                </div>
+                <div class="UI__controlPanel__item UI__controlPanel__item--footer"></div>
+                <div class="UI__controlPanel__sidebar__title">Тюнинг работы</div>
+            </div>
+
+        </div>
+    </div>
+
+<script>
+
+    var $ = this,
+    $scope = $$($.root);
+    Control.module = $;
+
+    $.saveShow = false;
+
+    $.data = new Baobab($.opts.data, {
+        autoCommit: true
+    });
+
+    $.clone = $.data.serialize();
+
+    $.data.on('update', function(e){
+        if (!$.saveShow) {
+            $.buttonSave.addClass("UI__controlPanel__buttonSave--active");
+            $.saveShow = true;
+        }
+    });
+
+    $.data.select('active').on('update', function(e){
+        if (e.data.currentData) Control.widget.addClass("WD__callbutton--ACTIVE");
+        else Control.widget.removeClass("WD__callbutton--ACTIVE");
+        $.update();
+    });
+
+    this.on("mount", function(){
+        if ($.data.get("active")) Control.widget.addClass("WD__callbutton--ACTIVE");
+        $.buttonSave = $scope.find(".UI__controlPanel__buttonSave");
+    });
+
+    this.on("unmount", function(){
+        Control.config.callback = $.clone;
+        Control.widget.remove();
+        console.log("unmount control-callback");
+    });
+
+</script>
+
+</control-callback>

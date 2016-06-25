@@ -3,7 +3,7 @@
 	utils.template = function(name, data){
 
 		var tpl = Mustache.render(yuapApp.templates[name](), data ? data : {}),
-			result = $(tpl).appendTo($dom.wrapper);
+			result = $(tpl).appendTo($dom.body);
 
 		return result;
 	};

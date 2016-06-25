@@ -1,0 +1,24 @@
+<control-section>
+
+
+<script>
+
+    var $ = this,
+    $scope = $$($.root);
+
+    this.on("unmount", function(){
+
+        $scope.on("click", ".UI__controlPanel__buttonSave", function(e){
+            var $button = $$(e.currentTarget);
+            $button.addClass("UI__controlPanel__buttonSave--saved");
+            app.utils.onEndAnimation($button[0], function(){
+                $button.removeClass("UI__controlPanel__buttonSave--saved UI__controlPanel__buttonSave--active");
+                Control.module.clone = Control.module.data.serialize();
+                Control.module.saveShow = false;
+            });
+        });
+    });
+
+</script>
+
+</control-section>

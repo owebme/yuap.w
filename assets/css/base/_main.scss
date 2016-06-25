@@ -1,0 +1,34 @@
+*,
+*:after,
+*:before {
+	box-sizing:border-box;
+}
+html,
+body {
+	height:100%;
+	font-family:$default;
+	font-weight:400;
+	text-size-adjust:100%;
+	text-rendering:optimizeLegibility;
+	-webkit-font-smoothing:antialiased;
+	-moz-osx-font-smoothing: grayscale;
+    -moz-font-feature-settings:'liga', 'kern';
+}
+#rootControl {
+	@include abs(fixed);
+	overflow:hidden;
+}
+#bgControl {
+	@include abs();
+	background:url(/public/images/bg_png24.png) no-repeat center center / cover;
+}
+// [class$="--ACTIVE"],
+// [class$="--ACTIVE"] * {
+// 	animation-duration:0s !important;
+// }
+[class*="--ACTIVE"] {
+	z-index:2000050 !important;
+}
+[class*="--HIDDEN"] {
+	display:none !important;
+}

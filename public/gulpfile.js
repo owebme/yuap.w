@@ -16,12 +16,12 @@ browserSync.init({
 	notify: false,
 	// proxy: "http://localhost:8080/"
 	server: {
-		baseDir: "./"
+		baseDir: "../"
 	}
 });
 
 gulp.task('css', function() {
-	gulp.src('public/css/style.scss')
+	gulp.src('css/style.scss')
 		.pipe(sass())
 		.pipe(csso())
 		.pipe(autoprefixer({
@@ -29,19 +29,19 @@ gulp.task('css', function() {
 			cascade: false
 		}))
         .pipe(base64({
-            baseDir: './public/images',
+            baseDir: '../',
             extensions: ['svg', 'png', 'jpg'],
             maxImageSize: 16*1024, // bytes
             debug: false
         }))
 		//.pipe(px2rem())
 		.pipe(rename("style.min.css"))
-		.pipe(gulp.dest('./public/css'))
+		.pipe(gulp.dest('css'))
 		.pipe(browserSync.stream());
 });
 
 gulp.task('templates', function() {
-	gulp.src('public/templates/*.html')
+	gulp.src('templates/*.html')
 		.pipe(template({
 			namespace: "yuapApp.templates",
 			name: function (file) {
@@ -49,22 +49,23 @@ gulp.task('templates', function() {
 			}
 		}))
 		.pipe(concat('templates.js'))
-		.pipe(gulp.dest('./public/js'))
+		.pipe(gulp.dest('js'))
 		.pipe(browserSync.stream());
 });
 
 gulp.task('watch', function() {
 	gulp.watch([
-		'public/css/style.scss',
-		'public/css/**/*.scss'
+		'css/style.scss',
+		'css/**/*.scss'
 	], ['css']);
 
-	gulp.watch('public/templates/*.html', ['templates']);
+	gulp.watch('templates/*.html', ['templates']);
 
     gulp.watch([
-		'index.html',
-		'promo.html',
-		'public/**/*.js'
+		'../index.html',
+		'../promo.html',
+		'js/*.js',
+		'js/**/*.js'
 	]).on('change', reload);
 });
 

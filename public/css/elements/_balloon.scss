@@ -137,6 +137,9 @@
 }
 [data-wballoon-length]:after {
   white-space: normal;
+  padding: 0.7em 1.25em 0.95em;
+  border-radius:17px;
+  text-align:left;
 }
 [data-wballoon-length="small"]:after {
   width: 80px;

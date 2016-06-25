@@ -6,15 +6,10 @@
 @import 'base/main';
 
 // elements
-@import 'elements/colors';
-@import 'elements/select';
-@import 'elements/switcher';
 @import 'elements/loading';
 @import 'elements/notify';
 @import 'elements/scrollbar';
 @import 'elements/buttons';
-@import 'elements/textEdit';
-@import 'elements/palette';
 @import 'elements/balloon';
 @import 'elements/balloonError';
 
@@ -29,10 +24,6 @@
 @import 'modules/section';
 @import 'modules/callback';
 @import 'modules/alert';
-
-// control
-@import 'modules/control/control';
-@import 'modules/control/controlPanel';
 
 // offer
 @import 'modules/offer/offer';

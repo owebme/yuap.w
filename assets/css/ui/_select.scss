@@ -1,0 +1,95 @@
+.UI__select {
+    position:relative;
+    display:inline-block;
+    vertical-align:top;
+    perspective:300px;
+    perspective-origin:0 50%;
+}
+.UI__select__current {
+    position:relative;
+    display:inline-block;
+    vertical-align:top;
+    max-width:170px;
+    line-height:6px;
+    padding:17px 36px 17px 15px;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    border:1px solid rgba($black_light,.15);
+    background-clip:border-box;
+    background-color:#fff;
+    color:$black_gray;
+    border-radius:20px;
+    line-height:6px;
+    box-shadow:0 2px 4px -3px rgba(#000,.16);
+    cursor:pointer;
+    overflow:hidden;
+
+    &:after {
+        content:"";
+        position:absolute;
+        top:-1px;
+        right:5px;
+        width:29px;
+        height:100%;
+        background: url(/public/images/ui-select.svg) center center no-repeat;
+        opacity:0.6;
+        transition:transform 0.2s $cubic25;
+    }
+    &:hover {
+        border-color:rgba($green_bright,.7);
+
+        &:after {
+            transform:rotate(-180deg);
+        }
+    }
+}
+.UI__select__items {
+    position:absolute;
+    top:-40px;
+    left:-1px;
+    min-width:150px;
+    border-radius:20px;
+    border:1px solid rgba($green_bright,.6);
+    background-clip:border-box;
+    background-color:#fff;
+    box-shadow:0 16px 32px -10px rgba($black_gray,.4);
+    opacity:0;
+    @include accelerate();
+    will-change:opacity, transform;
+    transform:translate3d(0, -25px, 0) rotateX(180deg) scale(0.2);
+    transition:transform 0.3s $cubic215, opacity 0.1s $cubic215;
+}
+.UI__select--active {
+    z-index:1;
+
+    .UI__select__items {
+        opacity:1;
+        transform:translate3d(-10px, 0, 0) rotateX(0deg) scale(1);
+        transition:transform 0.25s $cubic215, opacity 0.2s $cubic215;
+    }
+}
+.UI__select__item {
+    display:block;
+    white-space:nowrap;
+    line-height:20px;
+    padding:10px 17px;
+    color:$black_gray;
+    border-bottom:1px solid #ededed;
+    cursor:pointer;
+
+    &:first-child {
+        padding-top:13px;
+        border-radius:20px 20px 0 0;
+    }
+    &:last-child {
+        padding-bottom:13px;
+        border-radius:0 0 20px 20px;
+        border:none;
+    }
+    &:hover {
+        background-color:rgba($green_bright,.1);
+    }
+    &--active {
+        color:$green;
+    }
+}

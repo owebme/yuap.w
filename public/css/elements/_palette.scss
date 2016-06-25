@@ -28,12 +28,12 @@
     line-height:0;
     @include accelerate();
     will-change:opacity, transform;
-    transform:translate3d(20px, 18px, 0) rotateY(180deg) scale3d(0.7, 0.3, 1);
+    transform:translate3d(20px, 18px, 0) rotateY(120deg) scale3d(0.7, 0.3, 1);
     transition:transform 0.4s $cubic25, opacity 0.1s $cubic25;
 }
 .WD__palette--active {
     z-index:1;
-    
+
     .WD__palette__items {
         opacity:1;
         transform:translate3d(0, 0, 0) rotateY(0deg) scale3d(1, 1, 1);
