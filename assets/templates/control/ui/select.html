@@ -1,4 +1,4 @@
-<ui-select class="UI__controlPanel__item">
+<ui-select class="UI__controlPanel__item { 'UI__controlPanel__item--hide' : opts.hide }">
 
     <span class="UI__controlPanel__title">{ opts.title }</span>
     <span class="UI__controlPanel__value">
@@ -33,6 +33,16 @@
         $.current = $.getCurrent($.value);
         $.active = false;
     };
+
+    if ($.opts.observer){
+        this.on("mount", function(){
+            $.parent.data.select($.opts.value).on('update', function(e){
+                $.value = $.parent.data.get($.opts.value);
+                $.current = $.getCurrent($.value);
+                $.update();
+            });
+        });
+    }
 
 </script>
 

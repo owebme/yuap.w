@@ -6,26 +6,28 @@
     cursor:default;
     margin-left:28px;
 }
+.d-safari {
+    .WD__panel__currency {
+        margin-top:4px;
+    }
+}
 .WD__panel__currency__item {
     position:absolute;
     left:0;
     width:100%;
     white-space:nowrap;
     color:$green;
+    font-family:$roboto;
+    font-weight:400;
+    font-size:14.5px;
+    line-height:24px;
+    height:24px;
 }
 .WD__panel__currency__top {
     top:-18px;
 }
 .WD__panel__currency__bottom {
     top:-2px;
-}
-.WD__panel__currency__top,
-.WD__panel__currency__bottom {
-    font-family:$roboto;
-    font-weight:400;
-    font-size:14.5px;
-    line-height:24px;
-    height:24px;
 }
 .WD__panel__currency__value {
     font-family:$default;

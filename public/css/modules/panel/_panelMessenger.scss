@@ -1,8 +1,29 @@
+.WD__panel__messenger {
+    transition:transform .12s $cubic215;
+    
+    &:hover {
+        .WD__panel__messenger__avatar {
+            transform:translate3d(0, -7px, 0) scale(1.1);
+        }
+        // &:before {
+        //     opacity:1;
+        //     transform:translate3d(0, 0, 0) rotate(0deg);
+        //     transition:opacity 0.2s $cubic215 0.1s, transform 0.35s cubic-bezier(0.42, 0, 0.05, 1.25) 0.1s;
+        // }
+        // .WD__panel__messenger__item {
+        //     opacity:0;
+        //     transition:opacity 0.2s $cubic215 0.1s;
+        // }
+    }
+    &:active {
+        transform:translate3d(0, 2px, 0) scale(0.9);
+    }
+}
 .WD__panel__messenger__avatar {
     position:relative;
     display:inline-block;
     vertical-align:top;
-    margin-right:6px;
+    margin-right:5px;
     will-change:transform;
     transition:transform 0.2s cubic-bezier(0.42, 0, 0.05, 2);
 
@@ -29,34 +50,22 @@
     vertical-align:top;
     border:2px solid #ccc;
 }
-.WD__panel__messenger:before {
-    opacity:0;
-    content:attr(data-content);
-    position:absolute;
-    top:0;
-    left:52px;
-    white-space:nowrap;
-    will-change:transform, opacity;
-    transform:translate3d(0, 60px, 0) rotate(30deg);
-    transition:opacity 0.35s $cubic215 0.1s, transform 0.35s $cubic215 0.1s;
+.WD__panel__messenger__avatar__icon {
+    display:none;
 }
+// .WD__panel__messenger:before {
+//     opacity:0;
+//     content:attr(data-content);
+//     position:absolute;
+//     top:0;
+//     left:52px;
+//     white-space:nowrap;
+//     will-change:transform, opacity;
+//     transform:translate3d(0, 60px, 0) rotate(30deg);
+//     transition:opacity 0.35s $cubic215 0.1s, transform 0.35s $cubic215 0.1s;
+// }
 .WD__panel__messenger__item {
     will-change:opacity;
     transition:opacity 0.35s $cubic215 0.1s;
-}
-.WD__panel__messenger {
-    &:hover {
-        .WD__panel__messenger__avatar {
-            transform:translate3d(0, -7px, 0) scale(1.1);
-        }
-        &:before {
-            opacity:1;
-            transform:translate3d(0, 0, 0) rotate(0deg);
-            transition:opacity 0.2s $cubic215 0.1s, transform 0.35s cubic-bezier(0.42, 0, 0.05, 1.25) 0.1s;
-        }
-        .WD__panel__messenger__item {
-            opacity:0;
-            transition:opacity 0.2s $cubic215 0.1s;
-        }
-    }
+    // line-height:44px;
 }

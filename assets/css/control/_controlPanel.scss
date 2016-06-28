@@ -141,6 +141,9 @@
     &--hidden {
         overflow:hidden;
     }
+    &--hide {
+        display:none;
+    }
 }
 .UI__controlPanel__item--footer {
     height:35px;

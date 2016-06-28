@@ -10,7 +10,7 @@
 
             <!-- // Panel settings -->
             <div class="UI__controlPanel__options__wrapper">
-                <ui-palette title="Цветовая палитра" items={ data.get('panel', 'color', 'items') } value={['panel', 'color', 'value']}></ui-palette>
+                <ui-palette title="Цветовая палитра" items={ data.get('panel', 'color', 'items') } value={['panel', 'color', 'value']} hide="{ 'true' : data.get('panel', 'widgets', 'messenger', 'only') }"></ui-palette>
 
                 <ui-unlock title="Виджеты панели" sidebar="panel" value={['panel', 'open']}></ui-unlock>
 
@@ -19,7 +19,9 @@
 
             <!-- // Sidebar panel -->
             <div class="UI__controlPanel UI__controlPanel__sidebar UI__controlPanel__sidebar__panel">
-                <ui-switcher title="Оставить только чат" value={['panel', 'widgets', 'messenger', 'only']}></ui-switcher>
+                <ui-switcher title="Оставить только чат" observer="true" value={['panel', 'widgets', 'messenger', 'only']}></ui-switcher>
+
+                <ui-select title="Расположение" items={ data.select('panel', 'widgets', 'messenger', 'position', 'items') } value={['panel', 'widgets', 'messenger', 'position', 'value']} hide="{ 'true' : !data.get('panel', 'widgets', 'messenger', 'only') }"></ui-select>
 
                 <div class="UI__controlPanel__options UI__controlPanel__options__panel UI__controlPanel__options--rounded { 'UI__controlPanel__options--hide' : data.get('panel', 'widgets', 'messenger', 'only') }">
                     <div class="UI__controlPanel__options__wrapper">
@@ -33,8 +35,6 @@
 
                         <ui-switcher title="Социальные группы" value={['panel', 'widgets', 'social']}></ui-switcher>
 
-                        <ui-select title="Расположение" items={ data.select('panel', 'widgets', 'messenger', 'position', 'items') } value={['panel', 'widgets', 'messenger', 'position', 'value']}></ui-select>
-
                         <div class="UI__controlPanel__item UI__controlPanel__item--footer"></div>
                     </div>
                 </div>
@@ -45,9 +45,9 @@
             <div class="UI__controlPanel UI__controlPanel__sidebar UI__controlPanel__sidebar__tuning">
                 <ui-switcher title="Загруглить углы" value={['tuning', 'rounded']}></ui-switcher>
 
-                <ui-switcher title="Приподнять панель" value={['tuning', 'fixed']}></ui-switcher>
+                <ui-switcher title="Приподнять панель" value={['tuning', 'fixed']} hide="{ 'true' : data.get('panel', 'widgets', 'messenger', 'only') }"></ui-switcher>
 
-                <ui-switcher title="Градиент нью-эйдж" value={['tuning', 'gradient']}></ui-switcher>
+                <ui-switcher title="Градиент нью-эйдж" value={['tuning', 'gradient']} hide="{ 'true' : data.get('panel', 'widgets', 'messenger', 'only') }"></ui-switcher>
 
                 <ui-select title="Добавить тень" items={ data.select('tuning', 'shadow', 'items') } value={['tuning', 'shadow', 'value']}></ui-select>
 
@@ -128,35 +128,46 @@
     // Show / hide component 'reviews' on panel
     $.data.select('panel', 'widgets', 'reviews').on('update', function(e){
         Control.widgets.panel.find(".WD__panel__item__reviews").attr("data-active", e.data.currentData);
+        $.getCounts();
     });
 
     // Show / hide component 'contacts' on panel
     $.data.select('panel', 'widgets', 'contacts').on('update', function(e){
         Control.widgets.panel.find(".WD__panel__item__contacts").attr("data-active", e.data.currentData);
+        $.getCounts();
     });
 
     // Show / hide component 'feedback' on panel
     $.data.select('panel', 'widgets', 'feedback').on('update', function(e){
         Control.widgets.panel.find(".WD__panel__item__feedback").attr("data-active", e.data.currentData);
+        $.getCounts();
     });
 
     // Show / hide component 'currency' on panel
     $.data.select('panel', 'widgets', 'currency').on('update', function(e){
         Control.widgets.panel.find(".WD__panel__item__currency").attr("data-active", e.data.currentData);
+        $.getCounts();
     });
 
     // Show / hide component 'social' on panel
     $.data.select('panel', 'widgets', 'social').on('update', function(e){
         Control.widgets.panel.find(".WD__panel__item__social").attr("data-active", e.data.currentData);
+        $.getCounts();
     });
 
     // Show only component 'messenger' and panel hide
     $.data.select('panel', 'widgets', 'messenger', 'only').on('update', function(e){
-        console.log("1");
         $.optionsWidgets.toggleClass("UI__controlPanel__options--hide");
+        Control.widgets.panel.attr("data-messenger", e.data.currentData);
+        $.update();
     });
 
-    // Show only component 'messenger' and panel hide
+    // Change position component 'messenger'
+    $.data.select('panel', 'widgets', 'messenger', 'position', 'value').on('update', function(e){
+        Control.widgets.panel.attr("data-pos", e.data.currentData);
+    });
+
+    // Add rounded on panel
     $.data.select('tuning', 'rounded').on('update', function(e){
         Control.widgets.panel.attr("data-rounded", e.data.currentData);
     });
@@ -185,6 +196,14 @@
     $.data.select('callbutton', 'position', 'value').on('update', function(e){
         Control.widgets.callbutton.attr("data-pos", e.data.currentData);
     });
+
+    $.getCounts = function(){
+        var counts = 0;
+        $$.each($.data.get('panel', 'widgets'), function(item, value){
+            if (value === true) counts++;
+        });
+        if (!counts) $.data.set(['panel', 'widgets', 'messenger', 'only'], true);
+    };
 
     this.on("unmount", function(){
         Control.config.workspace = $.clone;
