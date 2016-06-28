@@ -3,7 +3,7 @@
     @include flex("column", "center", "center");
     transform:translate3d(-101%, 0, 0);
     transition:transform 0s 0.45s;
-    z-index:200020;
+    z-index:2000100;
 
     &:before {
         @include abs();

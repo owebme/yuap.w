@@ -4,51 +4,44 @@
         <span class="UI__controlPanel__buttonSave__text">Сохранить</span>
     </div>
     <div class="UI__controlPanel__wrapper">
-        <div class="UI__controlPanel__item UI__controlPanel__item--top">
-            <ui-switcher title="Активный" value={'active'}></ui-switcher>
-        </div>
-        <div class="UI__controlPanel__options { 'UI__controlPanel__options--hide' : !data.get('active') }">
+        <ui-switcher title="Активный" value={'active'} top="true"></ui-switcher>
+        <div class="UI__controlPanel__options UI__controlPanel__options--rounded { 'UI__controlPanel__options--hide' : !data.get('active') }">
 
-            <!-- // Main settings -->
+            <!-- // Callback settings -->
             <div class="UI__controlPanel__options__wrapper">
-                <div class="UI__controlPanel__item">
-                    <ui-palette title="Цветовая палитра" items={ data.get('color', 'items') } value={['color', 'value']}></ui-palette>
-                </div>
-                <div class="UI__controlPanel__item">
-                    <ui-select title="Стиль виджета" items={ data.get('theme', 'items') } value={['theme', 'value']}></ui-select>
-                </div>
-                <div class="UI__controlPanel__item">
-                    <ui-textEdit title="Текст приветствия" value={'tooltip'}></ui-textEdit>
-                </div>
-                <div class="UI__controlPanel__item">
-                    <ui-unlock title="Настройки формы" sidebar="form"></ui-unlock>
-                </div>
-                <div class="UI__controlPanel__item">
-                    <ui-unlock title="Тюнинг работы" sidebar="tuning"></ui-unlock>
-                </div>
+                <ui-palette title="Цветовая палитра" items={ data.get('color', 'items') } value={['color', 'value']}></ui-palette>
+
+                <ui-select title="Стиль виджета" items={ data.select('theme', 'items') } value={['theme', 'value']}></ui-select>
+
+                <ui-select title="Размер виджета" items={ data.select('size', 'items') } value={['size', 'value']}></ui-select>
+
+                <ui-textEdit title="Текст приветствия" value={'tooltip'} keyup="true"></ui-textEdit>
+
+                <ui-unlock title="Настройки формы" sidebar="form" value={['form', 'open']}></ui-unlock>
+
+                <ui-unlock title="Тюнинг работы" sidebar="tuning" value={['tuning', 'open']}></ui-unlock>
+
                 <div class="UI__controlPanel__item UI__controlPanel__item--footer"></div>
             </div>
 
             <!-- // Sidebar form -->
             <div class="UI__controlPanel UI__controlPanel__sidebar UI__controlPanel__sidebar__form">
-                <div class="UI__controlPanel__item">
-                    <ui-palette title="Цветовая палитра" items={ data.get('form', 'color', 'items') } value={['form', 'color', 'value']}></ui-palette>
-                </div>
+                <ui-palette title="Цветовая палитра" items={ data.get('form', 'color', 'items') } value={['form', 'color', 'value']}></ui-palette>
+
+                <ui-textEdit title="Текст формы" value={['form', 'text']} keyup="true"></ui-textEdit>
+
                 <div class="UI__controlPanel__item UI__controlPanel__item--footer"></div>
                 <div class="UI__controlPanel__sidebar__title">Настройки формы</div>
             </div>
 
             <!-- // Sidebar tuning -->
             <div class="UI__controlPanel UI__controlPanel__sidebar UI__controlPanel__sidebar__tuning">
-                <div class="UI__controlPanel__item UI__controlPanel__item--top">
-                    <ui-switcher title="Ручная настройка" value={['tuning', 'active']}></ui-switcher>
-                </div>
-                <div class="UI__controlPanel__item">
-                    <ui-switcher title="Пульсация кнопки звонка" help="Периодически привлекать внимание пользователей анимацией кнопки звонка" value={['tuning', 'buttonAnim']}></ui-switcher>
-                </div>
-                <div class="UI__controlPanel__item">
-                    <ui-switcher title="Предлагать связаться" help="Периодически показывать текст приветствия для пользователей" value={['tuning', 'tooltipShow']}></ui-switcher>
-                </div>
+                <ui-switcher title="Анимация иконки звонка" help="Привлекать внимание пользователей анимацией иконки звонка" value={['tuning', 'iconAnim']}></ui-switcher>
+
+                <ui-switcher title="Анимация кнопки звонка" help="Привлекать внимание пользователей анимацией кнопки звонка" value={['tuning', 'buttonAnim']}></ui-switcher>
+
+                <ui-switcher title="Предлагать связаться" help="Периодически показывать текст приветствия для пользователей" value={['tuning', 'tooltipShow']}></ui-switcher>
+                
                 <div class="UI__controlPanel__item UI__controlPanel__item--footer"></div>
                 <div class="UI__controlPanel__sidebar__title">Тюнинг работы</div>
             </div>
@@ -64,33 +57,96 @@
 
     $.saveShow = false;
 
+    this.on("mount", function(){
+        if ($.data.get("active")) Control.widget.addClass("WD__callbutton--ACTIVE");
+        $.options = $scope.find(".UI__controlPanel__options");
+        $.buttonSave = $scope.find(".UI__controlPanel__buttonSave");
+        $.tooltipText = Control.widget.find(".WD__callbutton__tooltip")[0];
+        $.formText = Control.widget.find(".WD__callbutton__form__subtitle")[0];
+    });
+
+    // Initialize data
     $.data = new Baobab($.opts.data, {
         autoCommit: true
     });
 
+    // Clone and save data
     $.clone = $.data.serialize();
 
     $.data.on('update', function(e){
-        if (!$.saveShow) {
+        if (!$.saveShow && e.data.paths[0][1] !== "open") {
             $.buttonSave.addClass("UI__controlPanel__buttonSave--active");
             $.saveShow = true;
         }
     });
 
+    // Show / hide callbutton
     $.data.select('active').on('update', function(e){
         if (e.data.currentData) Control.widget.addClass("WD__callbutton--ACTIVE");
-        else Control.widget.removeClass("WD__callbutton--ACTIVE");
-        $.update();
+        else {
+            Control.widget.removeClass("WD__callbutton--ACTIVE WD__callbutton__cloud--ACTIVE");
+            $.tags["ui-unlock"].forEach(function(unlock){
+                unlock.close();
+            });
+        }
+        $.options.toggleClass("UI__controlPanel__options--hide");
     });
 
-    this.on("mount", function(){
-        if ($.data.get("active")) Control.widget.addClass("WD__callbutton--ACTIVE");
-        $.buttonSave = $scope.find(".UI__controlPanel__buttonSave");
+    // Change color callbutton
+    $.data.select('color', 'value').on('update', function(e){
+        Control.widget.attr("data-color", e.data.currentData);
+    });
+
+    // Change theme callbutton
+    $.data.select('theme', 'value').on('update', function(e){
+        Control.widget.attr("data-theme", e.data.currentData);
+    });
+
+    // Change size callbutton
+    $.data.select('size', 'value').on('update', function(e){
+        Control.widget.attr("data-size", e.data.currentData);
+    });
+
+    // Change text tooltip on callbutton
+    $.data.select('tooltip').on('update', function(e){
+        $.tooltipText.innerHTML = e.data.currentData;
+    });
+
+    // Open setting form callbutton
+    $.data.select('form', 'open').on('update', function(e){
+        if (e.data.currentData) Control.widget.addClass("WD__callbutton__cloud--ACTIVE");
+        else Control.widget.removeClass("WD__callbutton__cloud--ACTIVE");
+    });
+
+    // Change color form callbutton
+    $.data.select('form', 'color', 'value').on('update', function(e){
+        Control.widget.attr("data-form-color", e.data.currentData);
+    });
+
+    // Change text form callbutton
+    $.data.select('form', 'text').on('update', function(e){
+        $.formText.innerHTML = e.data.currentData;
+    });
+
+    // Open tuning on callbutton
+    $.data.select('tuning', 'open').on('update', function(e){
+        if (e.data.currentData) Control.widget.removeClass("WD__callbutton__cloud--ACTIVE");
+    });
+
+    // Add animated icon on callbutton
+    $.data.select('tuning', 'iconAnim').on('update', function(e){
+        if (e.data.currentData) Control.widget.addClass("WD__callbutton--pulseIcon");
+        else Control.widget.removeClass("WD__callbutton--pulseIcon");
+    });
+
+    // Add animated effect on callbutton
+    $.data.select('tuning', 'buttonAnim').on('update', function(e){
+        if (e.data.currentData) Control.widget.addClass("WD__callbutton--pulse");
+        else Control.widget.removeClass("WD__callbutton--pulse");
     });
 
     this.on("unmount", function(){
         Control.config.callback = $.clone;
-        Control.widget.remove();
         console.log("unmount control-callback");
     });
 

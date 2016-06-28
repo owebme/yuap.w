@@ -7,8 +7,8 @@
 [class^="WD__"] {
 	font-family:inherit;
     font-weight:inherit;
-	// font-size:inherit;
-	// line-height:1.42857143;
+	font-size:inherit;
+	line-height:inherit;
 	user-select:none;
 	text-size-adjust:100%;
 	text-rendering:optimizeLegibility;
@@ -45,6 +45,8 @@
 html,
 body {
 	height:100%;
+	// font-size:20px;
+	// line-height:200px;
 }
 .WD__disable__hover,
 .WD__disable__hover * {

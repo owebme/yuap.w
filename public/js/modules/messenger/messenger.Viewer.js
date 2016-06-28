@@ -15,7 +15,7 @@
             WD.elem = $('<div class="WD__messenger__viewer">'+
                 '<div class="WD__messenger__viewer__overlay"></div>'+
                 '<img src="" class="WD__messenger__viewer__image"></div>'+
-            '</div>').appendTo($dom.wrapper);
+            '</div>').appendTo($dom.body);
 
 			WD.image = WD.elem.find(".WD__messenger__viewer__image");
 

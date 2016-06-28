@@ -1,48 +1,213 @@
 <root-control id="rootControl">
 
+    <div class="UI__controlExit"></div>
+
     <control-bg id="bgControl"></control-bg>
     <control-menu></control-menu>
     <control-section></control-section>
     <control-overlay></control-overlay>
     <ui-alert></ui-alert>
 
-    <div id="WD__wrapper"></div>
+    <div id="widgetsWrapper"></div>
 
 <script>
 
     var $ = this;
     Control = $;
     Control.module = null;
+    Control.widget = null;
+    Control.widgets = {};
 
     $.config = {
-        callback: {
-            active: true,
-            color: {
-                value: "#26262A",
-                items: ["#5856d6", "#007aff", "#34aadc", "#5ac8fa", "#4cd964", "#ff2d55", "#ff3b30", "#ff9500", "#ffcc00", "#26262A"]
-            },
-            theme: {
-                value: "Модерн",
-                items: ["Модерн", "Классика", "Спутник", "Волна", "Оператор"]
-            },
-            tooltip: "Это отличный способ связаться с нами",
-            form: {
+
+        workspace: {
+            panel: {
+                open: false,
+                active: true,
                 color: {
-                    value: "#26262A",
-                    items: ["#5856d6", "#007aff", "#34aadc", "#5ac8fa", "#4cd964", "#ff2d55", "#ff3b30", "#ff9500", "#ffcc00", "#26262A"]
+                    value: "#00ab6b",
+                    items: ["#6a76fc", "#a570f9", "#0094da", "#00a8ff", "#4dc95b", "#00ab6b", "#1abc9c", "#ff2d55", "#ee5050", "#ff6000", "#465c66"]
+                },
+                widgets: {
+                    reviews: true,
+                    contacts: true,
+                    feedback: true,
+                    currency: true,
+                    social: true,
+                    messenger: {
+                        only: false,
+                        position: {
+                            value: "bottom-center",
+                            items: [{
+                                title: "По центру",
+                                value: "bottom-center"
+                            },
+                            {
+                                title: "Слева внизу",
+                                value: "bottom-left"
+                            },
+                            {
+                                title: "Слева по центру",
+                                value: "center-left"
+                            },
+                            {
+                                title: "Справа по центру",
+                                value: "center-right"
+                            },
+                            {
+                                title: "Справа внизу",
+                                value: "bottom-right"
+                            }]
+                        }
+                    }
                 }
             },
             tuning: {
+                open: false,
+                rounded: true,
+                shadow: {
+                    value: "true",
+                    items: [{
+                        title: "Без тени",
+                        value: "false"
+                    },
+                    {
+                        title: "Слабая",
+                        value: "true"
+                    },
+                    {
+                        title: "Сильная",
+                        value: "strong"
+                    }]
+                },
+                fixed: true,
+                gradient: true
+            },
+            products: {
                 active: true,
-                buttonAnim: true,
-                tooltipShow: true
+                position: {
+                    value: "bottom-left",
+                    items: [{
+                        title: "Слева внизу",
+                        value: "bottom-left"
+                    },
+                    {
+                        title: "Слева по центру",
+                        value: "center-left"
+                    },
+                    {
+                        title: "Справа по центру",
+                        value: "center-right"
+                    },
+                    {
+                        title: "Справа внизу",
+                        value: "bottom-right"
+                    }]
+                }
+            },
+            callbutton: {
+                active: true,
+                position: {
+                    value: "bottom-right",
+                    items: [{
+                        title: "Слева внизу",
+                        value: "bottom-left"
+                    },
+                    {
+                        title: "Справа внизу",
+                        value: "bottom-right"
+                    }]
+                }
+            },
+            messenger: {
+                active: false,
+                position: {
+                    value: "bottom-right",
+                    items: [{
+                        title: "Слева внизу",
+                        value: "bottom-left"
+                    },
+                    {
+                        title: "Слева по центру",
+                        value: "center-left"
+                    },
+                    {
+                        title: "Справа по центру",
+                        value: "center-right"
+                    },
+                    {
+                        title: "Справа внизу",
+                        value: "bottom-right"
+                    }]
+                }
             }
+        },
+
+        callback: {
+            active: true,
+            color: {
+                value: "#26262a",
+                items: ["#6a76fc", "#a570f9", "#00a8ff", "#4dc95b", "#00ab6b", "#1abc9c", "#ff2d55", "#ee5050", "#ff6000", "#3e4757", "#26262a"]
+            },
+            theme: {
+                value: "modern",
+                items: [{
+                    title: "Нью-эйдж",
+                    value: "modern"
+                },
+                {
+                    title: "Оператор",
+                    value: "operator"
+                },
+                {
+                    title: "Классика",
+                    value: "classic"
+                }]
+            },
+            size: {
+                value: "normal",
+                items: [{
+                    title: "Крупный",
+                    value: "large"
+                },
+                {
+                    title: "Средний",
+                    value: "normal"
+                },
+                {
+                    title: "Мелкий",
+                    value: "small"
+                }]
+            },
+            tooltip: "Это отличный способ быстро связаться с нами",
+            form: {
+                open: false,
+                color: {
+                    value: "#ee5050",
+                    items: ["#ee5050", "#158ffe", "#00a8ff", "#6a76fc", "#00ab6b", "#1abc9c", "#ef6c00", "#535f75"]
+                },
+                text: "Мы перезвоним Вам в течение 27 сек"
+            },
+            tuning: {
+                open: false,
+                iconAnim: false,
+                buttonAnim: false,
+                tooltipShow: false
+            }
+        },
+
+        offer: {
+            active: true
         }
     }
 
     this.on("mount", function(){
 
-        app.$dom.wrapper = $$("#WD__wrapper");
+        app.$dom.wrapper = $$("#widgetsWrapper");
+
+        app.$dom.wrapper.on("click", "a", function(e){
+            e.preventDefault();
+        });
     });
 
 </script>

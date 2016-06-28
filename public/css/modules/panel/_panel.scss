@@ -5,46 +5,51 @@
     width:100%;
     color:rgba(#000,.8);
     font-weight:400;
+    font-size:15px;
+    line-height:15px;
     font-family:$default;
     text-align:center;
     user-select:none;
+    transition:transform 0.3s $cubic34;
+    @include accelerate();
+    transform:translate3d(0, 0, 0) scale3d(1, 1, 1);
+    transform-origin:center center 0;
     z-index:200002;
-}
-// $WD__panel: #B8A081;
-// $WD__panel: darken(#d0a8a0,7%);
-// $WD__panel: #0094DA; // blue
-$WD__panel: #00ab6b;
 
-.WD__panel:after {
-    background-image:linear-gradient(to right, #ff6562 20%, #00dad8 40%, #9a64ff 60%, #ff4cab 80%, #FFCD33 100%) !important;
+    &--hide {
+        transform:translate3d(0, 57px, 0) scale3d(0.2, 0.4, 1);
+
+        .WD__panel__popup {
+            transition:transform .1s $cubic34, opacity .1s $cubic34, margin-left 0s 0.1s !important;
+            transform:translate3d(0, 0, 0) scale(0);
+            opacity:0;
+        }
+    }
 }
 .WD__panel a {
     position:relative;
-    display:inline-block;
     font-size:15px;
     color:rgba(#000,.8);
     text-decoration:none;
     vertical-align:bottom;
     transition:transform .12s $cubic215, color .12s $cubic215;
-
-    &:hover {
-        color:$green;
-    }
 }
 .WD__panel__wrapper {
     display:inline-block;
-    min-width:740px;
+    // min-width:740px;
     height:57px;
-    padding:4px 15px 9px 25px;
+    padding:4px 20px 9px 25px;
     background:#fff;
     box-shadow:0 0 1px rgba(0,0,0,.44);
     border-radius:6px 6px 0 0;
     vertical-align:bottom;
+    font-size:0px;
     line-height:42px;
     text-align:left;
     will-change:transform;
-    transition:transform 0.3s $cubic34;
+    transition:transform 0.3s $cubic34 0.2s;
     transform:translate3d(0, 5px, 0);
+    @include accelerate();
 }
 .WD__panel:after {
     content:"";
@@ -53,49 +58,53 @@ $WD__panel: #00ab6b;
     left:0;
     width:100%;
     height:4px;
-    background:$WD__panel;
     will-change:transform;
     transform:scale(0);
-    transition:transform 0.5s $cubic57;
+    transition:transform 0.5s $cubic57 0.2s;
+    opacity:0.98;
 }
-.WD__panel:hover,
-.WD__panel--active {
+.WD__panel:hover {
     &:after {
         transform:scale(1);
+        transition-delay:0s;
     }
     .WD__panel__wrapper {
         transform:translate3d(0, 0, 0);
+        transition-delay:0s;
     }
 }
-.WD__panel__left {
-    float:left;
-}
-.WD__panel__right {
-    float:right;
-    padding-left:30px;
-}
 .WD__panel__separator {
-    display: inline-block;
-    vertical-align: middle;
-    width: 1px;
-    height: 24px;
-    margin: 0 16px;
-    background-color:rgba(#000,.15);
+    @include WD__panel__separator();
+}
+.WD__panel__item {
+    display:none;
+    vertical-align:top;
+
+    &[data-active='true'] {
+        display:inline-block;
+    }
+    &[data-active='false'] ~ .WD__panel__separator {
+        display:none;
+    }
+}
+.WD__panel__item__wrapper {
+    display:inline-block;
+}
+.WD__panel__item__reviews {
+    margin-right:1px;
 }
 .WD__panel__button__circle {
     position:relative;
-    display:inline-block;
     width:37px;
     height:37px;
     border-radius:50%;
-    margin:0 4px;
-    background:$WD__panel;
+    margin:2px 6px 0;
     vertical-align:middle;
     transition:background .2s $cubic215, transform .2s $cubic215;
     cursor:pointer;
 
     &:hover {
-        background:#222;
+        background:#222 !important;
         transform:translate3d(0, -2px, 0) scale(1.1);
     }
     &:active {
@@ -103,52 +112,52 @@ $WD__panel: #00ab6b;
         transform:translate3d(0, 2px, 0) scale(0.8);
     }
 }
-.WD__panel__button__circle__badge {
-    position:absolute;
-    top:-2px;
-    left:-3px;
-    width:15px;
-    height:15px;
-    background:#ff3d00;
-    border-radius:50%;
-    color:#fff;
-    font-size:11px;
-    line-height:14px;
-    font-weight:bold;
-    text-align:center;
-    z-index:1;
-
-    &:before {
-        display:none;
-        content:"";
-        @include abs_50(74, 74);
-        border-radius:50%;
-        background-clip:padding-box;
-        border:1px solid #ff3d00;
-        box-shadow:0 0 20px rgba(#ff3d00,.5),inset 0 0 10px rgba(#ff3d00,.8);
-        background:-webkit-radial-gradient(center,ellipse cover,#fff 0,rgba(255,255,255,.8) 100%);
-        animation:map 1.2s infinite linear;
-        z-index:-1;
-    }
-}
-.WD__panel__button__circle__badge__point {
-    @include abs_50(7, 7);
-    background:#fff;
-    border-radius:50%;
-}
-@keyframes map {
-    0% {
-        transform:scale(0);
-        opacity:0;
-    }
-    50% {
-        opacity:1;
-    }
-    100% {
-        transform:scale(1);
-        opacity:0;
-    }
-}
+// .WD__panel__button__circle__badge {
+//     position:absolute;
+//     top:-2px;
+//     left:-3px;
+//     width:15px;
+//     height:15px;
+//     background:#ff3d00;
+//     border-radius:50%;
+//     color:#fff;
+//     font-size:11px;
+//     line-height:14px;
+//     font-weight:bold;
+//     text-align:center;
+//     z-index:1;
+//
+//     &:before {
+//         display:none;
+//         content:"";
+//         @include abs_50(74, 74);
+//         border-radius:50%;
+//         background-clip:padding-box;
+//         border:1px solid #ff3d00;
+//         box-shadow:0 0 20px rgba(#ff3d00,.5),inset 0 0 10px rgba(#ff3d00,.8);
+//         background:-webkit-radial-gradient(center,ellipse cover,#fff 0,rgba(255,255,255,.8) 100%);
+//         animation:map 1.2s infinite linear;
+//         z-index:-1;
+//     }
+// }
+// .WD__panel__button__circle__badge__point {
+//     @include abs_50(7, 7);
+//     background:#fff;
+//     border-radius:50%;
+// }
+// @keyframes map {
+//     0% {
+//         transform:scale(0);
+//         opacity:0;
+//     }
+//     50% {
+//         opacity:1;
+//     }
+//     100% {
+//         transform:scale(1);
+//         opacity:0;
+//     }
+// }
 .WD__panel__button__circle--first {
     margin-left:0;
 }
@@ -163,73 +172,11 @@ $WD__panel: #00ab6b;
 .WD__panel__button__map:after {
     background:url(/public/images/panel_button_map.svg) no-repeat 0 0 / cover;
 }
+.WD__panel__button__mail:after {
+    background:url(/public/images/panel_button_mail.svg) no-repeat 0 0 / cover;
+}
 .WD__panel__button__menu:after {
     background:url(/public/images/panel_button_menu.svg) no-repeat 0 0 / cover;
-}
-.WD__panel__messenger__avatar {
-    position:relative;
-    display:inline-block;
-    vertical-align:top;
-    margin-right:5px;
-    will-change:transform;
-    transition:transform 0.2s cubic-bezier(0.42, 0, 0.05, 2);
-
-    &:after {
-        content:"";
-        position:absolute;
-        top:0;
-        left:-1px;
-        width:12px;
-        height:12px;
-        background:#05d29f;
-        border-radius:50%;
-        border:2px solid #fff;
-    }
-}
-.WD__panel__messenger__avatar__image {
-    display:inline-block;
-    width:42px;
-    height:42px;
-    background-repeat:no-repeat;
-    background-size:cover;
-    border-radius:50%;
-    overflow:hidden;
-    vertical-align:top;
-    border:2px solid #ccc;
-}
-.WD__panel__messenger:before {
-    opacity:0;
-    content:attr(data-content);
-    position:absolute;
-    top:0;
-    left:52px;
-    white-space:nowrap;
-    will-change:transform, opacity;
-    transform:translate3d(0, 60px, 0) rotate(30deg);
-    transition:opacity 0.35s $cubic215 0.1s, transform 0.35s $cubic215 0.1s;
-}
-.WD__panel__messenger__item {
-    will-change:opacity;
-    transition:opacity 0.35s $cubic215 0.1s;
-}
-.WD__panel__messenger {
-    &:hover {
-        .WD__panel__messenger__avatar {
-            transform:translate3d(0, -7px, 0) scale(1.1);
-        }
-        &:before {
-            opacity:1;
-            transform:translate3d(0, 0, 0) rotate(0deg);
-            transition:opacity 0.2s $cubic215 0.1s, transform 0.35s cubic-bezier(0.42, 0, 0.05, 1.25) 0.1s;
-        }
-        .WD__panel__messenger__item {
-            opacity:0;
-            transition:opacity 0.2s $cubic215 0.1s;
-        }
-    }
-    &:active {
-        transform:translate3d(0, 2px, 0) scale(0.9);
-    }
 }
 .WD__panel__button {
     display:inline-block;
@@ -244,4 +191,82 @@ $WD__panel: #00ab6b;
     cursor:pointer;
     border-radius:999em;
     vertical-align:bottom;
+}
+
+.WD__panel {
+    &[data-rounded='true'] {
+        .WD__panel__wrapper {
+            padding-left:29px;
+            padding-right:26px;
+            border-radius:31px 27px 0 0;
+            margin-left:2px;
+        }
+    }
+    &[data-shadow='true'] {
+        .WD__panel__wrapper {
+            box-shadow:0 0 1px rgba(0,0,0,.44), 0 12px 25px -2px rgba($black_gray,.17);
+        }
+    }
+    &[data-shadow='strong'] {
+        .WD__panel__wrapper {
+            box-shadow:0 0 1px rgba(0,0,0,.44), 0 12px 25px -2px rgba($black_gray,.34);
+        }
+    }
+    &[data-fixed='true'] {
+        &:after {
+            transform:scale(1);
+            transition-delay:0s;
+        }
+        .WD__panel__wrapper {
+            transform:translate3d(0, 0, 0);
+            transition-delay:0s;
+        }
+    }
+    &[data-gradient='true'] {
+        &:after {
+            background:linear-gradient(to right, #ff6562 20%, #00dad8 40%, #9a64ff 60%, #ff4cab 80%, #FFCD33 100%) !important;
+        }
+    }
+}
+.WD__panel__item__currency[data-active='false'] + .WD__panel__item__social[data-active='false'] + .WD__panel__item__messenger[data-active='true'] {
+    &:before {
+        content:"";
+        @include WD__panel__separator();
+        margin-left:15px
+    }
+}
+.WD__panel__item__contacts[data-active='false'] + .WD__panel__item__feedback[data-active='false'] ~ .WD__panel__item__messenger[data-active='true'] {
+    &:before {
+        display:none;
+    }
+}
+.WD__panel__item__contacts[data-active='true'] ~ .WD__panel__item__currency[data-active='false'] + .WD__panel__item__social[data-active='true'],
+.WD__panel__item__feedback[data-active='true'] ~ .WD__panel__item__currency[data-active='false'] + .WD__panel__item__social[data-active='true'] {
+    margin-left:35px;
+}
+.WD__panel__item__contacts[data-active='false'] + .WD__panel__item__feedback[data-active='false'] + .WD__panel__item__currency[data-active='true'] {
+    margin-left:-10px;
+}
+.WD__panel--ACTIVE {
+    animation:WD__panel__slipDown-show .3s $cubic34 forwards;
+}
+.WD__panel--HIDDEN {
+    z-index:2000050;
+    animation:WD__panel__slipDown-hide .3s $cubic34 forwards;
+}
+@keyframes WD__panel__slipDown-show {
+    0% {
+        transform:translate3d(0, 57px, 0) scale3d(0.2, 0.4, 1);
+    }
+    100% {
+        transform:translate3d(0, 0, 0) scale3d(1, 1, 1);
+    }
+}
+@keyframes WD__panel__slipDown-hide {
+    0% {
+        transform:translate3d(0, 0, 0) scale3d(1, 1, 1);
+    }
+    100% {
+        transform:translate3d(0, 57px, 0) scale3d(0.2, 0.4, 1);
+    }
 }

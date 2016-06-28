@@ -1,23 +1,23 @@
 .WD__panel__currency {
-    display:inline-block;
     vertical-align:middle;
     position:relative;
     left:-6px;
     width:52px;
     cursor:default;
+    margin-left:28px;
 }
 .WD__panel__currency__item {
     position:absolute;
     left:0;
     width:100%;
     white-space:nowrap;
-    color:$WD__panel;
+    color:$green;
 }
 .WD__panel__currency__top {
-    top:-20px;
+    top:-18px;
 }
 .WD__panel__currency__bottom {
-    top:-4px;
+    top:-2px;
 }
 .WD__panel__currency__top,
 .WD__panel__currency__bottom {

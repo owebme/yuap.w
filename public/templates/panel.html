@@ -1,4 +1,4 @@
-<div class="WD__panel WD__panel--active">
+<div class="WD__panel WD__panel--active" data-color="#00ab6b" data-rounded="true" data-shadow="true" data-fixed="true" data-gradient="true">
     <div class="WD__panel__wrapper">
 
         <div class="WD__panel__popup WD__panel__popup--slow WD__panel__popup__messenger">
@@ -65,9 +65,8 @@
             <div class="WD__panel__popup__zone"></div>
         </div>
 
-        <div class="WD__panel__left">
-
-            <a href="#" class="WD__panel__reviews">
+        <div class="WD__panel__item WD__panel__item__reviews" data-active="true">
+            <a href="#" class="WD__panel__reviews WD__panel__item__wrapper">
                 <span class="WD__panel__reviews__item">
                     Отзывы о нас
                     <span class="WD__panel__reviews__badge">7<span class="WD__panel__reviews__badge__rest">.8</span></span>
@@ -81,20 +80,19 @@
                     </div>
                 </div>
             </a>
-
             <span class="WD__panel__separator"></span>
-
-            <span data-popup=".WD__panel__popup__contacts" class="WD__panel__showPopup WD__panel__button__circle WD__panel__button__map WD__panel__button__circle--first"></span>
-
-            <span class="WD__panel__button__circle WD__panel__button__menu WD__panel__button__menu--product">
-                <span class="WD__panel__button__circle__badge">
-                    <span class="WD__panel__button__circle__badge__point"></span>
-                </span>
-            </span>
-
         </div>
-        <div class="WD__panel__right">
-            <div class="WD__panel__currency">
+
+        <span data-popup=".WD__panel__popup__contacts" class="WD__panel__showPopup WD__panel__button__circle WD__panel__button__map WD__panel__button__circle--first WD__panel__contacts WD__panel__item WD__panel__item__contacts" data-active="true"></span>
+
+        <span class="WD__panel__button__circle WD__panel__button__mail WD__panel__feedback WD__panel__item WD__panel__item__feedback" data-active="true">
+            <!-- <span class="WD__panel__button__circle__badge">
+                <span class="WD__panel__button__circle__badge__point"></span>
+            </span> -->
+        </span>
+
+        <div class="WD__panel__item WD__panel__item__currency" data-active="true">
+            <div class="WD__panel__currency WD__panel__item__wrapper">
                 <span class="WD__panel__currency__item WD__panel__currency__top">
                     &euro; <span class="WD__panel__currency__pointer">&ndash;</span> <span class="WD__panel__currency__value">73.44</span>
                 </span>
@@ -114,8 +112,10 @@
                 </div>
             </div>
             <span class="WD__panel__separator"></span>
+        </div>
 
-            <div class="WD__panel__social WD__panel__social--compact">
+        <div class="WD__panel__item WD__panel__item__social" data-active="true">
+            <div class="WD__panel__social WD__panel__item__wrapper">
                 <span class="WD__panel__social__button WD__panel__social__google">
                     <svg class="WD__panel__social__button__svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                          viewBox="0 0 32.878 32.878" style="enable-background:new 0 0 32.878 32.878;" xml:space="preserve">
@@ -170,11 +170,15 @@
                 </span>
             </div>
             <span class="WD__panel__separator"></span>
-            <a href="#" data-content="Задать свой вопрос.." class="WD__panel__showPopup WD__panel__messenger" data-popup=".WD__panel__popup__messenger">
+        </div>
+
+        <div class="WD__panel__item WD__panel__item__messenger" data-active="true">
+            <a href="#" data-content="Задать свой вопрос.." class="WD__panel__showPopup WD__panel__messenger WD__panel__item__wrapper" data-popup=".WD__panel__popup__messenger">
                 <span class="WD__panel__messenger__avatar">
                     <span class="WD__panel__messenger__avatar__image" style="background-image:url(/public/images/avatar2.jpg)"></span>
                 </span>
-                <span class="WD__panel__messenger__item">Обращайтесь, поможем</span></a>
+                <span class="WD__panel__messenger__item">Обращайтесь, поможем</span>
+            </a>
         </div>
     </div>
 </div>

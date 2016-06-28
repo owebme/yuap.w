@@ -48,6 +48,9 @@ gulp.task('watch', function() {
 
 	//gulp.watch('js/templates/*.html', ['templates']);
 
+	gulp.watch(['../public/css/style.min.css',
+				'../public/js/templates.js']).on('change', reload);
+
     gulp.watch([
 		'../control.html',
 		'templates/*.html',

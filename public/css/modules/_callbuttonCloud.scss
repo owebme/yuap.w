@@ -420,8 +420,8 @@
     }
 }
 
-.WD__callbutton__cloud--red {
-    &:after,
+.WD__callbutton[data-form-color='#ee5050'] {
+    .WD__callbutton__cloud:after,
     .WD__callbutton__time__items,
     .WD__callbutton__time__devider:before {
         background:#EE5050;
@@ -433,8 +433,8 @@
         color:#EE5050;
     }
 }
-.WD__callbutton__cloud--blue {
-    &:after,
+.WD__callbutton[data-form-color='#158ffe'] {
+    .WD__callbutton__cloud:after,
     .WD__callbutton__time__items,
     .WD__callbutton__time__devider:before {
         background:#158ffe;
@@ -446,8 +446,8 @@
         color:#158ffe;
     }
 }
-.WD__callbutton__cloud--azure {
-    &:after,
+.WD__callbutton[data-form-color='#00a8ff'] {
+    .WD__callbutton__cloud:after,
     .WD__callbutton__time__items,
     .WD__callbutton__time__devider:before {
         background:#00a8ff;
@@ -459,8 +459,8 @@
         color:#00a8ff;
     }
 }
-.WD__callbutton__cloud--violet {
-    &:after,
+.WD__callbutton[data-form-color='#6a76fc'] {
+    .WD__callbutton__cloud:after,
     .WD__callbutton__time__items,
     .WD__callbutton__time__devider:before {
         background:#6a76fc;
@@ -472,8 +472,8 @@
         color:#6a76fc;
     }
 }
-.WD__callbutton__cloud--green {
-    &:after,
+.WD__callbutton[data-form-color='#00ab6b'] {
+    .WD__callbutton__cloud:after,
     .WD__callbutton__time__items,
     .WD__callbutton__time__devider:before {
         background:#00ab6b;
@@ -485,8 +485,8 @@
         color:#00ab6b;
     }
 }
-.WD__callbutton__cloud--emerald {
-    &:after,
+.WD__callbutton[data-form-color='#1abc9c'] {
+    .WD__callbutton__cloud:after,
     .WD__callbutton__time__items,
     .WD__callbutton__time__devider:before {
         background:#1abc9c;
@@ -498,8 +498,8 @@
         color:#1abc9c;
     }
 }
-.WD__callbutton__cloud--orange {
-    &:after,
+.WD__callbutton[data-form-color='#ef6c00'] {
+    .WD__callbutton__cloud:after,
     .WD__callbutton__time__items,
     .WD__callbutton__time__devider:before {
         background:#ef6c00;
@@ -509,5 +509,18 @@
     }
     .WD__callbutton__time__title {
         color:#ef6c00;
+    }
+}
+.WD__callbutton[data-form-color='#535f75'] {
+    .WD__callbutton__cloud:after,
+    .WD__callbutton__time__items,
+    .WD__callbutton__time__devider:before {
+        background:#535f75;
+    }
+    .WD__callbutton__footer__bg {
+        fill:#535f75;
+    }
+    .WD__callbutton__time__title {
+        color:#535f75;
     }
 }

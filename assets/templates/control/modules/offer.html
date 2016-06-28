@@ -122,11 +122,17 @@
 
     var $ = this,
     $scope = $$($.root);
+    Control.module = $;
+
+    $.saveShow = false;
+
+    $.data = new Baobab($.opts.data, {
+        autoCommit: true
+    });
 
     this.on("mount", function(){
-
+        if ($.data.get("active")) Control.widget.addClass("WD__offer--ACTIVE");
         console.log("mount control-offer");
-
     });
 
     this.on("unmount", function(){

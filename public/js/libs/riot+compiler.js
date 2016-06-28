@@ -1736,6 +1736,9 @@ function setEventHandlerClick(handler, dom, tag, update) {
 		else if (this.getAttribute("riot-removeClass")){
 			$item.removeClass(this.getAttribute("riot-removeClass"));
 		}
+        else if (this.getAttribute("riot-toggleClass")){
+			$item.toggleClass(this.getAttribute("riot-toggleClass"));
+		}
 	}
 
      var tag = this._tag,

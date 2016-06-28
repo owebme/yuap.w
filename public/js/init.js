@@ -3,8 +3,8 @@ yuapApp.panel.init();
 yuapApp.callbutton.init();
 // yuapApp.callback.init();
 // yuapApp.reviews.init();
-//yuapApp.contacts.init();
-// yuapApp.messenger.init();
+// yuapApp.contacts.init();
+yuapApp.messenger.init();
 
 window.onload = function(){
 

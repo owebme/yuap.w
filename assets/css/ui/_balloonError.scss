@@ -20,7 +20,7 @@
 }
 [data-errballoon]:after {
   background: #ff665a;
-  border-radius: 6px;
+  border-radius: 9px;
   color: #fff;
   content: attr(data-errballoon);
   font-family:$default;

@@ -3,6 +3,7 @@
 	utils.template = function(name, data){
 
 		if (app.widgets && app.widgets[name]){
+
 			var tpl = Mustache.render(app.widgets[name](), data ? data : {}),
 				result = $(tpl).appendTo($dom.wrapper);
 
@@ -90,6 +91,10 @@
 		img.src = image;
 		img.onload = loadHandler;
 	    if (img.complete) loadHandler();
+	};
+
+	utils.isArray = function(array) {
+		return Object.prototype.toString.call(array) == '[object Array]' ? true : false;
 	};
 
 })(app.utils, app.$dom);

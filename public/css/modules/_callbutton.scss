@@ -4,6 +4,8 @@
     right:40px;
     user-select:none;
     font-weight:400;
+    font-size:15px;
+    line-height:15px;
     font-family:$default;
     z-index:200001;
 }
@@ -29,26 +31,28 @@ $WD__callbutton__orange: #FF6000;
     position: relative;
     width: 88px;
     height: 88px;
+    border-radius: 50%;
     cursor:pointer;
     z-index: 1;
 
-    &:after {
-      content:"";
-      @include abs_50(56, 56);
-      background: url(/public/images/callbutton.svg) no-repeat 0 0 / cover;
-      transition:transform 0.5s $cubic34;
-      transform:translate3d(0px, -3px, 0) rotate(0deg);
-    }
-    &:hover:after {
-        transform:translate3d(0px, -3px, 0) rotate(360deg);
+    &:hover {
+        .WD__callbutton__icon {
+            transform:translate3d(0px, -3px, 0) rotate(360deg);
+        }
     }
     &:active .WD__callbutton__circle__bg {
         transform: scale(0.9);
     }
 }
+.WD__callbutton__icon {
+    @include abs_50(63.64, 63.64, "%");
+    background: url(/public/images/callbutton.svg) no-repeat 0 0 / cover;
+    transition:transform 0.5s $cubic34;
+    transform:translate3d(0px, -3px, 0) rotate(0deg);
+}
 .WD__callbutton__circle__bg {
     @include abs();
-    border-radius: 100px;
+    border-radius: 50%;
     transform:translateZ(0);
     z-index: -2;
     will-change:transform;
@@ -70,7 +74,7 @@ $WD__callbutton__orange: #FF6000;
     margin: auto;
     width: 100%;
     height: 100%;
-    border-radius: 70px;
+    border-radius: 50%;
     opacity: 0.3;
     background: $WD__callbutton;
     transition:background 0.1s ease-out;
@@ -141,18 +145,6 @@ $WD__callbutton__orange: #FF6000;
     	background: #262626;
     	transform: translate3d(0,-80%,0) rotate3d(0,0,1,36deg);
     }
-    // &:after {
-    //     content:"";
-    //     position:absolute;
-    //     width: 52px;
-    // 	height: 32px;
-    // 	left: 50%;
-    // 	margin:-18px 0 0 -26px;
-    // 	top: 100%;
-    // 	background: url(/public/images/tooltip_blob.svg) no-repeat center center;
-    // 	background-size: 100%;
-    //     transform:scale3d(2.3, 1, 1) rotate(-8deg);
-    // }
 }
 .WD__callbutton:hover .WD__callbutton__tooltip {
 	opacity: 1;
@@ -233,10 +225,142 @@ $WD__callbutton__orange: #FF6000;
     }
 }
 
+.WD__callbutton[data-theme='classic'] {
+    .WD__callbutton__bulb {
+        display:none;
+    }
+}
+.WD__callbutton[data-theme='operator'] {
+    .WD__callbutton__icon {
+        background-image:url(/public/images/callbutton_operator.svg);
+    }
+}
+.WD__callbutton[data-size='large'] {
+    .WD__callbutton__circle {
+        width:100px;
+        height:100px;
+    }
+}
+.WD__callbutton[data-size='normal'] {
+    .WD__callbutton__circle {
+        width:88px;
+        height:88px;
+    }
+}
+.WD__callbutton[data-size='small'] {
+    .WD__callbutton__circle {
+        width:77px;
+        height:77px;
+    }
+}
+.WD__callbutton[data-color='#6a76fc'] .WD__callbutton__circle__blob {
+    background:#6a76fc;
+}
+.WD__callbutton[data-color='#a570f9'] .WD__callbutton__circle__blob {
+    background:#a570f9;
+}
+.WD__callbutton[data-color='#00a8ff'] .WD__callbutton__circle__blob {
+    background:#00a8ff;
+}
+.WD__callbutton[data-color='#4dc95b'] .WD__callbutton__circle__blob {
+    background:#4dc95b;
+}
+.WD__callbutton[data-color='#00ab6b'] .WD__callbutton__circle__blob {
+    background:#00ab6b;
+}
+.WD__callbutton[data-color='#1abc9c'] .WD__callbutton__circle__blob {
+    background:#1abc9c;
+}
+.WD__callbutton[data-color='#ff2d55'] .WD__callbutton__circle__blob {
+    background:#ff2d55;
+}
+.WD__callbutton[data-color='#ee5050'] .WD__callbutton__circle__blob {
+    background:#ee5050;
+}
+.WD__callbutton[data-color='#ff6000'] .WD__callbutton__circle__blob {
+    background:#ff6000;
+}
+.WD__callbutton[data-color='#3e4757'] .WD__callbutton__circle__blob {
+    background:#3e4757;
+}
+.WD__callbutton[data-color='#26262a'] .WD__callbutton__circle__blob {
+    background:#26262a;
+}
+.WD__callbutton--pulseIcon {
+    .WD__callbutton__icon {
+        animation:WD__callbutton__pulseIcon 5.5s ease-in-out infinite;
+        animation-delay:5s;
+    }
+}
+.WD__callbutton--pulse {
+    &:after {
+        content:"";
+        //animation:WD__callbutton__pulse 1.2s ease-in-out infinite;
+    }
+}
+.WD__callbutton {
+    .WD__callbutton__circle:after {
+        content:"";
+        //animation:WD__callbutton__pulse 1.2s ease-in-out infinite;
+    }
+}
+@keyframes WD__callbutton__pulseIcon {
+    0% {
+        transform: rotate(0deg) translate3d(0, -3px, 0) skew(1deg);
+    }
+    2.5% {
+        transform: rotate(-25deg) translate3d(0, -3px, 0) skew(1deg);
+    }
+    5% {
+        transform: rotate(25deg) translate3d(0, -3px, 0) skew(1deg);
+    }
+    7.5% {
+        transform: rotate(-25deg) translate3d(0, -3px, 0) skew(1deg);
+    }
+    10% {
+        transform: rotate(25deg) translate3d(0, -3px, 0) skew(1deg);
+    }
+    12.5% {
+        transform: rotate(-25deg) translate3d(0, -3px, 0) skew(1deg);
+    }
+    15% {
+        transform: rotate(25deg) translate3d(0, -3px, 0) skew(1deg);
+    }
+    17.5% {
+        transform: rotate(-25deg) translate3d(0, -3px, 0) skew(1deg);
+    }
+    100%, 20% {
+        transform: rotate(0deg) translate3d(0, -3px, 0) skew(1deg);
+    }
+}
 .WD__callbutton--ACTIVE {
+    animation:WD__callbutton__slipRight-show .45s $cubic57 forwards;
+
+    .WD__callbutton__circle {
+        will-change:width, height;
+        transition:width 0.5s cubic-bezier(0.42, 0, 0.05, 2.3), height 0.5s cubic-bezier(0.42, 0, 0.05, 2.3);
+        box-shadow:0 10px 32px -16px rgba($black_gray,.5);
+    }
+    &.WD__callbutton--pulseIcon {
+        .WD__callbutton__icon {
+            animation-delay:0s;
+        }
+    }
+}
+#widgetsWrapper[data-mode='callback'] {
     .WD__callbutton__tooltip {
         opacity: 1;
     	pointer-events: auto;
     	transform: scale3d(1,1,1);
+    }
+}
+@keyframes WD__callbutton__slipRight-show {
+    0% {
+        opacity:0;
+        transform:translate3d(250px, 65px, 0) scale3d(1.4, 0, 1);
+    }
+    100% {
+        opacity:1;
+        transform:translate3d(0, 0, 0) scale3d(1, 1, 1);
     }
 }

@@ -1,0 +1,99 @@
+.WD__panel[data-color='#6a76fc'] {
+    &:after,
+    .WD__panel__button__circle {
+        background:#6a76fc;
+    }
+    a:hover {
+        color:darken(#6a76fc, 7%);
+    }
+}
+.WD__panel[data-color='#a570f9'] {
+    &:after,
+    .WD__panel__button__circle {
+        background:#a570f9;
+    }
+    a:hover {
+        color:darken(#a570f9, 7%);
+    }
+}
+.WD__panel[data-color='#0094da'] {
+    &:after,
+    .WD__panel__button__circle {
+        background:#0094da;
+    }
+    a:hover {
+        color:darken($azure, 10%);
+    }
+}
+.WD__panel[data-color='#00a8ff'] {
+    &:after,
+    .WD__panel__button__circle {
+        background:#00a8ff;
+    }
+    a:hover {
+        color:darken(#00a8ff, 10%);
+    }
+}
+.WD__panel[data-color='#4dc95b'] {
+    &:after,
+    .WD__panel__button__circle {
+        background:#4dc95b;
+    }
+    a:hover {
+        color:darken(#4dc95b, 15%);
+    }
+}
+.WD__panel[data-color='#00ab6b'] {
+    &:after,
+    .WD__panel__button__circle {
+        background:#00ab6b;
+    }
+    a:hover {
+        color:darken(#00ab6b, 7%);
+    }
+}
+.WD__panel[data-color='#1abc9c'] {
+    &:after,
+    .WD__panel__button__circle {
+        background:#1abc9c;
+    }
+    a:hover {
+        color:darken(#1abc9c, 7%);
+    }
+}
+.WD__panel[data-color='#ff2d55'] {
+    &:after,
+    .WD__panel__button__circle {
+        background:#ff2d55;
+    }
+    a:hover {
+        color:darken(#ff2d55, 7%);
+    }
+}
+.WD__panel[data-color='#ee5050'] {
+    &:after,
+    .WD__panel__button__circle {
+        background:#ee5050;
+    }
+    a:hover {
+        color:darken(#ee5050, 7%);
+    }
+}
+.WD__panel[data-color='#ff6000'] {
+    &:after,
+    .WD__panel__button__circle {
+        background:#ff6000;
+    }
+    a:hover {
+        color:darken(#ff6000, 7%);
+    }
+}
+.WD__panel[data-color='#465c66'] {
+    &:after,
+    .WD__panel__button__circle {
+        background:#465c66;
+    }
+    a:hover {
+        color:#00ab6b;
+    }
+}

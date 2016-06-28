@@ -6,15 +6,25 @@
 
     yuapApp.panel = {
 
+        active: false,
+
+        initialize: false,
+
         init: function(){
 
             WD.elem = _.template("panel");
+            WD.blob = WD.elem.find(".WD__panel__blob");
+			WD.blobPath = WD.blob.find(".WD__panel__blob__path");
             WD.wrapper = WD.elem.find(".WD__panel__wrapper");
             WD.socialPanel = WD.elem.find(".WD__panel__social");
             WD.socialButtons = WD.socialPanel.find(".WD__panel__social__button:not(.WD__panel__social__button--show)");
 
+            WD.active = true;
+
             WD.render();
             if (WD.products) WD.products.init();
+
+            WD.initialize = true;
         },
 
         render: function(){
@@ -22,18 +32,21 @@
             WD.popup.init();
             WD.social();
 
-            WD.wrapper.on("click", ".WD__panel__reviews, .WD__panel__messenger", function(e){
-                e.preventDefault();
-            });
-
             // Open reviews
             WD.wrapper.find(".WD__panel__reviews").on("click", function(e){
+                e.preventDefault();
                 API.reviews.open();
             });
 
             // Open contacts
             WD.wrapper.find(".WD__panel__button__map").on("click", function(e){
                 API.contacts.open();
+            });
+
+            // Open messenger
+            WD.wrapper.find(".WD__panel__messenger").on("click", function(e){
+                e.preventDefault();
+                API.messenger.open();
             });
         },
 
@@ -87,6 +100,18 @@
                 $(this).removeClass("WD__panel__social__button--show");
                 WD.socialButtons.addClass("WD__panel__social__button--show");
             });
+        },
+
+        open: function(){
+
+            WD.elem.removeClass("WD__panel--hide");
+            WD.active = true;
+        },
+
+        close: function(){
+
+            WD.elem.addClass("WD__panel--hide");
+            WD.active = false;
         }
 
     };

@@ -22,7 +22,7 @@
 @import 'modules/callbutton';
 @import 'modules/callbuttonCloud';
 @import 'modules/section';
-@import 'modules/callback';
+// @import 'modules/callback';
 @import 'modules/alert';
 
 // offer
@@ -34,8 +34,10 @@
 @import 'modules/panel/panelPopup';
 @import 'modules/panel/panelSocial';
 @import 'modules/panel/panelReviews';
-@import 'modules/panel/panelMenu';
+// @import 'modules/panel/panelMenu';
 @import 'modules/panel/panelCurrency';
+@import 'modules/panel/panelMessenger';
+@import 'modules/panel/panelColor';
 
 // messenger
 @import 'modules/messenger/messenger';
@@ -48,7 +50,7 @@
 // products
 @import 'modules/panel/panelProducts';
 @import 'modules/panel/panelProductsSlider';
-@import 'modules/panel/productsMinify';
+@import 'modules/panel/productsDock';
 
 // reviews
 @import 'modules/reviews/reviews';

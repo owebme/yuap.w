@@ -1,11 +1,11 @@
-<ui-select>
+<ui-select class="UI__controlPanel__item">
 
     <span class="UI__controlPanel__title">{ opts.title }</span>
     <span class="UI__controlPanel__value">
         <span class="UI__select { 'UI__select--active' : active }">
-            <span onClick={ onShow } class="UI__select__current">{ value }</span>
+            <span onClick={ onShow } class="UI__select__current">{ current }</span>
             <span class="UI__select__items">
-                <span onClick={ onSelect } each={item in opts.items} no-reorder class="UI__select__item { 'UI__select__item--active' : item == value }">{ item }</span>
+                <span onClick={ onSelect } each={item in opts.items.get()} no-reorder class="UI__select__item { 'UI__select__item--active' : item.value == value }">{ item.title }</span>
             </span>
         </span>
     </span>
@@ -16,16 +16,22 @@
 
     $.active = false;
 
+    $.getCurrent = function(value){
+        return $.opts.items.get({'value': value}, 'title');
+    };
+
     $.value = $.parent.data.get($.opts.value);
+    $.current = $.getCurrent($.value);
 
     $.onShow = function(){
         $.active = true;
     };
 
     $.onSelect = function(){
-        $.value = this.item;
+        if ($.value != this.item.value) $.parent.data.set($.opts.value, this.item.value);
+        $.value = this.item.value;
+        $.current = $.getCurrent($.value);
         $.active = false;
-        $.parent.data.set($.opts.value, $.value);
     };
 
 </script>

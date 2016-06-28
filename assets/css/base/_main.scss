@@ -22,13 +22,12 @@ body {
 	@include abs();
 	background:url(/public/images/bg_png24.png) no-repeat center center / cover;
 }
-// [class$="--ACTIVE"],
-// [class$="--ACTIVE"] * {
-// 	animation-duration:0s !important;
-// }
+[class^="UI__"] {
+	user-select:none;
+}
 [class*="--ACTIVE"] {
 	z-index:2000050 !important;
 }
-[class*="--HIDDEN"] {
-	display:none !important;
-}
+// [class*="--HIDDEN"] {
+// 	display:none !important;
+// }

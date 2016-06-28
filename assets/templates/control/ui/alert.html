@@ -1,34 +1,52 @@
-<ui-alert class="UI__alert">
+<ui-alert class="UI__alert { 'UI__alert--active UI__alert--anim' : active }">
 
     <div class="UI__alert__wrapper UI__alert__black">
         <div class="UI__alert__container">
             <div class="UI__alert__header">
-                <div class="UI__alert__title">Сообщение</div>
-                <div class="UI__alert__subtitle"></div>
+                <div class="UI__alert__title">{ data.title }</div>
+                <div if={ data.subtitle } class="UI__alert__subtitle">{ data.subtitle }</div>
             </div>
             <div class="UI__alert__buttons">
-                <div class="UI__alert__button UI__alert__button__success">Ok</div>
-                <div class="UI__alert__button UI__alert__button__cancel">Отмена</div>
+                <div onClick={ onCancel } class="UI__alert__button { UI__alert__button--active : data.button === "cancel" }">{ data.cancel && data.cancel.title ? data.cancel.title : "Отмена" }</div>
+                <div onClick={ onSuccess } class="UI__alert__button { UI__alert__button--active : data.button === "success" }">{ data.success && data.success.title ? data.success.title : "OK" }</div>
             </div>
         </div>
     </div>
 
 <script>
 
-    var $ = this;
+    var $ = this,
+    $scope = $$($.root);
 
     $.active = false;
 
-    $.value = $.parent.data.get($.opts.value);
-
-    $.onShow = function(){
-        $.active = true;
+    $.data = {
+        title: null,
+        subtitle: null
     };
 
-    $.onSelect = function(){
-        $.value = this.item;
+    $.show = function(data){
+        if (data){
+            $.data = data;
+            $.active = true;
+            $.update();
+        }
+    };
+
+    $.onSuccess = function(){
+        if ($.data.success && typeof $.data.success.callback === "function"){
+            $.data.success.callback();
+        }
+        $.data.button = "success";
         $.active = false;
-        $.parent.data.set($.opts.value, $.value);
+    };
+
+    $.onCancel = function(){
+        if ($.data.cancel && typeof $.data.cancel.callback === "function"){
+            $.data.cancel.callback();
+        }
+        $.data.button = "cancel";
+        $.active = false;
     };
 
 </script>

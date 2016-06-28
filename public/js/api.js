@@ -46,6 +46,19 @@
             }
         },
 
+        messenger: {
+
+            open: function(){
+                if (app.panel.initialize) app.panel.close();
+                app.messenger.open();
+            },
+
+            close: function(){
+                if (app.panel.initialize) app.panel.open();
+                app.messenger.close();
+            }
+        },
+
         products: {
 
             open: function(){

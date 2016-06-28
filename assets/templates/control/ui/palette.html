@@ -1,4 +1,4 @@
-<ui-palette>
+<ui-palette class="UI__controlPanel__item">
 
     <span class="UI__controlPanel__title">{ opts.title }</span>
     <span class="UI__controlPanel__value">
@@ -23,9 +23,9 @@
     };
 
     $.onSelect = function(){
+        if ($.value != this.item) $.parent.data.set($.opts.value, this.item);
         $.value = this.item;
         $.active = false;
-        $.parent.data.set($.opts.value, $.value);
     };
 
 </script>

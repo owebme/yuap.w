@@ -380,6 +380,9 @@
     opacity:0;
     transform:translate3d(101%, 0, 0);
 }
+.WD__offer--ACTIVE {
+    left:55%;
+}
 .WD__offer--show,
 .WD__offer--ACTIVE {
     animation:WD__offer__slipRight-show .42s $cubic57 forwards;

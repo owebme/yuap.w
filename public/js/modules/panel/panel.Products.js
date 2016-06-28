@@ -18,6 +18,8 @@
 
         init: function(){
 
+            WD.dock = _.template("productsDock");
+
             WD.elem = _.template("products", {
                 items: [
                     {
@@ -89,10 +91,10 @@
             // <span class="WD__products__item__title__strong">Мультиварка</span>
             WD.wrapper = WD.elem.find(".WD__products__wrapper");
             WD.popupZone = WD.wrapper.find(".WD__products__hoverZone");
-            WD.overlay = $('<div class="WD__products__overlay"><div class="WD__section__close WD__section__close--center"></div></div>').appendTo($dom.wrapper);
+            WD.overlay = $('<div class="WD__products__overlay"><div class="WD__section__close WD__section__close--center"></div></div>').appendTo($dom.body);
             WD.slider = WD.elem.find(".WD__products__slider");
             WD.prevArrow = WD.elem.find(".WD__products__arrow__prev");
-            WD.menuOverlay = $('<div class="WD__panel__popup__overlay"></div>').appendTo($dom.wrapper);
+            WD.menuOverlay = $('<div class="WD__panel__popup__overlay"></div>').appendTo($dom.body);
 
             WD.render();
         },
@@ -133,7 +135,7 @@
             });
 
             // open Slider
-            $(".WD__products__minify__button__slider").on("click", function(){
+            $(".WD__products__dock__button__slider").on("click", function(){
                 API.products.open();
             });
 

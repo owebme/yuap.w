@@ -1,0 +1,196 @@
+<control-workspace class="UI__controlPanel UI__controlPanel__workspace">
+
+    <div class="UI__controlPanel__buttonSave">
+        <span class="UI__controlPanel__buttonSave__text">Сохранить</span>
+    </div>
+    <div class="UI__controlPanel__wrapper">
+        <ui-switcher title="Активная панель" value={['panel', 'active']} top="true"></ui-switcher>
+
+        <div class="UI__controlPanel__options UI__controlPanel__options__main { 'UI__controlPanel__options--hide' : !data.get('panel', 'active') }">
+
+            <!-- // Panel settings -->
+            <div class="UI__controlPanel__options__wrapper">
+                <ui-palette title="Цветовая палитра" items={ data.get('panel', 'color', 'items') } value={['panel', 'color', 'value']}></ui-palette>
+
+                <ui-unlock title="Виджеты панели" sidebar="panel" value={['panel', 'open']}></ui-unlock>
+
+                <ui-unlock title="Оформление панели" sidebar="tuning" value={['tuning', 'open']}></ui-unlock>
+            </div>
+
+            <!-- // Sidebar panel -->
+            <div class="UI__controlPanel UI__controlPanel__sidebar UI__controlPanel__sidebar__panel">
+                <ui-switcher title="Оставить только чат" value={['panel', 'widgets', 'messenger', 'only']}></ui-switcher>
+
+                <div class="UI__controlPanel__options UI__controlPanel__options__panel UI__controlPanel__options--rounded { 'UI__controlPanel__options--hide' : data.get('panel', 'widgets', 'messenger', 'only') }">
+                    <div class="UI__controlPanel__options__wrapper">
+                        <ui-switcher title="Отзывы о нас" value={['panel', 'widgets', 'reviews']}></ui-switcher>
+
+                        <ui-switcher title="Карточка компании" value={['panel', 'widgets', 'contacts']}></ui-switcher>
+
+                        <ui-switcher title="Отправить письмо" value={['panel', 'widgets', 'feedback']}></ui-switcher>
+
+                        <ui-switcher title="Котировки валют" value={['panel', 'widgets', 'currency']}></ui-switcher>
+
+                        <ui-switcher title="Социальные группы" value={['panel', 'widgets', 'social']}></ui-switcher>
+
+                        <ui-select title="Расположение" items={ data.select('panel', 'widgets', 'messenger', 'position', 'items') } value={['panel', 'widgets', 'messenger', 'position', 'value']}></ui-select>
+
+                        <div class="UI__controlPanel__item UI__controlPanel__item--footer"></div>
+                    </div>
+                </div>
+                <div class="UI__controlPanel__sidebar__title">Виджеты панели</div>
+            </div>
+
+            <!-- // Tuning panel -->
+            <div class="UI__controlPanel UI__controlPanel__sidebar UI__controlPanel__sidebar__tuning">
+                <ui-switcher title="Загруглить углы" value={['tuning', 'rounded']}></ui-switcher>
+
+                <ui-switcher title="Приподнять панель" value={['tuning', 'fixed']}></ui-switcher>
+
+                <ui-switcher title="Градиент нью-эйдж" value={['tuning', 'gradient']}></ui-switcher>
+
+                <ui-select title="Добавить тень" items={ data.select('tuning', 'shadow', 'items') } value={['tuning', 'shadow', 'value']}></ui-select>
+
+                <div class="UI__controlPanel__item UI__controlPanel__item--footer"></div>
+                <div class="UI__controlPanel__sidebar__title">Оформление панели</div>
+            </div>
+
+        </div>
+
+        <div class="UI__controlPanel__options__wrapper">
+            <ui-select title="Панель продуктов" items={ data.select('products', 'position', 'items') } value={['products', 'position', 'value']}></ui-select>
+
+            <ui-select title="Кнопка звонка" items={ data.select('callbutton', 'position', 'items') } value={['callbutton', 'position', 'value']}></ui-select>
+
+            <div class="UI__controlPanel__item UI__controlPanel__item--footer"></div>
+        </div>
+    </div>
+
+<script>
+
+    var $ = this,
+    $scope = $$($.root);
+    Control.module = $;
+
+    $.saveShow = false;
+
+    this.on("mount", function(){
+        if ($.data.get("panel", "active")){
+            Control.widgets.panel.addClass("WD__panel--ACTIVE");
+        }
+        if ($.data.get("callbutton", "active")){
+            Control.widgets.callbutton.addClass("WD__callbutton--ACTIVE");
+        }
+        if ($.data.get("products", "active")){
+            Control.widgets.products.addClass("WD__productsDock--ACTIVE");
+        }
+        $.options = $scope.find(".UI__controlPanel__options__main");
+        $.optionsWidgets = $scope.find(".UI__controlPanel__options__panel");
+        $.buttonSave = $scope.find(".UI__controlPanel__buttonSave");
+    });
+
+    // Initialize data
+    $.data = new Baobab($.opts.data, {
+        autoCommit: true
+    });
+
+    // Clone and save data
+    $.clone = $.data.serialize();
+
+    $.data.on('update', function(e){
+        if (!$.saveShow && e.data.paths[0][1] !== "open") {
+            $.buttonSave.addClass("UI__controlPanel__buttonSave--active");
+            $.saveShow = true;
+        }
+    });
+
+    // Show / hide panel widgets
+    $.data.select('panel', 'active').on('update', function(e){
+        if (e.data.currentData){
+            Control.widgets.panel.removeClass("WD__panel--HIDDEN")
+            .addClass("WD__panel--ACTIVE");
+        }
+        else {
+            Control.widgets.panel.addClass("WD__panel--HIDDEN")
+            .removeClass("WD__panel--ACTIVE");
+            $.tags["ui-unlock"].forEach(function(unlock){
+                unlock.close();
+            });
+        }
+        $.options.toggleClass("UI__controlPanel__options--hide");
+    });
+
+    // Change color panel
+    $.data.select('panel', 'color', 'value').on('update', function(e){
+        Control.widgets.panel.attr("data-color", e.data.currentData);
+    });
+
+    // Show / hide component 'reviews' on panel
+    $.data.select('panel', 'widgets', 'reviews').on('update', function(e){
+        Control.widgets.panel.find(".WD__panel__item__reviews").attr("data-active", e.data.currentData);
+    });
+
+    // Show / hide component 'contacts' on panel
+    $.data.select('panel', 'widgets', 'contacts').on('update', function(e){
+        Control.widgets.panel.find(".WD__panel__item__contacts").attr("data-active", e.data.currentData);
+    });
+
+    // Show / hide component 'feedback' on panel
+    $.data.select('panel', 'widgets', 'feedback').on('update', function(e){
+        Control.widgets.panel.find(".WD__panel__item__feedback").attr("data-active", e.data.currentData);
+    });
+
+    // Show / hide component 'currency' on panel
+    $.data.select('panel', 'widgets', 'currency').on('update', function(e){
+        Control.widgets.panel.find(".WD__panel__item__currency").attr("data-active", e.data.currentData);
+    });
+
+    // Show / hide component 'social' on panel
+    $.data.select('panel', 'widgets', 'social').on('update', function(e){
+        Control.widgets.panel.find(".WD__panel__item__social").attr("data-active", e.data.currentData);
+    });
+
+    // Show only component 'messenger' and panel hide
+    $.data.select('panel', 'widgets', 'messenger', 'only').on('update', function(e){
+        console.log("1");
+        $.optionsWidgets.toggleClass("UI__controlPanel__options--hide");
+    });
+
+    // Show only component 'messenger' and panel hide
+    $.data.select('tuning', 'rounded').on('update', function(e){
+        Control.widgets.panel.attr("data-rounded", e.data.currentData);
+    });
+
+    // Add shadow on panel
+    $.data.select('tuning', 'shadow', 'value').on('update', function(e){
+        Control.widgets.panel.attr("data-shadow", e.data.currentData);
+    });
+
+    // Raise the panel higher
+    $.data.select('tuning', 'fixed').on('update', function(e){
+        Control.widgets.panel.attr("data-fixed", e.data.currentData);
+    });
+
+    // Add gradient on panel
+    $.data.select('tuning', 'gradient').on('update', function(e){
+        Control.widgets.panel.attr("data-gradient", e.data.currentData);
+    });
+
+    // Change position dock products
+    $.data.select('products', 'position', 'value').on('update', function(e){
+        Control.widgets.products.attr("data-pos", e.data.currentData);
+    });
+
+    // Change position callbutton
+    $.data.select('callbutton', 'position', 'value').on('update', function(e){
+        Control.widgets.callbutton.attr("data-pos", e.data.currentData);
+    });
+
+    this.on("unmount", function(){
+        Control.config.workspace = $.clone;
+        console.log("unmount control-workspace");
+    });
+
+</script>
+
+</control-workspace>
