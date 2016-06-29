@@ -1,0 +1,28 @@
+.WD__productsDock {
+    &[data-pos="left-up"],
+    &[data-pos="right-up"]{
+        bottom:46%;
+    }
+    &[data-pos^="right"]{
+        left:auto;
+        right:0;
+        margin-left:0;
+        margin-right:-16px;
+
+        &:before {
+            transform:scaleX(1) rotate(90deg) scale3d(5, 1, 1);
+        }
+        .WD__productsDock__items {
+            left:auto;
+            right:0;
+        }
+        .WD__productsDock__button__slider {
+            left:auto;
+            right:30px;
+        }
+        .WD__productsDock__tooltip {
+            left:auto;
+            right:102px;
+        }          
+    }
+}

@@ -19,11 +19,14 @@
 @import 'promo/clouds';
 
 // modules
-@import 'modules/callbutton';
-@import 'modules/callbuttonCloud';
 @import 'modules/section';
-// @import 'modules/callback';
 @import 'modules/alert';
+
+// callback
+@import 'modules/callback/callbutton';
+@import 'modules/callback/callbuttonCloud';
+@import 'modules/callback/callbuttonCustom';
+// @import 'modules/callback/callback';
 
 // offer
 @import 'modules/offer/offer';
@@ -38,6 +41,13 @@
 @import 'modules/panel/panelCurrency';
 @import 'modules/panel/panelMessenger';
 @import 'modules/panel/panelColor';
+@import 'modules/panel/panelCustom';
+
+// products
+@import 'modules/products/panelProducts';
+@import 'modules/products/panelProductsSlider';
+@import 'modules/products/productsDock';
+@import 'modules/products/productsCustom';
 
 // messenger
 @import 'modules/messenger/messenger';
@@ -46,12 +56,6 @@
 @import 'modules/messenger/social';
 @import 'modules/messenger/footer';
 @import 'modules/messenger/viewer';
-@import 'modules/messenger/messengerDock';
-
-// products
-@import 'modules/panel/panelProducts';
-@import 'modules/panel/panelProductsSlider';
-@import 'modules/panel/productsDock';
 
 // reviews
 @import 'modules/reviews/reviews';

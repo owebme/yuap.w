@@ -25,7 +25,11 @@
                 WD.cloud.open();
             });
 
-            if (device.isSafari || device.isFirefox) return;
+            //if (!device.isSafari && !device.isFirefox) WD.animate();
+
+        },
+
+        animate: function(){
 
             $dom.document.on('mousemove', function(e) {
                 var deltaX = 88 / sizes.width,

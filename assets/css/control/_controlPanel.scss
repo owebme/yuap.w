@@ -13,9 +13,9 @@
     will-change:opacity, transform;
     z-index:2000051;
 
-    &__workspace {
-        top:15%;
-    }
+    // &__workspace {
+    //     top:15%;
+    // }
 }
 .UI__controlPanel__overlay {
     @include abs();
@@ -140,9 +140,6 @@
     }
     &--hidden {
         overflow:hidden;
-    }
-    &--hide {
-        display:none;
     }
 }
 .UI__controlPanel__item--footer {

@@ -1,0 +1,245 @@
+.WD__callbutton {
+    position:fixed;
+    bottom:40px;
+    right:40px;
+    user-select:none;
+    font-weight:400;
+    font-size:15px;
+    line-height:15px;
+    font-family:$default;
+    z-index:200001;
+}
+$WD__callbutton: #28282A;
+// $WD__callbutton: #323555;
+$WD__callbutton__color1: #2CD892;
+$WD__callbutton__color2: #c8affa;
+$WD__callbutton__color3: #ff5a69;
+$WD__callbutton__color4: #FF6000;
+$WD__callbutton__color5: #7781ff;
+$WD__callbutton__green: #2CD892;
+$WD__callbutton__green2: #00975E;
+$WD__callbutton__blue: #00A8FF;
+$WD__callbutton__orange: #FF6000;
+
+.WD__svg__filters {
+    position: absolute;
+    visibility: hidden;
+    width: 1px;
+    height: 1px;
+}
+.WD__callbutton__circle {
+    position: relative;
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    cursor:pointer;
+    z-index: 1;
+
+    &:hover {
+        .WD__callbutton__icon {
+            transform:translate3d(0px, -3px, 0) rotate(360deg);
+        }
+    }
+    &:active .WD__callbutton__blobs {
+        transform:translate3d(0, 0, 0) scale(0.9);
+    }
+}
+.WD__callbutton__icon {
+    // @include abs_50(63.64, 63.64, "%");
+    @include abs_50(56.81, 56.81, "%");
+    background: url(/public/images/callbutton.svg) no-repeat 0 0 / cover;
+    transition:transform 0.5s $cubic34;
+    transform:translate3d(0px, -3px, 0) rotate(0deg);
+}
+.WD__callbutton__blobs {
+    @include abs();
+    border-radius:50%;
+    @include accelerate();
+    transform:translateZ(0);
+    z-index:-2;
+    will-change:transform;
+    transition:transform 0.15s $cubic215;
+}
+.d-no-safari {
+    .WD__callbutton__blobs {
+        outline:90px solid transparent;
+        filter:url("#WD__callbutton__filter");
+    }
+}
+.WD__callbutton__blob {
+    display:block;
+    @include abs();
+    border-radius:50%;
+    @include accelerate(true);
+    z-index:-1;
+    pointer-events:none;
+}
+@keyframes WD__callbutton__blob1 {
+    0% {
+        transform:translate3d(-3px, -4px, 0px);
+    }
+    100% {
+        transform:translate3d(4px, 3px, 0px);
+    }
+}
+@keyframes WD__callbutton__blob2 {
+    0% {
+        transform:translate3d(3px, 4px, 0px);
+    }
+    100% {
+        transform:translate3d(-4px, -3px, 0px);
+    }
+}
+@keyframes WD__callbutton__blob3 {
+    0% {
+        transform:translate3d(-8px, 0px, 0px);
+    }
+    100% {
+        transform:translate3d(8px, 0px, 0px);
+    }
+}
+@keyframes WD__callbutton__blob4 {
+    0% {
+        transform:translate3d(8px, 0px, 0px);
+    }
+    100% {
+        transform:translate3d(-8px, 0px, 0px);
+    }
+}
+// .WD__callbutton__circle:hover .WD__callbutton__circle__blob {
+//     animation:hue-rotate 7.5s linear infinite alternate;
+// }
+@keyframes hue-rotate {
+  2%, 100% {
+    background: $WD__callbutton__blue;
+  }
+  16.67% {
+    background: $WD__callbutton__color1;
+  }
+  33.33% {
+    background: $WD__callbutton__color2;
+  }
+  50% {
+    background: $WD__callbutton__color3;
+  }
+  66.7% {
+    background: $WD__callbutton__color4;
+  }
+  80% {
+    background: $WD__callbutton__color5;
+  }
+}
+.WD__callbutton__tooltip {
+	position: absolute;
+	background: url(/public/images/callbutton_tooltip.svg) no-repeat center bottom;
+	background-size: 100% 100%;
+	z-index: 2;
+	width: 200px;
+    min-height:120px;
+	bottom: calc(100% + 12px);
+	left: 50%;
+	margin-left: -130px;
+	padding: 38px 20px 42px;
+	text-align: center;
+	color: #fff;
+    font-size:17px;
+    line-height:22px;
+	opacity: 0;
+	cursor: default;
+	transform: scale3d(0.1,0.2,1);
+	transform-origin: 50% 120%;
+	transition: opacity 0.3s, transform 0.4s;
+	transition-timing-function: ease, $cubic57;
+
+    &:after {
+    	content: '';
+    	position: absolute;
+    	width: 32px;
+    	height: 32px;
+    	left: 50%;
+    	margin-left: -16px;
+    	top: 100%;
+    	background: #262626;
+    	transform: translate3d(0,-80%,0) rotate3d(0,0,1,36deg);
+    }
+}
+.WD__callbutton:hover .WD__callbutton__tooltip {
+	opacity: 1;
+	pointer-events: auto;
+	transform: scale3d(1,1,1);
+}
+.WD__callbutton__bulb {
+    display:block;
+    position:absolute;
+    border-radius:50%;
+    opacity:0.9;
+    z-index:10;
+    pointer-events:none;
+}
+.WD__callbutton__bulb1 {
+    bottom:-8px;
+    left:-1px;
+    width:18px;
+    height:18px;
+    background-color:#24D8D6;
+    animation:WD__callbutton__bulb1 1.7s linear infinite alternate;
+}
+.WD__callbutton__bulb2 {
+    bottom:-3px;
+    right:-8px;
+    width:24px;
+    height:24px;
+    background-color:#1DAAFC;
+    animation:WD__callbutton__bulb2 2.2s linear infinite alternate;
+}
+.WD__callbutton__bulb3 {
+    bottom:-11px;
+    right:11px;
+    width:12px;
+    height:12px;
+    background-color:#FFCD33;
+    opacity:0.95;
+    animation:WD__callbutton__bulb3 2.5s linear infinite alternate;
+}
+.WD__callbutton__bulb4 {
+    bottom:-13px;
+    left:17px;
+    width:8px;
+    height:8px;
+    background-color:#FC6A39;
+    animation:WD__callbutton__bulb4 2s linear infinite alternate;
+}
+@keyframes WD__callbutton__bulb1 {
+    0% {
+        transform:translate3d(0, 0, 0) scale(1);
+    }
+    100% {
+        transform:translate3d(-2px, 3px, 0) scale(1.1);
+    }
+}
+@keyframes WD__callbutton__bulb2 {
+    0% {
+        // background-color:#1DAAFC;
+        transform:translate3d(0, 0, 0) scale(1);
+    }
+    100% {
+        // background-color:#00a8ff;
+        transform:translate3d(2px, 4px, 0) scale(0.92);
+    }
+}
+@keyframes WD__callbutton__bulb3 {
+    0% {
+        transform:translate3d(0, 0, 0) scale(1);
+    }
+    100% {
+        transform:translate3d(-2px, 3px, 0) scale(1.15);
+    }
+}
+@keyframes WD__callbutton__bulb4 {
+    0% {
+        transform:translate3d(0, 0, 0) scale(1);
+    }
+    100% {
+        transform:translate3d(1px, 3px, 0) scale(1.2);
+    }
+}

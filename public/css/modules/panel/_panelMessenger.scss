@@ -1,6 +1,6 @@
 .WD__panel__messenger {
     transition:transform .12s $cubic215;
-    
+
     &:hover {
         .WD__panel__messenger__avatar {
             transform:translate3d(0, -7px, 0) scale(1.1);
@@ -15,9 +15,9 @@
         //     transition:opacity 0.2s $cubic215 0.1s;
         // }
     }
-    &:active {
-        transform:translate3d(0, 2px, 0) scale(0.9);
-    }
+    // &:active {
+    //     transform:translate3d(0, 2px, 0) scale(0.9);
+    // }
 }
 .WD__panel__messenger__avatar {
     position:relative;

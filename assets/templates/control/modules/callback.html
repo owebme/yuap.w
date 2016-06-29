@@ -36,12 +36,13 @@
 
             <!-- // Sidebar tuning -->
             <div class="UI__controlPanel UI__controlPanel__sidebar UI__controlPanel__sidebar__tuning">
-                <ui-switcher title="Анимация иконки звонка" help="Привлекать внимание пользователей анимацией иконки звонка" value={['tuning', 'iconAnim']}></ui-switcher>
 
                 <ui-switcher title="Анимация кнопки звонка" help="Привлекать внимание пользователей анимацией кнопки звонка" value={['tuning', 'buttonAnim']}></ui-switcher>
 
+                <ui-switcher title="Анимация иконки звонка" help="Привлекать внимание пользователей анимацией иконки звонка" value={['tuning', 'iconAnim']}></ui-switcher>
+
                 <ui-switcher title="Предлагать связаться" help="Периодически показывать текст приветствия для пользователей" value={['tuning', 'tooltipShow']}></ui-switcher>
-                
+
                 <div class="UI__controlPanel__item UI__controlPanel__item--footer"></div>
                 <div class="UI__controlPanel__sidebar__title">Тюнинг работы</div>
             </div>
@@ -133,10 +134,14 @@
         if (e.data.currentData) Control.widget.removeClass("WD__callbutton__cloud--ACTIVE");
     });
 
+    // Add animated button on callbutton
+    $.data.select('tuning', 'buttonAnim').on('update', function(e){
+        Control.widget.attr("data-pulse", e.data.currentData);
+    });
+
     // Add animated icon on callbutton
     $.data.select('tuning', 'iconAnim').on('update', function(e){
-        if (e.data.currentData) Control.widget.addClass("WD__callbutton--pulseIcon");
-        else Control.widget.removeClass("WD__callbutton--pulseIcon");
+        Control.widget.attr("data-pulse-icon", e.data.currentData);
     });
 
     // Add animated effect on callbutton
